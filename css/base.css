@@ -79,7 +79,7 @@ header {
 	display: grid;
 	align-items: center;
 	justify-items: center;
-	background: black;
+	background: #fff url(../img/sky-1946508.png) left top / cover fixed;
 }
 
 .main-section .container {

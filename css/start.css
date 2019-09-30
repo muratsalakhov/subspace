@@ -1,7 +1,6 @@
 ﻿/* секция start-menu*/
 body {
-
-	background: black;
+	background: #fff url(../img/sky-1946508.png) left top / cover fixed;
 }
 
 header {
