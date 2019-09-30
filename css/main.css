@@ -1,0 +1,90 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 17px;
+}
+
+body {
+
+}
+
+.container {
+	width: 80%;
+	margin: auto;
+	position: relative;
+}
+
+header {
+	background-color: #FE9800;
+	position: relative;
+}
+
+header .container {
+	min-height: 40px;
+	display: grid;
+	grid-template-columns: 1fr 1fr; 
+	grid-template-rows: 1fr;
+}
+
+
+header .header-logo {
+	align-self: center;
+	float: left;
+	display: inline-block;
+	position: relative;
+}
+
+header .header-buttons {
+	align-self: center;
+	float: right;
+	text-align: right;
+	display: inline-block;
+	position: relative;
+}
+
+header .container .header-logo a,
+header .container .header-buttons a {
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+header .container .header-logo a {
+	font-weight: bold;
+}
+
+header .container .header-buttons a {
+	margin-right: 10px;
+}
+
+header .container .header-buttons a:last-child {
+	margin-right: 0px;
+}
+
+header .container .header-buttons a:hover {
+	text-decoration: underline;
+}
+
+
+
+/* СЕКЦИЯ Footer */
+
+footer {
+	margin-top: 20px;
+	background-color: #FE9800;
+	position: relative;
+}
+
+footer .container {
+	min-height: 40px;
+	display: grid;
+	grid-template-columns: 1fr; 
+	grid-template-rows: 1fr;
+}
+
+footer .container p {
+	color: #fff;
+	text-align: center;
+	align-self: center;
+}
