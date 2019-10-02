@@ -1,0 +1,90 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+import java.util.StringJoiner;
+import java.util.concurrent.*;
+
+public class Program
+{
+    SimpleDateFormat sdf = null;
+
+    Program()
+    {
+        sdf = new SimpleDateFormat("HH:mm:ss.S");
+        MyThread runnable1 = new MyThread("Поток №1");
+        MyThread runnable2 = new MyThread("Поток №2");
+        MyThread runnable3 = new MyThread("Поток №3");
+        MyThread runnable4 = new MyThread("Поток №4");
+        MyThread runnable5 = new MyThread("Поток №5");
+
+        System.out.println("Запуск потоков");
+        Thread thread1 = new Thread(runnable1);
+        Thread thread2 = new Thread(runnable2);
+        Thread thread3 = new Thread(runnable3);
+        Thread thread4 = new Thread(runnable4);
+        Thread thread5 = new Thread(runnable5);
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+        thread5.start();
+
+        while (thread1.isAlive() || thread2.isAlive() || thread3.isAlive() || thread4.isAlive() || thread5.isAlive()){}
+        System.out.println("Завершение потоков");
+    }
+    //-------------------------------------------------
+    void printMessage(final String templ)
+    {
+        String text = sdf.format(new Date())+" : "+templ;
+        System.out.println(text);
+    }
+    //-------------------------------------------------
+    class MyThread implements Runnable
+    {
+        String name;
+        MyThread(String n)
+        {
+            name = n;
+            new Thread(this);
+        }
+
+        public void run()
+        {
+            try {
+                for(int i = 0; i < 0+Math.random()*15; i++) {
+                    printMessage(name + " - " + i);
+                    Thread.sleep((long)(Math.random()*1500));
+                }
+                printMessage(name + " завершился");
+            } catch (InterruptedException e) {}
+        }
+    }
+    //-------------------------------------------------
+    public static void menu(){
+        System.out.println("\nВведите любую клавишу чтобы повторить");
+        System.out.println("Введите 0 чтобы повторить и выйти");
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+        if (input.equals("0")){
+            new Program();
+            return;
+        } else {
+            new Program();
+            menu();
+        }
+    }
+    public static void main(String args[])
+    {
+        System.out.println("Введите любую клавишу чтобы начать");
+        System.out.println("Введите 0 чтобы выйти");
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+        if (input.equals("0")){
+            return;
+        } else {
+            new Program();
+            menu();
+        }
+    }
+}
