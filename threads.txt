@@ -1,23 +1,28 @@
+package program;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.StringJoiner;
 import java.util.concurrent.*;
 
-public class Program
+public class Program 
 {
     SimpleDateFormat sdf = null;
 
     Program()
     {
         sdf = new SimpleDateFormat("HH:mm:ss.S");
-        MyThread runnable1 = new MyThread("Поток №1");
-        MyThread runnable2 = new MyThread("Поток №2");
-        MyThread runnable3 = new MyThread("Поток №3");
-        MyThread runnable4 = new MyThread("Поток №4");
-        MyThread runnable5 = new MyThread("Поток №5");
+        MyThread runnable1 = new MyThread("РџРѕС‚РѕРє в„–1");
+        MyThread runnable2 = new MyThread("РџРѕС‚РѕРє в„–2");
+        MyThread runnable3 = new MyThread("РџРѕС‚РѕРє в„–3");
+        MyThread runnable4 = new MyThread("РџРѕС‚РѕРє в„–4");
+        MyThread runnable5 = new MyThread("РџРѕС‚РѕРє в„–5");
 
-        System.out.println("Запуск потоков");
+        System.out.println("РџРѕС‚РѕРєРё Р·Р°РїСѓС‰РµРЅС‹");
         Thread thread1 = new Thread(runnable1);
         Thread thread2 = new Thread(runnable2);
         Thread thread3 = new Thread(runnable3);
@@ -29,41 +34,41 @@ public class Program
         thread3.start();
         thread4.start();
         thread5.start();
-
         while (thread1.isAlive() || thread2.isAlive() || thread3.isAlive() || thread4.isAlive() || thread5.isAlive()){}
-        System.out.println("Завершение потоков");
+        System.out.println("РџРѕС‚РѕРєРё Р·Р°РІРµСЂС€РёР»РёСЃСЊ");
     }
-    //-------------------------------------------------
+    
     void printMessage(final String templ)
     {
         String text = sdf.format(new Date())+" : "+templ;
         System.out.println(text);
     }
-    //-------------------------------------------------
+    
     class MyThread implements Runnable
     {
         String name;
         MyThread(String n)
         {
             name = n;
-            new Thread(this);
         }
 
         public void run()
         {
             try {
-                for(int i = 0; i < 0+Math.random()*15; i++) {
-                    printMessage(name + " - " + i);
+                printMessage(name + " Р·Р°РїСѓС‰РµРЅ");
+                for(int i = 0; i < 1+Math.random()*15; i++) {
+                    //printMessage(name + " - " + i);
                     Thread.sleep((long)(Math.random()*1500));
                 }
-                printMessage(name + " завершился");
+                printMessage(name + " Р·Р°РІРµСЂС€РёР»СЃСЏ");
             } catch (InterruptedException e) {}
         }
     }
-    //-------------------------------------------------
-    public static void menu(){
-        System.out.println("\nВведите любую клавишу чтобы повторить");
-        System.out.println("Введите 0 чтобы повторить и выйти");
+    
+    public static void menu()
+    {
+        System.out.println("\nРќР°Р¶РјРёС‚Рµ Р»СЋР±СѓСЋ РєР»Р°РІРёС€Сѓ С‡С‚РѕР±С‹ РїРѕРІС‚РѕСЂРёС‚СЊ");
+        System.out.println("Р’РІРµРґРёС‚Рµ 0 С‡С‚РѕР±С‹ РїРѕРІС‚РѕСЂРёС‚СЊ Рё РІС‹Р№С‚Рё");
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
         if (input.equals("0")){
@@ -74,10 +79,11 @@ public class Program
             menu();
         }
     }
+    
     public static void main(String args[])
     {
-        System.out.println("Введите любую клавишу чтобы начать");
-        System.out.println("Введите 0 чтобы выйти");
+        System.out.println("РќР°Р¶РјРёС‚Рµ Р»СЋР±СѓСЋ РєР»Р°РІРёС€Сѓ С‡С‚РѕР±С‹ Р·Р°РїСѓСЃС‚РёС‚СЊ РїРѕС‚РѕРєРё");
+        System.out.println("РќР°Р¶РјРёС‚Рµ 0 С‡С‚РѕР±С‹ РІС‹Р№С‚Рё");
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
         if (input.equals("0")){
