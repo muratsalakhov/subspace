@@ -1,0 +1,30 @@
+﻿/* секция start-menu*/
+body {
+	background: #fff url(../img/sky-1946508.png) left top / cover fixed;
+}
+
+header {
+	background-color: white;
+	font-color: black;
+}
+footer {
+	background-color: white;
+	font-color: black;
+}
+
+.start-main .container {
+	width: 75%;
+}
+.start-main{
+	min-height: 92vh;
+}
+
+.owl-carousel {
+	margin-top: 8vh;
+}
+
+.owl-slide img {
+	height: 82vh;}
+/* СЕКЦИЯ Footer */
+
+
