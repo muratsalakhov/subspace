@@ -12,9 +12,36 @@ body section {
   grid-gap: 20px;
   grid-template-rows: 3fr 2fr 3fr 2fr;
   grid-template-columns: 2fr 5fr 2fr; }
-  body section .calendar-widget {
+  body section #calendar-widget {
     grid-area: calendar-widget;
-    background-color: black; }
+    background-color: #FFF; }
+    body section #calendar-widget #calendar {
+      text-align: center;
+      width: 100%;
+      font: monospace;
+      font-size: 17px;
+      font-family: "Pacifico", cursive;
+      line-height: 1.3;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      -webkit-user-select: none;
+      user-select: none; }
+      body section #calendar-widget #calendar thead tr * {
+        padding-bottom: 5px; }
+      body section #calendar-widget #calendar thead tr:last-child {
+        font-size: 14px; }
+      body section #calendar-widget #calendar thead tr:nth-child(1) td:nth-child(1):hover {
+        cursor: pointer; }
+      body section #calendar-widget #calendar thead tr:nth-child(1) td:nth-child(3):hover {
+        cursor: pointer; }
+      body section #calendar-widget #calendar tbody td {
+        padding-bottom: 3px; }
+      body section #calendar-widget #calendar tbody td:nth-child(n+6) {
+        color: #FF333D; }
+      body section #calendar-widget #calendar tbody td.today {
+        background: #000;
+        color: #fff; }
   body section .tracker-widget {
     grid-area: tracker-widget;
     background-color: black; }

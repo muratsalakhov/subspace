@@ -5,6 +5,7 @@
 	<title>SubSpace</title>
 	<link rel="stylesheet" href="css/main.css" >
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Pacifico&display=swap&subset=cyrillic" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a7c8538669.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<header>
@@ -13,7 +14,14 @@
 		</div>
 	</header>
 	<section>
-		<div class="calendar-widget">calendar-widget</div>
+		<div id="calendar-widget">
+			<table id="calendar">
+				<thead>
+					<tr><td><i class="fas fa-arrow-left"></i><td colspan="5"><td><i class="fas fa-arrow-right"></i>
+			 		<tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
+				<tbody>
+			</table>
+		</div>
 		<div class="tracker-widget">tracker-widget</div>
 		<div id="clock-widget"></div>
 		<div class="to-do-list-widget">to-do-list-widget</div>
@@ -30,5 +38,6 @@
 		</div>
 	</footer>
 <script src="js/clock-widget.js"></script>
+<script src="js/calendar-widget.js"></script>
 </body>
 </html>
