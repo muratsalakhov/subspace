@@ -1,0 +1,38 @@
+.main-section {
+	text-align: center;
+}
+.main-section h1{
+	font-size: 30px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.main-section p{
+	font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #fff;
+}
+
+.main-section .gallery {
+	float: left;
+	align-items: center;
+	justify-items: center;
+	display: grid;
+	position: relative;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 10px;
+	max-width: 1000px;
+}
+
+.main-section .gallery .gallery-item{
+	position: relative;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.main-section .gallery .gallery-item img{
+	width: 100%;
+	position: relative;
+}

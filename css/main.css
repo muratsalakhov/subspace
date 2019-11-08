@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body header {
+  height: 5vh; }
+body section {
+  padding: 0 20px;
+  min-height: 90vh;
+  display: grid;
+  grid-template-areas: "calendar-widget tracker-widget clock-widget" "to-do-list-widget tracker-widget timetable-widget" "to-do-list-widget notes-widget timetable-widget" "to-do-list-widget notes-widget timer-widget";
+  grid-gap: 20px;
+  grid-template-rows: 3fr 2fr 3fr 2fr;
+  grid-template-columns: 2fr 5fr 2fr; }
+  body section .calendar-widget {
+    grid-area: calendar-widget;
+    background-color: black; }
+  body section .tracker-widget {
+    grid-area: tracker-widget;
+    background-color: black; }
+  body section #clock-widget {
+    grid-area: clock-widget;
+    background-color: #FFF;
+    text-align: center; }
+    body section #clock-widget p {
+      line-height: 1.1;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      -webkit-user-select: none;
+      user-select: none; }
+    body section #clock-widget .clock-widget__clock {
+      font-size: 50px;
+      font-family: "Pacifico", cursive; }
+    body section #clock-widget .clock-widget__day {
+      font-size: 45px;
+      font-family: "Pacifico", cursive; }
+    body section #clock-widget .clock-widget__date {
+      font-size: 45px;
+      font-family: "Pacifico", cursive; }
+  body section .to-do-list-widget {
+    grid-area: to-do-list-widget;
+    background-color: black; }
+  body section .timetable-widget {
+    grid-area: timetable-widget;
+    background-color: black; }
+  body section .notes-widget {
+    grid-area: notes-widget;
+    background-color: black; }
+  body section .timer-widget {
+    grid-area: timer-widget;
+    background-color: black; }
+body footer {
+  height: 5vh; }
+
+/*# sourceMappingURL=main.css.map */
