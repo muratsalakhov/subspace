@@ -5,22 +5,36 @@
 body header {
   height: 5vh; }
 body section {
-  padding: 0 20px;
+  background: url(../img/sky-1946508.png) left top/cover fixed;
+  padding: 40px 40px;
   min-height: 90vh;
   display: grid;
-  grid-template-areas: "calendar-widget tracker-widget clock-widget" "to-do-list-widget tracker-widget timetable-widget" "to-do-list-widget notes-widget timetable-widget" "to-do-list-widget notes-widget timer-widget";
+  grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget tracker-widget timetable-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget";
   grid-gap: 20px;
   grid-template-rows: 3fr 2fr 3fr 2fr;
   grid-template-columns: 2fr 5fr 2fr; }
   body section #calendar-widget {
     grid-area: calendar-widget;
-    background-color: #FFF; }
+    background-color: #fff;
+    border-radius: 3px; }
+    body section #calendar-widget .calendar-header {
+      border-radius: 3px 3px 0px 0px;
+      overflow: hidden;
+      padding: 5px;
+      background-color: #757575;
+      color: #fff;
+      text-align: center; }
+      body section #calendar-widget .calendar-header h1 {
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+        font-size: 19px; }
     body section #calendar-widget #calendar {
       text-align: center;
       width: 100%;
       font: monospace;
       font-size: 17px;
-      font-family: "Pacifico", cursive;
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold;
       line-height: 1.3;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -44,12 +58,13 @@ body section {
         color: #fff; }
   body section .tracker-widget {
     grid-area: tracker-widget;
-    background-color: black; }
+    background-color: #fff; }
   body section #clock-widget {
     grid-area: clock-widget;
-    background-color: #FFF;
-    text-align: center; }
+    text-align: center;
+    background: #000; }
     body section #clock-widget p {
+      color: #fff;
       line-height: 1.1;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -58,25 +73,127 @@ body section {
       user-select: none; }
     body section #clock-widget .clock-widget__clock {
       font-size: 50px;
-      font-family: "Pacifico", cursive; }
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold; }
     body section #clock-widget .clock-widget__day {
       font-size: 45px;
-      font-family: "Pacifico", cursive; }
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold; }
     body section #clock-widget .clock-widget__date {
       font-size: 45px;
-      font-family: "Pacifico", cursive; }
-  body section .to-do-list-widget {
-    grid-area: to-do-list-widget;
-    background-color: black; }
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold; }
+  body section #todo-list-widget {
+    grid-area: todo-list-widget;
+    background-color: #fff;
+    border-radius: 3px;
+    font-size: 17px;
+    /* Todo form */ }
+    body section #todo-list-widget .todo-list-header {
+      position: relative;
+      border-radius: 3px 3px 0px 0px;
+      overflow: hidden;
+      padding: 5px;
+      background-color: #757575;
+      color: #fff;
+      text-align: center; }
+      body section #todo-list-widget .todo-list-header h1 {
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+        font-size: 19px; }
+    body section #todo-list-widget ul {
+      list-style: none; }
+    body section #todo-list-widget button {
+      border: none;
+      border-radius: 2px;
+      color: #757575;
+      position: relative;
+      height: 36px;
+      min-width: 36px;
+      margin: 0;
+      padding: 0 10px;
+      display: grid;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      overflow: hidden;
+      will-change: box-shadow;
+      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      outline: none;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      line-height: 36px;
+      vertical-align: middle; }
+    body section #todo-list-widget button:hover {
+      background-color: rgba(158, 158, 158, 0.2); }
+    body section #todo-list-widget button:active {
+      background-color: rgba(158, 158, 158, 0.4); }
+    body section #todo-list-widget input {
+      font-family: "Montserrat", sans-serif;
+      font-size: 17px;
+      color: #757575;
+      padding: 5px;
+      border-radius: 2px;
+      border: 1px solid lightgray;
+      outline: none; }
+    body section #todo-list-widget .todo-item {
+      display: grid;
+      grid-template-columns: 15px 1fr 36px 36px;
+      grid-gap: 2px;
+      font-size: 17px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      transition: all 0.2s;
+      -webkit-user-select: none;
+      user-select: none;
+      padding: 10px;
+      align-items: center; }
+    body section #todo-list-widget .todo-item .title {
+      padding: 0px 10px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 17px; }
+    body section #todo-list-widget .todo-item .completed * {
+      color: lightgray; }
+    body section #todo-list-widget .todo-item .title,
+    body section #todo-list-widget .todo-item .textfield {
+      margin-right: auto; }
+    body section #todo-list-widget .todo-item.completed .title {
+      text-decoration: line-through; }
+    body section #todo-list-widget .todo-item.editing .title {
+      display: none; }
+    body section #todo-list-widget .todo-item .textfield {
+      display: none; }
+    body section #todo-list-widget .todo-item.editing .textfield {
+      display: block; }
+    body section #todo-list-widget .todo-item button {
+      opacity: 0;
+      transition: all 0.2s; }
+    body section #todo-list-widget .todo-item:hover button:not(.checkbox) {
+      opacity: 1; }
+    body section #todo-list-widget #todo-form {
+      display: flex;
+      background-color: #FAFAFA;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 10px; }
+    body section #todo-list-widget #todo-form input {
+      flex: 1;
+      outline: none;
+      transition: all 0.2s; }
+    body section #todo-list-widget #todo-form input:focus {
+      border: 1px solid #f0db4f; }
+    body section #todo-list-widget #todo-form button {
+      margin-left: 10px; }
   body section .timetable-widget {
     grid-area: timetable-widget;
-    background-color: black; }
+    background-color: #fff; }
   body section .notes-widget {
     grid-area: notes-widget;
-    background-color: black; }
+    background-color: #fff; }
   body section .timer-widget {
     grid-area: timer-widget;
-    background-color: black; }
+    background-color: #fff; }
 body footer {
   height: 5vh; }
 
