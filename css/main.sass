@@ -1,15 +1,43 @@
 @import base
 
 body
+	.button
+		border: none
+		border-radius: 2px
+		color: $gray
+		background-color: $light-gray
+		position: relative
+		height: 36px
+		width: 115px
+		margin: 0
+		padding: 0 10px
+		display: grid
+		font-family: $montserrat
+		font-size: 14px
+		text-transform: uppercase
+		letter-spacing: 0
+		overflow: hidden
+		will-change: box-shadow
+		transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1)
+		outline: none
+		cursor: pointer
+		text-decoration: none
+		text-align: center
+		line-height: 36px
+		vertical-align: middle
+	.button:hover
+		background-color: #D9D9E4
+	.button:active
+		background-color: #D9D9E4
 	header
 		height: 5vh
 	section
 		background: url(../img/sky-1946508.png) left top / cover fixed
 		padding: 40px 40px
-		min-height: 90vh
+		height: 95vh
 		display: grid
-		grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget tracker-widget timetable-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget"
-		grid-gap: 20px
+		grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget"
+		grid-gap: 10px
 		grid-template-rows: 3fr 2fr 3fr 2fr
 		grid-template-columns: 2fr 5fr 2fr
 		#calendar-widget
@@ -20,7 +48,7 @@ body
 				border-radius: 3px 3px 0px 0px
 				overflow: hidden
 				padding: 5px
-				background-color: #757575
+				background-color: $gray
 				color: #fff
 				text-align: center
 				h1
@@ -48,15 +76,17 @@ body
 					tr:nth-child(1)
 						td:nth-child(1):hover
 							cursor: pointer
+							color: $gray
 						td:nth-child(3):hover
 							cursor: pointer
+							color: $gray
 				tbody
 					td
 						padding-bottom: 3px
 					td:nth-child(n+6)
 						color: #FF333D
 					td.today
-						background: #000
+						background: $gray
 						color: #fff
 
 		.tracker-widget
@@ -75,14 +105,17 @@ body
 				-webkit-user-select: none
 				user-select: none
 			.clock-widget__clock
+				position: relative
 				font-size: 50px
 				font-family: $montserrat
 				font-weight: bold 
 			.clock-widget__day
+				position: relative
 				font-size: 45px
 				font-family: $montserrat
 				font-weight: bold 
 			.clock-widget__date 
+				position: relative
 				font-size: 45px
 				font-family: $montserrat
 				font-weight: bold 
@@ -91,12 +124,13 @@ body
 			background-color: #fff
 			border-radius: 3px
 			font-size: 17px 
+			max-width: 350px
 			.todo-list-header
 				position: relative
 				border-radius: 3px 3px 0px 0px
 				overflow: hidden
 				padding: 5px
-				background-color: #757575
+				background-color: $gray
 				color: #fff
 				text-align: center
 				h1
@@ -105,33 +139,7 @@ body
 					font-size: 19px  
 			ul
 				list-style: none
-			button
-				border: none
-				border-radius: 2px
-				color: #757575
-				position: relative
-				height: 36px
-				min-width: 36px
-				margin: 0
-				padding: 0 10px
-				display: grid
-				font-family: $montserrat
-				font-size: 14px
-				text-transform: uppercase
-				letter-spacing: 0
-				overflow: hidden
-				will-change: box-shadow
-				transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1)
-				outline: none
-				cursor: pointer
-				text-decoration: none
-				text-align: center
-				line-height: 36px
-				vertical-align: middle
-			button:hover
-				background-color: rgba(158,158,158,0.2)
-			button:active
-				background-color: rgba(158,158,158,0.4)
+			
 			input
 				font-family: $montserrat
 				font-size: 17px
@@ -155,7 +163,6 @@ body
 				align-items: center
 				
 			.todo-item .title
-				padding: 0px 10px
 				font-family: $montserrat
 				font-size: 17px  
 
@@ -165,6 +172,7 @@ body
 			.todo-item .title,
 			.todo-item .textfield
 				margin-right: auto
+				margin-left: 8px
 
 			.todo-item.completed .title
 				text-decoration: line-through
@@ -181,6 +189,7 @@ body
 			.todo-item button
 				opacity: 0
 				transition: all .2s
+				width: 36px
 
 			.todo-item:hover button:not(.checkbox)
 				opacity: 1
@@ -204,14 +213,62 @@ body
 			#todo-form button
 				margin-left: 10px
 
-		.timetable-widget
+		#timetable-widget
 			grid-area: timetable-widget
 			background-color: #fff 
+			border-radius: 3px
+			font-size: 17px
+			max-width: 350px 
+			font-family: $montserrat 
+			.timetable-header
+				border-radius: 3px 3px 0px 0px
+				overflow: hidden
+				padding: 5px
+				background-color: $gray
+				color: #fff
+				text-align: center
+				h1
+					text-transform: uppercase
+					font-family: $montserrat
+					font-size: 19px
+			.timetable-day
+				font-weight: bold 
 		.notes-widget
 			grid-area: notes-widget
 			background-color: #fff 
-		.timer-widget
+		#timer-widget
 			grid-area: timer-widget
 			background-color: #fff 
+			border-radius: 3px
+			font-size: 17px
+			max-width: 350px 
+			.timer-header
+				border-radius: 3px 3px 0px 0px
+				overflow: hidden
+				padding: 5px
+				background-color: $gray
+				color: #fff
+				text-align: center
+				h1
+					text-transform: uppercase
+					font-family: $montserrat
+					font-size: 19px
+			.timer
+				display: grid
+				grid-template-areas: "timer-clock timer-clock" "timer-start timer-end"
+				#timer-clock
+					grid-area: timer-clock
+					font-family: $montserrat
+					font-size: 30px
+					text-align: center
+					margin: 5px 0px
+				.button:nth-child(2)
+					grid-area: timer-start
+					margin-left: 30px 
+					margin-right: 10px
+				.button:nth-child(3)
+					grid-area: timer-end
+					margin-right: 30px
+					margin-left: 10px 
 	footer
 		height: 5vh

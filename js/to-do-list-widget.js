@@ -20,9 +20,9 @@ function createTodoItem(title) {
     const checkbox = createElement('input', { type: 'checkbox', className: 'checkbox' });
     const label = createElement('label', { className: 'title' }, title);
     const editInput = createElement('input', { type: 'text', className: 'textfield' });
-    let editButton = createElement('button', { className: 'edit' });
+    let editButton = createElement('button', { className: 'edit button' });
     editButton.innerHTML = '<i class="fas fa-edit"></i>';
-    let deleteButton = createElement('button', { className: 'delete' });
+    let deleteButton = createElement('button', { className: 'delete button' });
     deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
     const listItem = createElement('li', { className: 'todo-item' }, checkbox, label, editInput, editButton, deleteButton);
 

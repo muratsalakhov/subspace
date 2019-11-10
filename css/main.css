@@ -2,15 +2,43 @@
   margin: 0;
   padding: 0; }
 
+body .button {
+  border: none;
+  border-radius: 2px;
+  color: #3C3C3F;
+  background-color: #C2C2CC;
+  position: relative;
+  height: 36px;
+  width: 115px;
+  margin: 0;
+  padding: 0 10px;
+  display: grid;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  overflow: hidden;
+  will-change: box-shadow;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 36px;
+  vertical-align: middle; }
+body .button:hover {
+  background-color: #D9D9E4; }
+body .button:active {
+  background-color: #D9D9E4; }
 body header {
   height: 5vh; }
 body section {
   background: url(../img/sky-1946508.png) left top/cover fixed;
   padding: 40px 40px;
-  min-height: 90vh;
+  height: 95vh;
   display: grid;
-  grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget tracker-widget timetable-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget";
-  grid-gap: 20px;
+  grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget";
+  grid-gap: 10px;
   grid-template-rows: 3fr 2fr 3fr 2fr;
   grid-template-columns: 2fr 5fr 2fr; }
   body section #calendar-widget {
@@ -21,7 +49,7 @@ body section {
       border-radius: 3px 3px 0px 0px;
       overflow: hidden;
       padding: 5px;
-      background-color: #757575;
+      background-color: #3C3C3F;
       color: #fff;
       text-align: center; }
       body section #calendar-widget .calendar-header h1 {
@@ -46,15 +74,17 @@ body section {
       body section #calendar-widget #calendar thead tr:last-child {
         font-size: 14px; }
       body section #calendar-widget #calendar thead tr:nth-child(1) td:nth-child(1):hover {
-        cursor: pointer; }
+        cursor: pointer;
+        color: #3C3C3F; }
       body section #calendar-widget #calendar thead tr:nth-child(1) td:nth-child(3):hover {
-        cursor: pointer; }
+        cursor: pointer;
+        color: #3C3C3F; }
       body section #calendar-widget #calendar tbody td {
         padding-bottom: 3px; }
       body section #calendar-widget #calendar tbody td:nth-child(n+6) {
         color: #FF333D; }
       body section #calendar-widget #calendar tbody td.today {
-        background: #000;
+        background: #3C3C3F;
         color: #fff; }
   body section .tracker-widget {
     grid-area: tracker-widget;
@@ -72,14 +102,17 @@ body section {
       -webkit-user-select: none;
       user-select: none; }
     body section #clock-widget .clock-widget__clock {
+      position: relative;
       font-size: 50px;
       font-family: "Montserrat", sans-serif;
       font-weight: bold; }
     body section #clock-widget .clock-widget__day {
+      position: relative;
       font-size: 45px;
       font-family: "Montserrat", sans-serif;
       font-weight: bold; }
     body section #clock-widget .clock-widget__date {
+      position: relative;
       font-size: 45px;
       font-family: "Montserrat", sans-serif;
       font-weight: bold; }
@@ -88,13 +121,14 @@ body section {
     background-color: #fff;
     border-radius: 3px;
     font-size: 17px;
+    max-width: 350px;
     /* Todo form */ }
     body section #todo-list-widget .todo-list-header {
       position: relative;
       border-radius: 3px 3px 0px 0px;
       overflow: hidden;
       padding: 5px;
-      background-color: #757575;
+      background-color: #3C3C3F;
       color: #fff;
       text-align: center; }
       body section #todo-list-widget .todo-list-header h1 {
@@ -103,33 +137,6 @@ body section {
         font-size: 19px; }
     body section #todo-list-widget ul {
       list-style: none; }
-    body section #todo-list-widget button {
-      border: none;
-      border-radius: 2px;
-      color: #757575;
-      position: relative;
-      height: 36px;
-      min-width: 36px;
-      margin: 0;
-      padding: 0 10px;
-      display: grid;
-      font-family: "Montserrat", sans-serif;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0;
-      overflow: hidden;
-      will-change: box-shadow;
-      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      outline: none;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      line-height: 36px;
-      vertical-align: middle; }
-    body section #todo-list-widget button:hover {
-      background-color: rgba(158, 158, 158, 0.2); }
-    body section #todo-list-widget button:active {
-      background-color: rgba(158, 158, 158, 0.4); }
     body section #todo-list-widget input {
       font-family: "Montserrat", sans-serif;
       font-size: 17px;
@@ -151,14 +158,14 @@ body section {
       padding: 10px;
       align-items: center; }
     body section #todo-list-widget .todo-item .title {
-      padding: 0px 10px;
       font-family: "Montserrat", sans-serif;
       font-size: 17px; }
     body section #todo-list-widget .todo-item .completed * {
       color: lightgray; }
     body section #todo-list-widget .todo-item .title,
     body section #todo-list-widget .todo-item .textfield {
-      margin-right: auto; }
+      margin-right: auto;
+      margin-left: 8px; }
     body section #todo-list-widget .todo-item.completed .title {
       text-decoration: line-through; }
     body section #todo-list-widget .todo-item.editing .title {
@@ -169,7 +176,8 @@ body section {
       display: block; }
     body section #todo-list-widget .todo-item button {
       opacity: 0;
-      transition: all 0.2s; }
+      transition: all 0.2s;
+      width: 36px; }
     body section #todo-list-widget .todo-item:hover button:not(.checkbox) {
       opacity: 1; }
     body section #todo-list-widget #todo-form {
@@ -185,15 +193,63 @@ body section {
       border: 1px solid #f0db4f; }
     body section #todo-list-widget #todo-form button {
       margin-left: 10px; }
-  body section .timetable-widget {
+  body section #timetable-widget {
     grid-area: timetable-widget;
-    background-color: #fff; }
+    background-color: #fff;
+    border-radius: 3px;
+    font-size: 17px;
+    max-width: 350px;
+    font-family: "Montserrat", sans-serif; }
+    body section #timetable-widget .timetable-header {
+      border-radius: 3px 3px 0px 0px;
+      overflow: hidden;
+      padding: 5px;
+      background-color: #3C3C3F;
+      color: #fff;
+      text-align: center; }
+      body section #timetable-widget .timetable-header h1 {
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+        font-size: 19px; }
+    body section #timetable-widget .timetable-day {
+      font-weight: bold; }
   body section .notes-widget {
     grid-area: notes-widget;
     background-color: #fff; }
-  body section .timer-widget {
+  body section #timer-widget {
     grid-area: timer-widget;
-    background-color: #fff; }
+    background-color: #fff;
+    border-radius: 3px;
+    font-size: 17px;
+    max-width: 350px; }
+    body section #timer-widget .timer-header {
+      border-radius: 3px 3px 0px 0px;
+      overflow: hidden;
+      padding: 5px;
+      background-color: #3C3C3F;
+      color: #fff;
+      text-align: center; }
+      body section #timer-widget .timer-header h1 {
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+        font-size: 19px; }
+    body section #timer-widget .timer {
+      display: grid;
+      grid-template-areas: "timer-clock timer-clock" "timer-start timer-end"; }
+      body section #timer-widget .timer #timer-clock {
+        grid-area: timer-clock;
+        font-family: "Montserrat", sans-serif;
+        font-size: 30px;
+        text-align: center;
+        margin: 5px 0px; }
+      body section #timer-widget .timer .button:nth-child(2) {
+        grid-area: timer-start;
+        margin-left: 30px;
+        margin-right: 10px; }
+      body section #timer-widget .timer .button:nth-child(3) {
+        grid-area: timer-end;
+        margin-right: 30px;
+        margin-left: 10px; }
 body footer {
   height: 5vh; }
 
