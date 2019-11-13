@@ -35,7 +35,7 @@ body header {
 body section {
   background: url(../img/sky-1946508.png) left top/cover fixed;
   padding: 40px 40px;
-  height: 95vh;
+  height: 100vh;
   display: grid;
   grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget";
   grid-gap: 10px;
@@ -44,7 +44,8 @@ body section {
   body section #calendar-widget {
     grid-area: calendar-widget;
     background-color: #fff;
-    border-radius: 3px; }
+    border-radius: 3px;
+    min-height: 242px; }
     body section #calendar-widget .calendar-header {
       border-radius: 3px 3px 0px 0px;
       overflow: hidden;
@@ -92,7 +93,8 @@ body section {
   body section #clock-widget {
     grid-area: clock-widget;
     text-align: center;
-    background: #000; }
+    background: #000;
+    max-height: 200px; }
     body section #clock-widget p {
       color: #fff;
       line-height: 1.1;
@@ -122,6 +124,7 @@ body section {
     border-radius: 3px;
     font-size: 17px;
     max-width: 350px;
+    min-height: 440px;
     /* Todo form */ }
     body section #todo-list-widget .todo-list-header {
       position: relative;
@@ -150,7 +153,7 @@ body section {
       grid-template-columns: 15px 1fr 36px 36px;
       grid-gap: 2px;
       font-size: 17px;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: 1px solid #C2C2CC;
       background-color: #fff;
       transition: all 0.2s;
       -webkit-user-select: none;
@@ -183,7 +186,7 @@ body section {
     body section #todo-list-widget #todo-form {
       display: flex;
       background-color: #FAFAFA;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: 1px solid #C2C2CC;
       padding: 10px; }
     body section #todo-list-widget #todo-form input {
       flex: 1;
@@ -199,20 +202,85 @@ body section {
     border-radius: 3px;
     font-size: 17px;
     max-width: 350px;
+    min-height: 350px;
     font-family: "Montserrat", sans-serif; }
-    body section #timetable-widget .timetable-header {
+    body section #timetable-widget .timetable-widget__header {
       border-radius: 3px 3px 0px 0px;
       overflow: hidden;
       padding: 5px;
       background-color: #3C3C3F;
       color: #fff;
       text-align: center; }
-      body section #timetable-widget .timetable-header h1 {
+      body section #timetable-widget .timetable-widget__header h1 {
         text-transform: uppercase;
         font-family: "Montserrat", sans-serif;
         font-size: 19px; }
-    body section #timetable-widget .timetable-day {
-      font-weight: bold; }
+    body section #timetable-widget .timetable-widget__body {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr; }
+      body section #timetable-widget .timetable-widget__body .timetable-widget__day {
+        display: grid;
+        grid-template-columns: 30px 1fr 30px;
+        min-height: 35px;
+        justify-items: center;
+        align-items: center;
+        border-bottom: 1px solid #C2C2CC; }
+        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__name p {
+          font-weight: bold; }
+        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__prev__btn,
+        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__next__btn {
+          cursor: pointer;
+          padding: 0;
+          border: none;
+          font: inherit;
+          color: inherit;
+          background-color: transparent; }
+        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__prev__btn:hover,
+        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__next__btn:hover {
+          color: #3C3C3F; }
+        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__prev__btn:focus,
+        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__next__btn:focus,
+        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__prev__btn:active,
+        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__next__btn:active {
+          outline: none; }
+      body section #timetable-widget .timetable-widget__body .timetable-widget__lesson:last-child {
+        border-bottom: hidden; }
+      body section #timetable-widget .timetable-widget__body .timetable-widget__lesson {
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        min-height: 35px;
+        align-items: center;
+        border-bottom: 1px solid #C2C2CC; }
+        body section #timetable-widget .timetable-widget__body .timetable-widget__lesson .timetable-widget__lesson__number {
+          justify-self: center;
+          align-items: center;
+          text-align: center; }
+          body section #timetable-widget .timetable-widget__body .timetable-widget__lesson .timetable-widget__lesson__number p {
+            padding: auto;
+            width: 100%;
+            height: 100%;
+            position: relative; }
+        body section #timetable-widget .timetable-widget__body .timetable-widget__lesson .timetable-widget__lesson__name {
+          display: grid;
+          box-sizing: border-box;
+          border-left: 1px solid #C2C2CC;
+          align-items: center; }
+          body section #timetable-widget .timetable-widget__body .timetable-widget__lesson .timetable-widget__lesson__name p {
+            padding: 0px 10px; }
+          body section #timetable-widget .timetable-widget__body .timetable-widget__lesson .timetable-widget__lesson__name input {
+            font-size: 17px;
+            margin: 0px 5px;
+            max-width: 95%;
+            font-family: "Montserrat", sans-serif;
+            color: #757575;
+            padding: 4px 7px;
+            border-radius: 2px;
+            border: 1px solid lightgray;
+            outline: none; }
+      body section #timetable-widget .timetable-widget__body .timetable-widget__edit__btn {
+        min-height: 35px;
+        width: 100%; }
   body section .notes-widget {
     grid-area: notes-widget;
     background-color: #fff; }

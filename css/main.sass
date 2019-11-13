@@ -34,16 +34,20 @@ body
 	section
 		background: url(../img/sky-1946508.png) left top / cover fixed
 		padding: 40px 40px
-		height: 95vh
+		height: 100vh
 		display: grid
 		grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget"
 		grid-gap: 10px
+		//grid-auto-rows: auto
+		//grid-auto-flow: row dense
+		//grid-template-rows: 200px 2fr 3fr 2fr
 		grid-template-rows: 3fr 2fr 3fr 2fr
 		grid-template-columns: 2fr 5fr 2fr
 		#calendar-widget
 			grid-area: calendar-widget
 			background-color: #fff
 			border-radius: 3px
+			min-height: 242px
 			.calendar-header
 				border-radius: 3px 3px 0px 0px
 				overflow: hidden
@@ -96,6 +100,7 @@ body
 			grid-area: clock-widget
 			text-align: center
 			background: #000
+			max-height: 200px
 			p
 				color: #fff
 				line-height: 1.1
@@ -125,6 +130,7 @@ body
 			border-radius: 3px
 			font-size: 17px 
 			max-width: 350px
+			min-height: 440px
 			.todo-list-header
 				position: relative
 				border-radius: 3px 3px 0px 0px
@@ -154,7 +160,7 @@ body
 				grid-template-columns: 15px 1fr 36px 36px
 				grid-gap: 2px
 				font-size: 17px
-				border-top: 1px solid rgba(0,0,0,.1)
+				border-top: 1px solid $light-gray
 				background-color: #fff
 				transition: all .2s
 				-webkit-user-select: none
@@ -199,7 +205,7 @@ body
 			#todo-form
 				display: flex
 				background-color: #FAFAFA
-				border-top: 1px solid rgba(0,0,0,.1)
+				border-top: 1px solid $light-gray
 				padding: 10px
 
 			#todo-form input
@@ -219,8 +225,9 @@ body
 			border-radius: 3px
 			font-size: 17px
 			max-width: 350px 
+			min-height: 350px 
 			font-family: $montserrat 
-			.timetable-header
+			.timetable-widget__header
 				border-radius: 3px 3px 0px 0px
 				overflow: hidden
 				padding: 5px
@@ -231,8 +238,75 @@ body
 					text-transform: uppercase
 					font-family: $montserrat
 					font-size: 19px
-			.timetable-day
-				font-weight: bold 
+			.timetable-widget__body
+				display: grid
+				grid-template-rows: 1fr
+				grid-template-columns: 1fr
+				.timetable-widget__day
+					display: grid
+					grid-template-columns: 30px 1fr 30px
+					min-height: 35px
+					justify-items: center
+					align-items: center
+					border-bottom: 1px solid $light-gray
+					.timetable-widget__day__name
+						p
+							font-weight: bold 
+					.timetable-widget__day__prev__btn,
+					.timetable-widget__day__next__btn
+						cursor: pointer
+						padding: 0
+						border: none
+						font: inherit
+						color: inherit
+						background-color: transparent
+					.timetable-widget__day__prev__btn:hover,
+					.timetable-widget__day__next__btn:hover
+						color: $gray
+					.timetable-widget__day__prev__btn:focus,
+					.timetable-widget__day__next__btn:focus,
+					.timetable-widget__day__prev__btn:active,
+					.timetable-widget__day__next__btn:active
+						outline: none
+				.timetable-widget__lesson:last-child
+					border-bottom: hidden
+				.timetable-widget__lesson
+					display: grid
+					grid-template-columns: 30px 1fr
+					min-height: 35px
+					align-items: center
+					border-bottom: 1px solid $light-gray
+					.timetable-widget__lesson__number
+						justify-self: center
+						align-items: center
+						text-align: center
+						p
+							padding: auto
+							width: 100%
+							height: 100%
+							position: relative
+					.timetable-widget__lesson__name
+						display: grid
+						box-sizing: border-box
+						border-left: 1px solid $light-gray
+						align-items: center
+						p
+							padding: 0px 10px
+						input
+							font-size: 17px 
+							margin: 0px 5px
+							max-width: 95%
+							font-family: "Montserrat", sans-serif
+							color: #757575
+							padding: 4px 7px
+							border-radius: 2px
+							border: 1px solid lightgray
+							outline: none
+				.timetable-widget__edit__btn
+					min-height: 35px
+					width: 100%
+				
+			
 		.notes-widget
 			grid-area: notes-widget
 			background-color: #fff 

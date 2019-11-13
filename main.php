@@ -39,6 +39,20 @@
                     <button class="edit button"><i class="fas fa-edit"></i></button>
                     <button class="delete button"><i class="fas fa-trash-alt"></i></button>
                 </li>
+                <li class="todo-item">
+                    <input class="checkbox" type="checkbox">
+                    <label class="title">Вторая задача</label>
+                    <input class="textfield" type="text" autocomplete="off">
+                    <button class="edit button"><i class="fas fa-edit"></i></button>
+                    <button class="delete button"><i class="fas fa-trash-alt"></i></button>
+                </li>
+                <li class="todo-item">
+                    <input class="checkbox" type="checkbox">
+                    <label class="title">Третья задача</label>
+                    <input class="textfield" type="text" autocomplete="off">
+                    <button class="edit button"><i class="fas fa-edit"></i></button>
+                    <button class="delete button"><i class="fas fa-trash-alt"></i></button>
+                </li>
             </ul>
 
             <form id="todo-form">
@@ -48,25 +62,47 @@
 		</div>
 		<div class="notes-widget">notes-widget</div>
 		<div id="timetable-widget">
-			<div class="timetable-header">
+			<div class="timetable-widget__header">
 				<h1>Расписание</h1>
 			</div>
-			<div class="timetable-day">
-				
+			<div class="timetable-widget__body">
+				<div class="timetable-widget__day">
+					<button class="timetable-widget__day__prev__btn" onclick="PrevDay()"><i class="fas fa-arrow-left"></i></button>
+					<div class="timetable-widget__day__name">
+						<p id="timetable-day-name">Понедельник</p>
+					</div>
+					<button class="timetable-widget__day__next__btn" onclick="NextDay()"><i class="fas fa-arrow-right"></i></button>
+				</div>
+				<div class="timetable-widget__lesson">
+					<p class="timetable-widget__lesson__number">1</p>
+					<div class="timetable-widget__lesson__name" id="first-lesson"><p>Математика</p></div>
+				</div>
+				<div class="timetable-widget__lesson">
+					<p class="timetable-widget__lesson__number">2</p>
+					<div class="timetable-widget__lesson__name" id="second-lesson"><p>Математика</p></div>
+				</div>
+				<div class="timetable-widget__lesson">
+					<p class="timetable-widget__lesson__number">3</p>
+					<div class="timetable-widget__lesson__name" id="third-lesson"><p>Математика</p></div>
+				</div>
+				<div class="timetable-widget__lesson">
+					<p class="timetable-widget__lesson__number">4</p>
+					<div class="timetable-widget__lesson__name" id="fourth-lesson"><p>Математика</p></div>
+				</div>
+				<div class="timetable-widget__lesson">
+					<p class="timetable-widget__lesson__number">5</p>
+					<div class="timetable-widget__lesson__name" id="fifth-lesson"><p>Математика</p></div>
+				</div>
+				<div class="timetable-widget__lesson">
+					<p class="timetable-widget__lesson__number">6</p>
+					<div class="timetable-widget__lesson__name" id="sixth-lesson"><p>Математика</p></div>
+				</div>
+				<div class="timetable-widget__lesson">
+					<p class="timetable-widget__lesson__number">7</p>
+					<div class="timetable-widget__lesson__name" id="seventh-lesson"><p>Математика</p></div>
+				</div>
+				<button class="timetable-widget__edit__btn button" onclick="EditDay()">Редактировать</button>
 			</div>
-			.
-			<!--<table id="timetable">
-				<thead>
-					<tr><td><i class="fas fa-arrow-left"></i><td><p class="timetable-day">Понедельник</p><td><i class="fas fa-arrow-right"></i>
-					<tr><td class="timetable-number">1</td><td colspan="2"><p class="timetable-item timetable-1">История</p></td></tr>
-					<tr><td class="timetable-number">2</td><td colspan="2"><p class="timetable-item timetable-1">История</p></td></tr>
-					<tr><td class="timetable-number">3</td><td colspan="2"><p class="timetable-item timetable-1">История</p></td></tr>
-					<tr><td class="timetable-number">4</td><td colspan="2"><p class="timetable-item timetable-1">История</p></td></tr>
-					<tr><td class="timetable-number">5</td><td colspan="2"><p class="timetable-item timetable-1">История</p></td></tr>
-					<tr><td class="timetable-number">6</td><td colspan="2"><p class="timetable-item timetable-1">История</p></td></tr>
-					<tr><td class="timetable-number">7</td><td colspan="2"><p class="timetable-item timetable-1">История</p></td></tr>
-				<tbody>
-			</table>-->
 		</div>
 		<div id="timer-widget">
 			<div class="timer-header">
@@ -92,6 +128,7 @@
 <script src="js/clock-widget.js"></script>
 <script src="js/calendar-widget.js"></script>
 <script src="js/to-do-list-widget.js"></script>
-<script src="js/timer.js"></script>
+<script src="js/timer-widget.js"></script>
+<script src="js/timetable-widget.js"></script>
 </body>
 </html>
