@@ -9,8 +9,14 @@
 </head>
 <body>
 	<header>
-		<div class="header-logo">
-			<img src="" alt="">
+		<div class="header-container">		
+			<div class="header-logo">
+				<a href="#">SubSpace</a>
+			</div>
+			<div class="header-buttons">
+				<div class="header-username">Мурат</div>
+				<a href="parts/logout.php">Выйти</a>
+			</div>
 		</div>
 	</header>
 	<section>
@@ -25,8 +31,124 @@
 				<tbody>
 			</table>
 		</div>
-		<div class="tracker-widget">tracker-widget</div>
-		<div id="clock-widget"></div>
+		<div id="tracker-widget">
+			<div class="tracker-widget__header">
+				<h1>Трекер привычек</h1>
+			</div>
+			<div class="tracker-widget__body">
+				<!-- .tracker-widget__item*8>.tracker-widget__item__name+input[type="checkbox"]*5 -->
+				<div class="tracker-widget__item">
+					<div class="tracker-widget__item__name">Привычка 1</div>
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+				</div>
+				<div class="tracker-widget__item">
+					<div class="tracker-widget__item__name">Привычка 2</div>
+					<input type="checkbox" class="tracker-widget__item__checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+				</div>
+				<div class="tracker-widget__item">
+					<div class="tracker-widget__item__name">Привычка 3</div>
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+				</div>
+				<div class="tracker-widget__item">
+					<div class="tracker-widget__item__name">Привычка 4</div>
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+				</div>
+				<div class="tracker-widget__item">
+					<div class="tracker-widget__item__name">Привычка 5</div>
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+				</div>
+			</div>
+		</div>
+		<div id="clock-widget">
+			<p class="clock-widget__clock" id="clock-time">19:45:00</p>
+			<p class="clock-widget__day" id="clock-day">суббота</p>
+			<p class="clock-widget__date" id="clock-date">13 февраля</p>
+		</div>
 		<div id="todo-list-widget">
 			<div class="todo-list-header">
                 <h1>Список задач</h1>
@@ -60,7 +182,33 @@
                 <button id="add-button" class="button" type="submit">Добавить</button>
             </form>
 		</div>
-		<div class="notes-widget">notes-widget</div>
+		<div id="notes-widget">
+			<div class="notes-widget__header">
+				<h1>Заметки</h1>
+			</div>
+			<div class="notes-widget__body">
+				<div class="notes-widget__left">
+					<div class="notes-widget__item">					
+						<label class="title">Первая задача</label>
+						<input class="textfield" type="text" autocomplete="off">
+	                    <button class="edit button"><i class="fas fa-edit"></i></button>
+	                    <button class="delete button"><i class="fas fa-trash-alt"></i></button>
+					</div>
+					<div class="notes-widget__item">					
+						<label class="title">Вторая задача</label>
+						<input class="textfield" type="text" autocomplete="off">
+	                    <button class="edit button"><i class="fas fa-edit"></i></button>
+	                    <button class="delete button"><i class="fas fa-trash-alt"></i></button>
+					</div>
+					<form id="notes-widget-form">
+		                <button id="add-button" class="button" type="submit">Добавить</button>
+		            </form>
+				</div>
+				<div class="notes-widget__right">
+					<textarea name="text" id="notes-widget-textarea" cols="30" rows="10"></textarea>
+				</div>
+			</div>
+		</div>
 		<div id="timetable-widget">
 			<div class="timetable-widget__header">
 				<h1>Расписание</h1>
@@ -117,14 +265,6 @@
 			</div>
 		</div>
 	</section>
-	<footer>
-		<div class="footer-username">
-			<p></p>
-		</div>
-		<div class="footer-exit-button">
-			<a href="parts/logout.php">Выйти</a>
-		</div>
-	</footer>
 <script src="js/clock-widget.js"></script>
 <script src="js/calendar-widget.js"></script>
 <script src="js/to-do-list-widget.js"></script>

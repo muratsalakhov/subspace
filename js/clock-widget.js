@@ -49,7 +49,10 @@ function clock(){
         	month = 'декабря';
         }
     //document.getElementById('clock-widget').innerHTML = '<p class="clock-widget__date">'+ date + ' ' + month +'</p>';
-    document.getElementById('clock-widget').innerHTML = '<p class="clock-widget__clock">' + hours + ':' + minutes + ':' + seconds + '</p><p class="clock-widget__day">' + day + '</p><p class="clock-widget__date">'+ daydate + ' ' + month +'</p>';
+    //document.getElementById('clock-widget').innerHTML = '<p class="clock-widget__clock">' + hours + ':' + minutes + ':' + seconds + '</p><p class="clock-widget__day">' + day + '</p><p class="clock-widget__date">'+ daydate + ' ' + month +'</p>';
+    document.getElementById('clock-time').innerText = hours + ':' + minutes + ':' + seconds;
+    document.getElementById('clock-day').innerText = day;
+    document.getElementById('clock-date').innerText = daydate + ' ' + month;
 }
 setInterval(clock, 1000);
 clock();

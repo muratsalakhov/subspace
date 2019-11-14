@@ -21,7 +21,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <head>
 	<meta charset="UTF-8">
 	<title>Space-Sub</title>
-	<link rel="stylesheet" href="css/base.css" >
+	<link rel="stylesheet" href="css/auth.css" >
 	<link rel="stylesheet" href="css/registration.css" >
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 </head>

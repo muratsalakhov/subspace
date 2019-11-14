@@ -28,7 +28,7 @@ if (isset($_SESSION['username'])) {
 	<meta charset="UTF-8">
 	<title>Space-Sub</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-	<link rel="stylesheet" href="css/base.css" >
+	<link rel="stylesheet" href="css/auth.css" >
 	<link rel="stylesheet" href="css/authentification.css" >
 </head>
 <body>

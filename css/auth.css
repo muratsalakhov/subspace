@@ -1,0 +1,234 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 17px;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+.container {
+	width: 90%;
+	margin: auto;
+	position: relative;
+}
+
+header {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background-color: #043E69;
+	width: 100%;
+	z-index: 1;
+}
+
+header .container {
+	min-height: 6vh;
+	display: grid;
+	grid-template-columns: auto 1fr; 
+	grid-template-rows: 1fr;
+}
+
+
+header .header-logo {
+	align-self: center;
+	float: left;
+	display: inline-block;
+	position: relative;
+}
+
+header .header-buttons {
+	align-self: center;
+	float: right;
+	text-align: right;
+	display: inline-block;
+	position: relative;
+}
+
+header .container .header-logo a,
+header .container .header-buttons a {
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+header .container .header-logo a {
+	font-weight: bold;
+}
+
+header .container .header-buttons a {
+	margin-right: 10px;
+}
+
+header .container .header-buttons a:last-child {
+	margin-right: 0px;
+}
+
+header .container .header-buttons a:hover {
+	text-decoration: underline;
+}
+
+/* MAIN SECTION */
+.main-section {
+	min-height: 100vh;
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	background: #fff url(../img/sky-1946508.png) left top / cover fixed;
+}
+
+.main-section .container {
+	display: grid;
+	align-items: center;
+	justify-items: center;
+}
+
+.form-signin {
+	display: grid;
+	grid-template-rows: repeat(6, 1fr);
+	grid-template-columns: 350px;
+	text-align: center;
+}
+
+.form-signin * {
+	margin: 5px;
+}
+
+h2 {
+	font-size: 22px;
+	color: #fff;
+}
+
+.submit-btn {
+	padding: 2px;
+	border: 1px solid #4FA300;
+	background-color: #A2FE4D;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.submit-btn:hover {
+	background-color: #67A131;
+	transition: 0.35s background-color ease-out;
+}
+
+.main-section a{
+	text-decoration: none;
+	color: #000;
+}
+
+.form-control {
+	border-radius: 3px;
+	padding: 5px;
+	border: 1px solid #333333;
+}
+/* СЕКЦИЯ Footer */
+
+footer {
+	position: fixed;
+	bottom: 0px;
+	left: 0pc;
+	width: 100%;
+}
+
+footer .container {
+	min-height: 6vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr; 
+	grid-template-rows: 1fr;
+}
+
+footer .footer-info {
+	display: grid;
+	color: #fff;
+	text-align: left;
+	align-items: center;
+}
+
+footer .footer-user {
+	color: #fff;
+	display: grid;
+	grid-template-columns: 1fr 70px;
+	align-items: center;
+	justify-items: center;
+}
+
+footer .footer-user p {
+	justify-self: end;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+footer .footer-user a {
+	text-decoration: none;
+	color: #fff;
+}
+
+footer .footer-user a:hover {
+	text-decoration: underline;
+}
+
+
+.modalbackground {
+	margin: 0; /* убираем отступы */
+	padding: 0; /* убираем отступы */
+	position: fixed; /* фиксируем положение */
+	top:0; /* растягиваем блок по всему экрану */
+	bottom:0;
+	left:0;
+	right:0;
+	background: rgba(0,0,0,0.5); /* полупрозрачный цвет фона */
+	z-index:100; /* выводим фон поверх всех слоев на странице браузера */
+	opacity:0; /* Делаем невидимым */
+	pointer-events: none; /* элемент невидим для событий мыши */
+}
+
+/* при отображении модального окно - именно здесь начинается магия */
+.modalbackground:target {
+    opacity: 1; /* делаем окно видимым */ 
+    pointer-events: auto; /* элемент видим для событий мыши */
+}
+
+/* ширина диалогового окна и его отступы от экрана */
+.modalwindow {
+	width: 100%;
+	max-width: 400px;
+	margin: 10% auto;
+	padding: 2%;
+	background: #fff;
+	border-radius: 3px;
+}
+
+/* настройка заголовка */
+.modalwindow h3 {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+/* оформление сообщение */
+.modalwindow p {
+	padding: 0;
+	margin: 4% 0 8% 0;
+	text-align: center;
+}
+
+/* вид кнопки ЗАКРЫТЬ */
+.modalwindow a {
+	display: block;
+	color: #fff;
+	background: #A1130E;
+	padding: 2%;
+	margin: 0 auto;
+	width: 50%;
+	border-radius: 3px;
+	text-align: center;
+	text-decoration: none;
+}
+
+/* вид кнопки ЗАКРЫТЬ при наведении на нее мыши */
+.modalwindow a:hover {
+	background: #760E0A;
+}
