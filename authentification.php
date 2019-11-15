@@ -7,7 +7,7 @@ if (isset($_POST['username']) and isset($_POST['password'])) {
 	$username = $_POST['username'];
 	$password = md5($_POST['password']);
 
-	$query = "SELECT * FROM users WHERE username='$username' and password='$password'";
+	$query = "SELECT * FROM users WHERE user_name='$username' and user_password='$password'";
 	$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 	$count = mysqli_num_rows($result);
 
@@ -66,7 +66,7 @@ if (isset($_SESSION['username'])) {
 	<div class="modalwindow">
 		<h3>Успешно!</h3>
 		<p>Вы успешно авторизировались</p>
-		<a href="index.php">Продолжить</a>
+		<a href="main.php">Продолжить</a>
 	</div>
 </div>
 <footer>

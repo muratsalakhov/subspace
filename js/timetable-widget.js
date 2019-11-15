@@ -48,8 +48,8 @@ function EditDay() {
 	const isEditing = widget.classList.contains('timetable-editing');
 
     if (isEditing) {
-    	игеещт = document.querySelector('.timetable-widget__edit__btn');
-    	button.innerText = "Редактировать";
+    	игеещт = document.querySelector('.timetable-widget__btn');
+    	button.innerHTML = '<button class="timetable-widget__edit__btn button" onclick="EditDay()">Редактировать</button>';
 
         var first_lesson = document.getElementById('first-lesson-input').value;
 		document.getElementById('first-lesson').innerHTML = '<p>' + first_lesson + '</p>';
@@ -72,8 +72,8 @@ function EditDay() {
         var seventh_lesson = document.getElementById('seventh-lesson-input').value;
 		document.getElementById('seventh-lesson').innerHTML = '<p>' + seventh_lesson + '</p>';
     } else {
-    	button = document.querySelector('.timetable-widget__edit__btn');
-    	button.innerText = "Сохранить";
+    	button = document.querySelector('.timetable-widget__btn');
+    	button.innerHTML = '<button class="timetable-widget__edit__btn button" type="submit" onclick="EditDay()">Сохранить</button>';
 
         var first_lesson = document.getElementById('first-lesson').textContent;
 		document.getElementById('first-lesson').innerHTML = '<input id="first-lesson-input" type="text" autocomplete="off" value="' + first_lesson + '">';

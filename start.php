@@ -6,8 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/start.css">
+	<link rel="stylesheet" href="css/auth.css">
 <body>
 
 
@@ -23,6 +22,9 @@
 	</div>
 </header>
 
+<div class="main-section">
+	
+</div>
 
 <footer>
 	<div class="container">

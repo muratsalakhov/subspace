@@ -19,13 +19,13 @@ header {
 	position: fixed;
 	top: 0px;
 	left: 0px;
-	background-color: #043E69;
+	background-color: #3C3C3F;
 	width: 100%;
 	z-index: 1;
 }
 
 header .container {
-	min-height: 6vh;
+	height: 4vh;
 	display: grid;
 	grid-template-columns: auto 1fr; 
 	grid-template-rows: 1fr;
@@ -90,6 +90,7 @@ header .container .header-buttons a:hover {
 	grid-template-rows: repeat(6, 1fr);
 	grid-template-columns: 350px;
 	text-align: center;
+	background: rgba(0, 0, 0, 1);
 }
 
 .form-signin * {
@@ -131,6 +132,7 @@ footer {
 	bottom: 0px;
 	left: 0pc;
 	width: 100%;
+	background: rgba(0, 0, 0, 1);
 }
 
 footer .container {

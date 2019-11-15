@@ -6,14 +6,24 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 
-	$query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
-	$result = mysqli_query($connection, $query);
+	$query = "SELECT * FROM users WHERE user_name = '$username' OR user_email = '$email'";
+	$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+	$count = mysqli_num_rows($result);
 
-	if($result){
-		header("Location: registration.php#success");
+	if ($count == 0) {
+		$query = "INSERT INTO users (user_name, user_email, user_password) VALUES ('$username', '$email', '$password')";
+		$result = mysqli_query($connection, $query);
+
+		if($result){
+			header("Location: registration.php#success");
+		} else {
+			header("Location: registration.php#error2");
+		}
 	} else {
-		header("Location: registration.php#error");
+		header("Location: registration.php#error1");
 	}
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -51,10 +61,17 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	</div>
 </div>
 
-<div id="error" class="modalbackground">
+<div id="error1" class="modalbackground">
 	<div class="modalwindow">
 		<h3>Ошибка!</h3>
-		<p>Пользователь с таким именем уже существует</p>
+		<p>Пользователь с таким именем или почтой уже существует</p>
+		<a href=" ">Закрыть</a>
+	</div>
+</div>
+<div id="erro2r" class="modalbackground">
+	<div class="modalwindow">
+		<h3>Ошибка!</h3>
+		<p>Произошла ошибка.</p>
 		<a href=" ">Закрыть</a>
 	</div>
 </div>
