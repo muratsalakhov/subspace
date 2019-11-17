@@ -1,3 +1,4 @@
+
 function createElement(tag, props, ...children) {
     const element = document.createElement(tag);
 
@@ -41,7 +42,8 @@ function bindEvents(todoItem) {
     deleteButton.addEventListener('click', deleteTodoItem);
 }
 
-function addTodoItem(event) {
+/*function addTodoItem(event) {
+
     event.preventDefault();
 
     if (addInput.value === '') {
@@ -51,7 +53,7 @@ function addTodoItem(event) {
     const todoItem = createTodoItem(addInput.value);
     todoList.appendChild(todoItem);
     addInput.value = '';
-}
+}*/
 
 function toggleTodoItem() {
     const listItem = this.parentNode;
@@ -86,8 +88,47 @@ const todoList = document.getElementById('todo-list');
 const todoItems = document.querySelectorAll('.todo-item');
 
 function main() {
-    todoForm.addEventListener('submit', addTodoItem);
+
+    //todoForm.addEventListener('submit', addTodoItem);
     todoItems.forEach(item => bindEvents(item));
 }
 
 main();
+
+$("#add-button").on("click", function(){
+    var add_input = $("#add-input").val().trim();
+
+    if (add_input == '') {
+        return alert('Необходимо ввести название задачи.');
+    }
+
+    $.ajax({
+        url: 'processing.php',
+        type: 'POST',
+        cache: false,
+        data: {'add-input': add_input},
+        dataType: 'html',
+        beforeSend: function(){
+            $("#add-button").prop("disabled", true);
+        },
+        success: function(data){
+            //alert(data);
+            $("#add-button").prop("disabled", false);
+        }
+    });
+
+    const todoItem = createTodoItem(addInput.value);
+    todoList.appendChild(todoItem);
+    addInput.value = '';
+});
+
+$("#todo-checkbox").on("click", function(){
+    var todo_title = document.getElementById('todo-title');
+    $.ajax({
+        url: 'processing.php',
+        type: 'POST',
+        cache: false,
+        data: {'todo_title': todo_title, 'todo_checked' : OSTANOVILSYA ZDES},
+        dataType: 'html'
+    });
+});
