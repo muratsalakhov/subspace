@@ -4,7 +4,7 @@ require('parts/check_user.php');
 $username = $_SESSION['username'];
 
 $todo_query = "SELECT * FROM todo_list WHERE todo_user = '$username'";
-$todo_result = mysqli_query($connection, $todo_query) or die(mysqli_error($connection));
+$todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connection));
 ?>
 
 <!DOCTYPE html>
@@ -163,21 +163,25 @@ $todo_result = mysqli_query($connection, $todo_query) or die(mysqli_error($conne
                 <h1>Список задач</h1>
             </div>
 			<div id="todo-list">
-                <form class="todo-item">
-                    <input class="checkbox todo-checkbox" type="checkbox">
-                    <label class="title todo-title">Первая задача</label>
-                    <input class="textfield" type="text" autocomplete="off">
-                    <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
-                    <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
-                </form>
                 <?php 
-					foreach ($todo_result as $todo_item) { ?>
+                	if (mysqli_num_rows($todo_items) == 0){
+                		?>
+                			<form class="todo-item">
+					            <input class="checkbox todo-checkbox" type="checkbox">
+					            <label class="title todo-title">Первая задача</label>
+					            <input class="textfield" type="text" autocomplete="off">
+					            <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
+					            <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
+					        </form>
+                		<?php
+                	}
+					foreach ($todo_items as $todo_item) { ?>
 						<?php 
 							if ($todo_item['todo_checked'] == 1) {
-								?><li class="todo-item completed">
+								?><form class="todo-item completed">
 								<input class="checkbox todo-checkbox" type="checkbox" checked><?php
 							} else {
-								?><li class="todo-item">
+								?><form class="todo-item">
 								<input class="checkbox todo-checkbox" type="checkbox"><?php
 							}
 						?>
@@ -185,7 +189,7 @@ $todo_result = mysqli_query($connection, $todo_query) or die(mysqli_error($conne
 	                    <input class="textfield" type="text" autocomplete="off">
 	                    <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
 	                    <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
-	                </li>
+	                </form>
 				<?php	
 					}
 				?>

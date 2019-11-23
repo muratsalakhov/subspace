@@ -1,3 +1,31 @@
+$("#add-button").on("click", function(){
+    var add_input = $("#add-input").val().trim();
+
+    if (add_input == '') {
+        return alert('Необходимо ввести название задачи.');
+    }
+
+    $.ajax({
+        url: 'todo-processing.php',
+        type: 'POST',
+        cache: false,
+        data: {'add-input': add_input},
+        dataType: 'html',
+        beforeSend: function(){
+            $("#add-button").prop("disabled", true);
+        },
+        success: function(data){
+            //alert(data);
+            $("#add-button").prop("disabled", false);
+        }
+    });
+
+    const todoItem = createTodoItem(addInput.value);
+    todoList.appendChild(todoItem);
+    addInput.value = '';
+});
+
+
 
 function createElement(tag, props, ...children) {
     const element = document.createElement(tag);
@@ -18,14 +46,14 @@ function createElement(tag, props, ...children) {
 }
 
 function createTodoItem(title) {
-    const checkbox = createElement('input', { type: 'checkbox', className: 'checkbox' });
-    const label = createElement('label', { className: 'title' }, title);
-    const editInput = createElement('input', { type: 'text', className: 'textfield' });
-    let editButton = createElement('button', { className: 'edit button' });
+    const checkbox = createElement('input', { type: 'checkbox', className: 'checkbox todo-checkbox' });
+    const label = createElement('label', { className: 'title todo-title' }, title);
+    const editInput = createElement('input', { type: 'text', className: 'textfield', autocomplete: 'off' });
+    let editButton = createElement('button', { type: 'button', className: 'edit button' });
     editButton.innerHTML = '<i class="fas fa-edit"></i>';
-    let deleteButton = createElement('button', { className: 'delete button' });
+    let deleteButton = createElement('button', { type: 'button', className: 'delete button' });
     deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
-    const listItem = createElement('li', { className: 'todo-item' }, checkbox, label, editInput, editButton, deleteButton);
+    const listItem = createElement('form', { className: 'todo-item' }, checkbox, label, editInput, editButton, deleteButton);
 
     bindEvents(listItem);
 
@@ -37,26 +65,32 @@ function bindEvents(todoItem) {
     const editButton = todoItem.querySelector('button.edit');
     const deleteButton = todoItem.querySelector('button.delete');
 
-    checkbox.addEventListener('change', toggleTodoItem);
+    checkbox.addEventListener('change', checkTodoItem);
     editButton.addEventListener('click', editTodoItem);
     deleteButton.addEventListener('click', deleteTodoItem);
 }
 
-/*function addTodoItem(event) {
 
-    event.preventDefault();
+function checkTodoItem() {
+    const listItem = this.parentNode;
+    const title = listItem.querySelector('.todo-title');
+    const checkbox = listItem.querySelector('.todo-checkbox');
+    var checkbox_status;
 
-    if (addInput.value === '') {
-        return alert('Необходимо ввести название задачи.');
+    if (checkbox.checked) {
+        checkbox_status = 1;
+    } else {
+        checkbox_status = 0;
     }
 
-    const todoItem = createTodoItem(addInput.value);
-    todoList.appendChild(todoItem);
-    addInput.value = '';
-}*/
+    $.ajax({
+        url: 'todo-processing.php',
+        type: 'POST',
+        cache: false,
+        data: {'todo_title': title.innerText, 'todo_checked' : checkbox_status},
+        dataType: 'html'
+    });
 
-function toggleTodoItem() {
-    const listItem = this.parentNode;
     listItem.classList.toggle('completed');
 }
 
@@ -67,8 +101,16 @@ function editTodoItem() {
     const isEditing = listItem.classList.contains('editing');
 
     if (isEditing) {
+        $.ajax({
+            url: 'todo-processing.php',
+            type: 'POST',
+            cache: false,
+            data: {'todo_input': editInput.value, 'todo_title': title.innerText},
+            dataType: 'html'
+        });
         title.innerText = editInput.value;
         this.innerHTML = '<i class="fas fa-edit"></i>';
+
     } else {
         editInput.value = title.innerText;
         this.innerHTML = '<i class="fas fa-check"></i>';
@@ -79,6 +121,14 @@ function editTodoItem() {
 
 function deleteTodoItem() {
     const listItem = this.parentNode;
+    const title = listItem.querySelector('.title');
+    $.ajax({
+        url: 'todo-processing.php',
+        type: 'POST',
+        cache: false,
+        data: {'todo_delete': title.innerText},
+        dataType: 'html'
+    });
     todoList.removeChild(listItem);
 }
 
@@ -95,72 +145,3 @@ function main() {
 
 main();
 
-$("#add-button").on("click", function(){
-    var add_input = $("#add-input").val().trim();
-
-    if (add_input == '') {
-        return alert('Необходимо ввести название задачи.');
-    }
-
-    $.ajax({
-        url: 'processing.php',
-        type: 'POST',
-        cache: false,
-        data: {'add-input': add_input},
-        dataType: 'html',
-        beforeSend: function(){
-            $("#add-button").prop("disabled", true);
-        },
-        success: function(data){
-            //alert(data);
-            $("#add-button").prop("disabled", false);
-        }
-    });
-
-    const todoItem = createTodoItem(addInput.value);
-    todoList.appendChild(todoItem);
-    addInput.value = '';
-});
-
-$(".todo-checkbox").on("click", function(){
-    var todo_titles = document.querySelectorAll('.todo-title');
-    var todo_title_text;
-    var todo_checked;
-    // alert(todo_titles);
-    var todo_checkboxes = document.querySelectorAll('.todo-checkbox');
-    var checked_set = new Set();
-    var i = 0;
-
-    todo_checkboxes.forEach(function(todo_checkbox){
-        if (todo_checkbox.checked) {
-            checked_set.add(i);
-        } else {
-            checked_set.delete(i);
-        }
-        i++;
-    })
-
-    i = 0;
-    todo_titles.forEach(function(todo_title){
-        todo_checked = 0;
-        if (checked_set.has(i)) {
-                todo_checked = 1;
-        }
-        todo_title_text = todo_title.innerHTML;
-            $.ajax({
-                url: 'processing.php',
-                type: 'POST',
-                cache: false,
-                data: {'todo_title': todo_title_text, 'todo_checked' : todo_checked},
-                dataType: 'html'
-            });
-        i++;
-    })
-
-    
-
-    //for (let todo_title of todo_titles.values()) alert(todo_title);
-    //var label = todo_title.innerHTML()
-
-
-});
