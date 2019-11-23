@@ -38,7 +38,7 @@ $todo_result = mysqli_query($connection, $todo_query) or die(mysqli_error($conne
 					<tr><td><i class="fas fa-arrow-left"></i><td colspan="5"><td><i class="fas fa-arrow-right"></i>
 			 		<tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
 				<tbody>
-			</table>
+			</table>+
 		</div>
 		<div id="tracker-widget">
 			<div class="tracker-widget__header">
@@ -164,20 +164,27 @@ $todo_result = mysqli_query($connection, $todo_query) or die(mysqli_error($conne
             </div>
 			<div id="todo-list">
                 <form class="todo-item">
-                    <input id="todo-checkbox" class="checkbox" type="checkbox">
-                    <label id="todo-title" class="title">Первая задача</label>
+                    <input class="checkbox todo-checkbox" type="checkbox">
+                    <label class="title todo-title">Первая задача</label>
                     <input class="textfield" type="text" autocomplete="off">
-                    <button class="edit button"><i class="fas fa-edit"></i></button>
-                    <button class="delete button"><i class="fas fa-trash-alt"></i></button>
+                    <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
+                    <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
                 </form>
                 <?php 
 					foreach ($todo_result as $todo_item) { ?>
-					<li class="todo-item">
-	                    <input class="checkbox" type="checkbox">
-	                    <label class="title"><?php echo $todo_item['todo_name']; ?></label>
+						<?php 
+							if ($todo_item['todo_checked'] == 1) {
+								?><li class="todo-item completed">
+								<input class="checkbox todo-checkbox" type="checkbox" checked><?php
+							} else {
+								?><li class="todo-item">
+								<input class="checkbox todo-checkbox" type="checkbox"><?php
+							}
+						?>
+	                    <label class="title todo-title"><?php echo $todo_item['todo_name']; ?></label>
 	                    <input class="textfield" type="text" autocomplete="off">
-	                    <button class="edit button"><i class="fas fa-edit"></i></button>
-	                    <button class="delete button"><i class="fas fa-trash-alt"></i></button>
+	                    <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
+	                    <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
 	                </li>
 				<?php	
 					}
