@@ -77,7 +77,7 @@ function checkTodoItem() {
     const todoCheckbox = todoListItem.querySelector('.todo-checkbox');
     var checkbox_status;
 
-    if (checkbox.checked) {
+    if (todoCheckbox.checked) {
         checkbox_status = 1;
     } else {
         checkbox_status = 0;
