@@ -23,7 +23,7 @@ $todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connec
 				<a href="#">SubSpace</a>
 			</div>
 			<div class="header-buttons">
-				<div class="header-username">Мурат</div>
+				<div class="header-username"><?php echo $username ?></div>
 				<a href="logout.php">Выйти</a>
 			</div>
 		</div>
@@ -41,13 +41,13 @@ $todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connec
 			</table>+
 		</div>
 		<div id="tracker-widget">
-			<div class="tracker-widget__header">
+			<div class="tracker-widget-header">
 				<h1>Трекер привычек</h1>
 			</div>
-			<div class="tracker-widget__body">
-				<!-- .tracker-widget__item*8>.tracker-widget__item__name+input[type="checkbox"]*5 -->
-				<div class="tracker-widget__item">
-					<div class="tracker-widget__item__name">Привычка 1</div>
+			<div class="tracker-widget-body">
+				<!-- .tracker-widget-item*8>.tracker-widget-item-name+input[type="checkbox"]*5 -->
+				<div class="tracker-widget-item">
+					<div class="tracker-widget-item-name">Привычка 1</div>
 					<input type="checkbox">
 					<input type="checkbox">
 					<input type="checkbox">
@@ -67,9 +67,9 @@ $todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connec
 					<input type="checkbox">
 					<input type="checkbox">
 				</div>
-				<div class="tracker-widget__item">
-					<div class="tracker-widget__item__name">Привычка 2</div>
-					<input type="checkbox" class="tracker-widget__item__checkbox">
+				<div class="tracker-widget-item">
+					<div class="tracker-widget-item-name">Привычка 2</div>
+					<input type="checkbox" class="tracker-widget-item-checkbox">
 					<input type="checkbox">
 					<input type="checkbox">
 					<input type="checkbox">
@@ -88,29 +88,8 @@ $todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connec
 					<input type="checkbox">
 					<input type="checkbox">
 				</div>
-				<div class="tracker-widget__item">
-					<div class="tracker-widget__item__name">Привычка 3</div>
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-				</div>
-				<div class="tracker-widget__item">
-					<div class="tracker-widget__item__name">Привычка 4</div>
+				<div class="tracker-widget-item">
+					<div class="tracker-widget-item-name">Привычка 3</div>
 					<input type="checkbox">
 					<input type="checkbox">
 					<input type="checkbox">
@@ -130,8 +109,29 @@ $todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connec
 					<input type="checkbox">
 					<input type="checkbox">
 				</div>
-				<div class="tracker-widget__item">
-					<div class="tracker-widget__item__name">Привычка 5</div>
+				<div class="tracker-widget-item">
+					<div class="tracker-widget-item-name">Привычка 4</div>
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+					<input type="checkbox">
+				</div>
+				<div class="tracker-widget-item">
+					<div class="tracker-widget-item-name">Привычка 5</div>
 					<input type="checkbox">
 					<input type="checkbox">
 					<input type="checkbox">
@@ -154,122 +154,185 @@ $todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connec
 			</div>
 		</div>
 		<div id="clock-widget">
-			<p class="clock-widget__clock" id="clock-time">19:45:00</p>
-			<p class="clock-widget__day" id="clock-day">суббота</p>
-			<p class="clock-widget__date" id="clock-date">13 февраля</p>
+			<p class="clock-widget-clock" id="clock-time">19:45:00</p>
+			<p class="clock-widget-day" id="clock-day">суббота</p>
+			<p class="clock-widget-date" id="clock-date">13 февраля</p>
 		</div>
+
+		<!-- ВИДЖЕТ СПИСОК ДЕЛ-->
+
 		<div id="todo-list-widget">
 			<div class="todo-list-header">
                 <h1>Список задач</h1>
             </div>
-			<div id="todo-list">
-                <?php 
-                	if (mysqli_num_rows($todo_items) == 0){
-                		?>
-                			<form class="todo-item">
-					            <input class="checkbox todo-checkbox" type="checkbox">
-					            <label class="title todo-title">Первая задача</label>
-					            <input class="textfield" type="text" autocomplete="off">
-					            <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
-					            <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
-					        </form>
-                		<?php
-                	}
-					foreach ($todo_items as $todo_item) { ?>
-						<?php 
-							if ($todo_item['todo_checked'] == 1) {
-								?><form class="todo-item completed">
-								<input class="checkbox todo-checkbox" type="checkbox" checked><?php
-							} else {
-								?><form class="todo-item">
-								<input class="checkbox todo-checkbox" type="checkbox"><?php
-							}
-						?>
-	                    <label class="title todo-title"><?php echo $todo_item['todo_name']; ?></label>
-	                    <input class="textfield" type="text" autocomplete="off">
-	                    <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
-	                    <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
-	                </form>
-				<?php	
-					}
-				?>
-            </div>
+            <div class="todo-list-body">
+            	<div id="todo-list">
+	                <?php 
+	                	if (mysqli_num_rows($todo_items) == 0){
+	                		?>
+	                			<form class="todo-item">
+						            <input class="checkbox todo-checkbox" type="checkbox">
+						            <label class="title todo-title">Первая задача</label>
+						            <input class="textfield" type="text" autocomplete="off">
+						            <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
+						            <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
+						        </form>
+	                		<?php
+	                	}
+						foreach ($todo_items as $todo_item) { ?>
+							<?php 
+								if ($todo_item['todo_checked'] == 1) {
+									?><form class="todo-item completed">
+									<input class="checkbox todo-checkbox" type="checkbox" checked><?php
+								} else {
+									?><form class="todo-item">
+									<input class="checkbox todo-checkbox" type="checkbox"><?php
+								}
+							?>
+		                    <label class="title todo-title"><?php echo $todo_item['todo_name']; ?></label>
+		                    <input class="textfield" type="text" autocomplete="off">
+		                    <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
+		                    <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
+		                </form>
+					<?php	
+						}
+					?>
+	            </div>
 
-            <form id="todo-form">
-                <input id="add-input" type="text" autocomplete="off">
-                <button id="add-button" class="button" type="button">Добавить</button>
-            </form>
+	            <form id="todo-form">
+	                <input id="todo-add-input" type="text" autocomplete="off">
+	                <button id="todo-add-button" class="button" type="button">Добавить</button>
+	            </form>
+            </div>
 		</div>
+
+		<!-- ВИДЖЕТ ЗАМЕТКИ-->
+
 		<div id="notes-widget">
-			<div class="notes-widget__header">
+			<div class="notes-widget-header">
 				<h1>Заметки</h1>
 			</div>
-			<div class="notes-widget__body">
-				<div class="notes-widget__left">
-					<div class="notes-widget__item">					
-						<label class="title">Первая задача</label>
-						<input class="textfield" type="text" autocomplete="off">
-	                    <button class="edit button"><i class="fas fa-edit"></i></button>
-	                    <button class="delete button"><i class="fas fa-trash-alt"></i></button>
+			<div class="notes-widget-body">
+				<div class="notes-widget-left">
+					<div id="notes-list">
+						<form class="notes-item choosed">					
+							<label class="title notes-title">Первая задача</label>
+				            <input class="textfield" type="text" autocomplete="off">
+				            <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
+				            <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
+				            <p class="notes-text">Первая задача</p>
+						</form>
+						<form class="notes-item">					
+							<label class="title notes-title">Вторая задача</label>
+				            <input class="textfield" type="text" autocomplete="off">
+				            <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
+				            <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
+				            <p class="notes-text">Вторая задача</p>
+						</form>
 					</div>
-					<div class="notes-widget__item">					
-						<label class="title">Вторая задача</label>
-						<input class="textfield" type="text" autocomplete="off">
-	                    <button class="edit button"><i class="fas fa-edit"></i></button>
-	                    <button class="delete button"><i class="fas fa-trash-alt"></i></button>
-					</div>
-					<form id="notes-widget-form">
-		                <button id="add-button" class="button" type="submit">Добавить</button>
+					<form id="notes-form">
+		                <input id="notes-add-input" type="text" autocomplete="off">
+		                <button id="notes-add-button" class="button" type="button"><i class="fas fa-plus"></i></button>
 		            </form>
 				</div>
-				<div class="notes-widget__right">
-					<textarea name="text" id="notes-widget-textarea" cols="30" rows="10"></textarea>
+				<div class="notes-widget-right">
+					<textarea name="text" id="notes-textarea" cols="30" rows="10">Первая задача</textarea>
+					<button id="notes-save" class="button" type="button">Сохранить</button>
 				</div>
 			</div>
 		</div>
 		<div id="timetable-widget">
-			<div class="timetable-widget__header">
+			<div class="timetable-header">
 				<h1>Расписание</h1>
 			</div>
-			<div class="timetable-widget__body">
-				<div class="timetable-widget__day">
-					<button class="timetable-widget__day__prev__btn" onclick="PrevDay()"><i class="fas fa-arrow-left"></i></button>
-					<div class="timetable-widget__day__name">
+			<div class="timetable-body">
+				<div class="timetable-day">
+					<button class="timetable-day-prev-btn"><i class="fas fa-arrow-left"></i></button>
+					<div class="timetable-day-name">
 						<p id="timetable-day-name">Понедельник</p>
 					</div>
-					<button class="timetable-widget__day__next__btn" onclick="NextDay()"><i class="fas fa-arrow-right"></i></button>
+					<button class="timetable-day-next-btn"><i class="fas fa-arrow-right"></i></button>
 				</div>
-				<form action="main.php" method="POST">		
-					<div class="timetable-widget__lesson">
-						<p class="timetable-widget__lesson__number">1</p>
-						<div class="timetable-widget__lesson__name" id="first-lesson"><p>Математика</p></div>
+				<form id="timetable-monday">		
+					<div class="timetable-lesson">
+						<p class="timetable-lesson-number">1</p>
+						<div class="timetable-lesson-name" id="first-lesson"><p>Понедельник</p></div>
+						<p id="monday-1" class="lesson-hide">Понедельник</p>
+						<p id="tuesday-1" class="lesson-hide">Понедельник</p>
+						<p id="wednesday-1" class="lesson-hide">Понедельник</p>
+						<p id="thursday-1" class="lesson-hide">Понедельник</p>
+						<p id="friday-1" class="lesson-hide">Понедельник</p>
+						<p id="saturday-1" class="lesson-hide">Понедельник</p>
+						<p id="sunday-1" class="lesson-hide">Понедельник</p>
 					</div>
-					<div class="timetable-widget__lesson">
-						<p class="timetable-widget__lesson__number">2</p>
-						<div class="timetable-widget__lesson__name" id="second-lesson"><p>Математика</p></div>
+					<div class="timetable-lesson">
+						<p class="timetable-lesson-number">2</p>
+						<div class="timetable-lesson-name" id="second-lesson"><p>Вторник</p></div>
+						<p id="monday-2" class="lesson-hide">Вторник</p>
+						<p id="tuesday-2" class="lesson-hide">Вторник</p>
+						<p id="wednesday-2" class="lesson-hide">Вторник</p>
+						<p id="thursday-2" class="lesson-hide">Вторник</p>
+						<p id="friday-2" class="lesson-hide">Вторник</p>
+						<p id="saturday-2" class="lesson-hide">Вторник</p>
+						<p id="sunday-2" class="lesson-hide">Вторник</p>
 					</div>
-					<div class="timetable-widget__lesson">
-						<p class="timetable-widget__lesson__number">3</p>
-						<div class="timetable-widget__lesson__name" id="third-lesson"><p>Математика</p></div>
+					<div class="timetable-lesson">
+						<p class="timetable-lesson-number">3</p>
+						<div class="timetable-lesson-name" id="third-lesson"><p>Среда</p></div>
+						<p id="monday-3" class="lesson-hide">Среда</p>
+						<p id="tuesday-3" class="lesson-hide">Среда</p>
+						<p id="wednesday-3" class="lesson-hide">Среда</p>
+						<p id="thursday-3" class="lesson-hide">Среда</p>
+						<p id="friday-3" class="lesson-hide">Среда</p>
+						<p id="saturday-3" class="lesson-hide">Среда</p>
+						<p id="sunday-3" class="lesson-hide">Среда</p>
 					</div>
-					<div class="timetable-widget__lesson">
-						<p class="timetable-widget__lesson__number">4</p>
-						<div class="timetable-widget__lesson__name" id="fourth-lesson"><p>Математика</p></div>
+					<div class="timetable-lesson">
+						<p class="timetable-lesson-number">4</p>
+						<div class="timetable-lesson-name" id="fourth-lesson"><p>Четверг</p></div>
+						<p id="monday-4" class="lesson-hide">Четверг</p>
+						<p id="tuesday-4" class="lesson-hide">Четверг</p>
+						<p id="wednesday-4" class="lesson-hide">Четверг</p>
+						<p id="thursday-4" class="lesson-hide">Четверг</p>
+						<p id="friday-4" class="lesson-hide">Четверг</p>
+						<p id="saturday-4" class="lesson-hide">Четверг</p>
+						<p id="sunday-4" class="lesson-hide">Четверг</p>
 					</div>
-					<div class="timetable-widget__lesson">
-						<p class="timetable-widget__lesson__number">5</p>
-						<div class="timetable-widget__lesson__name" id="fifth-lesson"><p>Математика</p></div>
+					<div class="timetable-lesson">
+						<p class="timetable-lesson-number">5</p>
+						<div class="timetable-lesson-name" id="fifth-lesson"><p>Пятница</p></div>
+						<p id="monday-5" class="lesson-hide">Пятница</p>
+						<p id="tuesday-5" class="lesson-hide">Пятница</p>
+						<p id="wednesday-5" class="lesson-hide">Пятница</p>
+						<p id="thursday-5" class="lesson-hide">Пятница</p>
+						<p id="friday-5" class="lesson-hide">Пятница</p>
+						<p id="saturday-5" class="lesson-hide">Пятница</p>
+						<p id="sunday-5" class="lesson-hide">Пятница</p>
 					</div>
-					<div class="timetable-widget__lesson">
-						<p class="timetable-widget__lesson__number">6</p>
-						<div class="timetable-widget__lesson__name" id="sixth-lesson"><p>Математика</p></div>
+					<div class="timetable-lesson">
+						<p class="timetable-lesson-number">6</p>
+						<div class="timetable-lesson-name" id="sixth-lesson"><p>Суббота</p></div>
+						<p id="monday-6" class="lesson-hide">Суббота</p>
+						<p id="tuesday-6" class="lesson-hide">Суббота</p>
+						<p id="wednesday-6" class="lesson-hide">Суббота</p>
+						<p id="thursday-6" class="lesson-hide">Суббота</p>
+						<p id="friday-6" class="lesson-hide">Суббота</p>
+						<p id="saturday-6" class="lesson-hide">Суббота</p>
+						<p id="sunday-6" class="lesson-hide">Суббота</p>
 					</div>
-					<div class="timetable-widget__lesson">
-						<p class="timetable-widget__lesson__number">7</p>
-						<div class="timetable-widget__lesson__name" id="seventh-lesson"><p>Математика</p></div>
+					<div class="timetable-lesson">
+						<p class="timetable-lesson-number">7</p>
+						<div class="timetable-lesson-name" id="seventh-lesson"><p>Воскресенье</p></div>
+						<p id="monday-7" class="lesson-hide">Воскресенье</p>
+						<p id="tuesday-7" class="lesson-hide">Воскресенье</p>
+						<p id="wednesday-7" class="lesson-hide">Воскресенье</p>
+						<p id="thursday-7" class="lesson-hide">Воскресенье</p>
+						<p id="friday-7" class="lesson-hide">Воскресенье</p>
+						<p id="saturday-7" class="lesson-hide">Воскресенье</p>
+						<p id="sunday-7" class="lesson-hide">Воскресенье</p>
 					</div>
-					<div class="timetable-widget__btn">
-						<button class="timetable-widget__edit__btn button" onclick="EditDay()">Редактировать</button>
+					<div class="timetable-btn">
+						<button class="timetable-edit-btn button" type="button">Редактировать</button>
 					</div>
 					</form>
 			</div>
@@ -293,5 +356,6 @@ $todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connec
 <script src="js/to-do-list-widget.js"></script>
 <script src="js/timer-widget.js"></script>
 <script src="js/timetable-widget.js"></script>
+<script src="js/notes-widget.js"></script>
 </body>
 </html>

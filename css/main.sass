@@ -143,7 +143,7 @@ body
 			border-radius: 3px
 			font-size: 17px
 			font-family: $montserrat 
-			.tracker-widget__header
+			.tracker-widget-header
 				border-radius: 3px 3px 0px 0px
 				padding: 5px
 				background-color: $gray
@@ -154,8 +154,8 @@ body
 					font-family: $montserrat
 					font-size: 17px
 					line-height: 1.1
-			.tracker-widget__body
-				.tracker-widget__item
+			.tracker-widget-body
+				.tracker-widget-item
 					display: grid
 					grid-template-columns: 150px repeat(18, 35px)
 					height: 35px
@@ -184,17 +184,17 @@ body
 				-o-user-select: none
 				-webkit-user-select: none
 				user-select: none
-			.clock-widget__clock
+			.clock-widget-clock
 				position: relative
 				font-size: 50px
 				font-family: $montserrat
 				font-weight: bold 
-			.clock-widget__day
+			.clock-widget-day
 				position: relative
 				font-size: 45px
 				font-family: $montserrat
 				font-weight: bold 
-			.clock-widget__date 
+			.clock-widget-date 
 				position: relative
 				font-size: 45px
 				font-family: $montserrat
@@ -206,6 +206,7 @@ body
 			font-size: 17px 
 			max-width: 350px
 			min-height: 440px
+			
 			.todo-list-header
 				position: relative
 				border-radius: 3px 3px 0px 0px
@@ -219,81 +220,90 @@ body
 					font-family: $montserrat
 					font-size: 17px
 					line-height: 1.1  
-			ul
-				list-style: none
 			
-			input
-				font-family: $montserrat
-				font-size: 17px
-				color: #757575
-				padding: 5px
-				border-radius: 2px
-				border: 1px solid lightgray
-				outline: none
-				
-			.todo-item
+			.todo-list-body
 				display: grid
-				grid-template-columns: 15px 1fr 36px 36px
-				grid-gap: 2px
-				font-size: 17px
-				border-top: 1px solid $light-gray
-				background-color: #fff
-				transition: all .2s
-				-webkit-user-select: none
-				user-select: none
-				padding: 10px
-				align-items: center
+				grid-auto-rows: 1fr 56px
+				grid-template-columns: 1fr
+
+				ul
+					list-style: none
 				
-			.todo-item .title
-				font-family: $montserrat
-				font-size: 17px  
+				input
+					font-family: $montserrat
+					font-size: 17px
+					color: #757575
+					padding: 5px
+					border-radius: 2px
+					border: 1px solid lightgray
+					outline: none
+					
+				#todo-list
+					display: grid
+					grid-auto-rows: 56px
+					max-width: 350px
+					.todo-item
+						display: grid
+						grid-template-columns: 15px 1fr 36px 36px
+						grid-gap: 2px
+						font-size: 17px
+						border-bottom: 1px solid $light-gray
+						background-color: #fff
+						transition: all .2s
+						-webkit-user-select: none
+						user-select: none
+						padding: 10px
+						align-items: center
+						box-sizing: border-box
+						
+					.todo-item .title
+						font-family: $montserrat
+						font-size: 17px  
 
-			.todo-item .completed *
-				color: lightgray
+					.todo-item .completed *
+						color: lightgray
 
-			.todo-item .title,
-			.todo-item .textfield
-				margin-right: auto
-				margin-left: 8px
+					.todo-item .title,
+					.todo-item .textfield
+						margin-right: auto
+						margin-left: 8px
 
-			.todo-item.completed .title
-				text-decoration: line-through
+					.todo-item.completed .title
+						text-decoration: line-through
 
-			.todo-item.editing .title
-				display: none
+					.todo-item.editing .title
+						display: none
 
-			.todo-item .textfield
-				display: none
+					.todo-item .textfield
+						display: none
 
-			.todo-item.editing .textfield
-				display: block
+					.todo-item.editing .textfield
+						display: block
 
-			.todo-item button
-				opacity: 0
-				transition: all .2s
-				width: 36px
+					.todo-item button
+						opacity: 0
+						transition: all .2s
+						width: 36px
 
-			.todo-item:hover button:not(.checkbox)
-				opacity: 1
+					.todo-item:hover button:not(.checkbox)
+						opacity: 1
 
-			/* Todo form */
+				/* Todo form */
 
-			#todo-form
-				display: flex
-				background-color: #FAFAFA
-				border-top: 1px solid $light-gray
-				padding: 10px
+				#todo-form
+					display: flex
+					background-color: #FAFAFA
+					padding: 10px
+					box-sizing: border-box
+					max-width: 350px 
 
-			#todo-form input
-				flex: 1
-				outline: none
-				transition: all .2s
+				#todo-form input
+					flex: 1
+					outline: none
+					transition: all .2s
 
-			#todo-form input:focus
-				border: 1px solid #f0db4f
-
-			#todo-form button
-				margin-left: 10px
+				#todo-form button
+					margin-left: 10px
 
 		#timetable-widget
 			grid-area: timetable-widget
@@ -303,7 +313,7 @@ body
 			max-width: 350px 
 			min-height: 350px 
 			font-family: $montserrat 
-			.timetable-widget__header
+			.timetable-header
 				border-radius: 3px 3px 0px 0px
 				overflow: hidden
 				padding: 5px
@@ -315,45 +325,47 @@ body
 					font-family: $montserrat
 					font-size: 17px
 					line-height: 1.1
-			.timetable-widget__body
+			.timetable-body
 				display: grid
 				grid-template-rows: 1fr
 				grid-template-columns: 1fr
-				.timetable-widget__day
+				.timetable-day
 					display: grid
 					grid-template-columns: 30px 1fr 30px
 					min-height: 35px
 					justify-items: center
 					align-items: center
 					border-bottom: 1px solid $light-gray
-					.timetable-widget__day__name
+					.timetable-day-name
 						p
 							font-weight: bold 
-					.timetable-widget__day__prev__btn,
-					.timetable-widget__day__next__btn
+					.timetable-day-prev-btn,
+					.timetable-day-next-btn
 						cursor: pointer
 						padding: 0
 						border: none
 						font: inherit
 						color: inherit
 						background-color: transparent
-					.timetable-widget__day__prev__btn:hover,
-					.timetable-widget__day__next__btn:hover
+					.timetable-day-prev-btn:hover,
+					.timetable-day-next-btn:hover
 						color: $gray
-					.timetable-widget__day__prev__btn:focus,
-					.timetable-widget__day__next__btn:focus,
-					.timetable-widget__day__prev__btn:active,
-					.timetable-widget__day__next__btn:active
+					.timetable-day-prev-btn:focus,
+					.timetable-day-next-btn:focus,
+					.timetable-day-prev-btn:active,
+					.timetable-day-next-btn:active
 						outline: none
-				.timetable-widget__lesson:last-child
+				.timetable-lesson:last-child
 					border-bottom: hidden
-				.timetable-widget__lesson
+				.timetable-lesson
 					display: grid
 					grid-template-columns: 30px 1fr
 					min-height: 35px
 					align-items: center
 					border-bottom: 1px solid $light-gray
-					.timetable-widget__lesson__number
+					.lesson-hide
+						display: none
+					.timetable-lesson-number
 						justify-self: center
 						align-items: center
 						text-align: center
@@ -362,24 +374,24 @@ body
 							width: 100%
 							height: 100%
 							position: relative
-					.timetable-widget__lesson__name
+					.timetable-lesson-name
 						display: grid
 						box-sizing: border-box
 						border-left: 1px solid $light-gray
 						align-items: center
-						p
-							padding: 0px 10px
+						padding: 0px 10px
+						height: 100%
 						input
 							font-size: 17px 
-							margin: 0px 5px
-							max-width: 95%
+							max-width: 100%
 							font-family: "Montserrat", sans-serif
 							color: #757575
-							padding: 4px 7px
+							padding: 4px 5px
 							border-radius: 2px
 							border: 1px solid lightgray
 							outline: none
-				.timetable-widget__edit__btn
+							margin-left: -6px
+				.timetable-edit-btn
 					min-height: 35px
 					width: 100%
 			
@@ -389,7 +401,7 @@ body
 			border-radius: 3px
 			font-size: 17px
 			font-family: $montserrat 
-			.notes-widget__header
+			.notes-widget-header
 				border-radius: 3px 3px 0px 0px
 				padding: 5px
 				background-color: $gray
@@ -400,56 +412,103 @@ body
 					font-family: $montserrat
 					font-size: 17px
 					line-height: 1.1
-			.notes-widget__body
+			.notes-widget-body
 				display: grid
-				grid-template-columns: 250px 1fr 
+				grid-template-columns: 320px 1fr 
 				grid-template-rows: minmax(72px, 1fr)
 				height: 94%
-				.notes-widget__left
+				
+				ul
+					list-style: none
+			
+				input
+					font-family: $montserrat
+					font-size: 17px
+					color: #757575
+					padding: 5px
+					border-radius: 2px
+					border: 1px solid lightgray
+					outline: none
+					
+				.notes-widget-left
 					display: grid
-					grid-auto-rows: 56px
-					.notes-widget__item
+					grid-auto-rows: 1fr 56px
+					
+					#notes-list
 						display: grid
-						grid-template-columns: 1fr 36px 36px
-						grid-gap: 2px
-						font-size: 17px
+						grid-auto-rows: 56px
+						max-width: 320px
+						
+						.notes-item
+							display: grid
+							grid-template-columns: 1fr 36px 36px
+							grid-gap: 2px
+							font-size: 17px
+							border-bottom: 1px solid $light-gray
+							background-color: #fff
+							transition: all .2s
+							-webkit-user-select: none
+							user-select: none
+							padding: 10px
+							align-items: center
+							box-sizing: border-box
+							cursor: pointer
+							
+						.notes-item .title
+							font-family: $montserrat
+							font-size: 17px 
+							cursor: pointer
+
+						.notes-item .completed *
+							color: lightgray
+
+						.notes-item .title,
+						.notes-item .textfield
+							//margin-right: auto
+							margin-left: 8px
+
+						.notes-item.completed .title
+							text-decoration: line-through
+
+						.notes-item.editing .title
+							display: none
+
+						.notes-item .textfield
+							display: none
+
+						.notes-item.editing .textfield
+							display: block
+
+						.notes-item button
+							width: 36px
+							
+						.notes-item .notes-text
+							display: none
+											
+						.choosed
+							background-color: #E3E2D8
+							
+					#notes-form
+						display: flex
+						background-color: #FAFAFA
 						border-top: 1px solid $light-gray
-						background-color: #fff
-						transition: all .2s
-						-webkit-user-select: none
-						user-select: none
-						align-items: center 
 						padding: 10px
-						max-height: 36x
-					.notes-widget__item .title
-						font-family: $montserrat
-						font-size: 17px  
+						max-width: 320px
+						box-sizing: border-box
 
-					.notes-widget__item .title,
-					.notes-widget__item .textfield
-						margin-right: auto
-						margin-left: 8px
+					#notes-form input
+						flex: 1
+						outline: none
+						transition: all .2s
 
-					.notes-widget__item button
+					#notes-form button
+						margin-left: 10px
 						width: 36px
-					.notes-widget__item.editing .title
-						display: none
-
-					.notes-widget__item .textfield
-						display: none
-
-					.notes-widget__item.editing .textfield
-						display: block
-					#notes-widget-form
-						display: grid
-						grid-template-columns: 1fr
-						max-height: 36px
-						#add-button
-							width: 100%
-							justify-self: center
-							align-self: center
-				.notes-widget__right
+						height: 36px
+				
+				.notes-widget-right
 					height: 100%
+					
 					textarea
 						height: 100%
 						position: relative
@@ -460,6 +519,7 @@ body
 						font-family: $montserrat
 						outline: none  
 						padding: 10px
+						
 					textarea:active,
 					textarea:focus
 						outline: none

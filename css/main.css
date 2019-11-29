@@ -135,24 +135,24 @@ body section {
     border-radius: 3px;
     font-size: 17px;
     font-family: "Montserrat", sans-serif; }
-    body section #tracker-widget .tracker-widget__header {
+    body section #tracker-widget .tracker-widget-header {
       border-radius: 3px 3px 0px 0px;
       padding: 5px;
       background-color: #3C3C3F;
       color: #fff;
       text-align: center; }
-      body section #tracker-widget .tracker-widget__header h1 {
+      body section #tracker-widget .tracker-widget-header h1 {
         text-transform: uppercase;
         font-family: "Montserrat", sans-serif;
         font-size: 17px;
         line-height: 1.1; }
-    body section #tracker-widget .tracker-widget__body .tracker-widget__item {
+    body section #tracker-widget .tracker-widget-body .tracker-widget-item {
       display: grid;
       grid-template-columns: 150px repeat(18, 35px);
       height: 35px;
       justify-items: center;
       align-items: center; }
-      body section #tracker-widget .tracker-widget__body .tracker-widget__item input {
+      body section #tracker-widget .tracker-widget-body .tracker-widget-item input {
         height: 30px;
         width: 30px;
         background-color: #FFF;
@@ -174,17 +174,17 @@ body section {
       -o-user-select: none;
       -webkit-user-select: none;
       user-select: none; }
-    body section #clock-widget .clock-widget__clock {
+    body section #clock-widget .clock-widget-clock {
       position: relative;
       font-size: 50px;
       font-family: "Montserrat", sans-serif;
       font-weight: bold; }
-    body section #clock-widget .clock-widget__day {
+    body section #clock-widget .clock-widget-day {
       position: relative;
       font-size: 45px;
       font-family: "Montserrat", sans-serif;
       font-weight: bold; }
-    body section #clock-widget .clock-widget__date {
+    body section #clock-widget .clock-widget-date {
       position: relative;
       font-size: 45px;
       font-family: "Montserrat", sans-serif;
@@ -195,8 +195,7 @@ body section {
     border-radius: 3px;
     font-size: 17px;
     max-width: 350px;
-    min-height: 440px;
-    /* Todo form */ }
+    min-height: 440px; }
     body section #todo-list-widget .todo-list-header {
       position: relative;
       border-radius: 3px 3px 0px 0px;
@@ -210,64 +209,73 @@ body section {
         font-family: "Montserrat", sans-serif;
         font-size: 17px;
         line-height: 1.1; }
-    body section #todo-list-widget ul {
-      list-style: none; }
-    body section #todo-list-widget input {
-      font-family: "Montserrat", sans-serif;
-      font-size: 17px;
-      color: #757575;
-      padding: 5px;
-      border-radius: 2px;
-      border: 1px solid lightgray;
-      outline: none; }
-    body section #todo-list-widget .todo-item {
+    body section #todo-list-widget .todo-list-body {
       display: grid;
-      grid-template-columns: 15px 1fr 36px 36px;
-      grid-gap: 2px;
-      font-size: 17px;
-      border-top: 1px solid #C2C2CC;
-      background-color: #fff;
-      transition: all 0.2s;
-      -webkit-user-select: none;
-      user-select: none;
-      padding: 10px;
-      align-items: center; }
-    body section #todo-list-widget .todo-item .title {
-      font-family: "Montserrat", sans-serif;
-      font-size: 17px; }
-    body section #todo-list-widget .todo-item .completed * {
-      color: lightgray; }
-    body section #todo-list-widget .todo-item .title,
-    body section #todo-list-widget .todo-item .textfield {
-      margin-right: auto;
-      margin-left: 8px; }
-    body section #todo-list-widget .todo-item.completed .title {
-      text-decoration: line-through; }
-    body section #todo-list-widget .todo-item.editing .title {
-      display: none; }
-    body section #todo-list-widget .todo-item .textfield {
-      display: none; }
-    body section #todo-list-widget .todo-item.editing .textfield {
-      display: block; }
-    body section #todo-list-widget .todo-item button {
-      opacity: 0;
-      transition: all 0.2s;
-      width: 36px; }
-    body section #todo-list-widget .todo-item:hover button:not(.checkbox) {
-      opacity: 1; }
-    body section #todo-list-widget #todo-form {
-      display: flex;
-      background-color: #FAFAFA;
-      border-top: 1px solid #C2C2CC;
-      padding: 10px; }
-    body section #todo-list-widget #todo-form input {
-      flex: 1;
-      outline: none;
-      transition: all 0.2s; }
-    body section #todo-list-widget #todo-form input:focus {
-      border: 1px solid #f0db4f; }
-    body section #todo-list-widget #todo-form button {
-      margin-left: 10px; }
+      grid-auto-rows: 1fr 56px;
+      grid-template-columns: 1fr;
+      /* Todo form */ }
+      body section #todo-list-widget .todo-list-body ul {
+        list-style: none; }
+      body section #todo-list-widget .todo-list-body input {
+        font-family: "Montserrat", sans-serif;
+        font-size: 17px;
+        color: #757575;
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid lightgray;
+        outline: none; }
+      body section #todo-list-widget .todo-list-body #todo-list {
+        display: grid;
+        grid-auto-rows: 56px;
+        max-width: 350px; }
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item {
+          display: grid;
+          grid-template-columns: 15px 1fr 36px 36px;
+          grid-gap: 2px;
+          font-size: 17px;
+          border-bottom: 1px solid #C2C2CC;
+          background-color: #fff;
+          transition: all 0.2s;
+          -webkit-user-select: none;
+          user-select: none;
+          padding: 10px;
+          align-items: center;
+          box-sizing: border-box; }
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item .title {
+          font-family: "Montserrat", sans-serif;
+          font-size: 17px; }
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item .completed * {
+          color: lightgray; }
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item .title,
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item .textfield {
+          margin-right: auto;
+          margin-left: 8px; }
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item.completed .title {
+          text-decoration: line-through; }
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item.editing .title {
+          display: none; }
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item .textfield {
+          display: none; }
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item.editing .textfield {
+          display: block; }
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item button {
+          opacity: 0;
+          transition: all 0.2s;
+          width: 36px; }
+        body section #todo-list-widget .todo-list-body #todo-list .todo-item:hover button:not(.checkbox) {
+          opacity: 1; }
+      body section #todo-list-widget .todo-list-body #todo-form {
+        display: flex;
+        background-color: #FAFAFA;
+        padding: 10px;
+        box-sizing: border-box;
+        max-width: 350px; }
+      body section #todo-list-widget .todo-list-body #todo-form input {
+        flex: 1;
+        outline: none;
+        transition: all 0.2s; }
+      body section #todo-list-widget .todo-list-body #todo-form button {
+        margin-left: 10px; }
   body section #timetable-widget {
     grid-area: timetable-widget;
     background-color: #fff;
@@ -276,82 +284,84 @@ body section {
     max-width: 350px;
     min-height: 350px;
     font-family: "Montserrat", sans-serif; }
-    body section #timetable-widget .timetable-widget__header {
+    body section #timetable-widget .timetable-header {
       border-radius: 3px 3px 0px 0px;
       overflow: hidden;
       padding: 5px;
       background-color: #3C3C3F;
       color: #fff;
       text-align: center; }
-      body section #timetable-widget .timetable-widget__header h1 {
+      body section #timetable-widget .timetable-header h1 {
         text-transform: uppercase;
         font-family: "Montserrat", sans-serif;
         font-size: 17px;
         line-height: 1.1; }
-    body section #timetable-widget .timetable-widget__body {
+    body section #timetable-widget .timetable-body {
       display: grid;
       grid-template-rows: 1fr;
       grid-template-columns: 1fr; }
-      body section #timetable-widget .timetable-widget__body .timetable-widget__day {
+      body section #timetable-widget .timetable-body .timetable-day {
         display: grid;
         grid-template-columns: 30px 1fr 30px;
         min-height: 35px;
         justify-items: center;
         align-items: center;
         border-bottom: 1px solid #C2C2CC; }
-        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__name p {
+        body section #timetable-widget .timetable-body .timetable-day .timetable-day-name p {
           font-weight: bold; }
-        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__prev__btn,
-        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__next__btn {
+        body section #timetable-widget .timetable-body .timetable-day .timetable-day-prev-btn,
+        body section #timetable-widget .timetable-body .timetable-day .timetable-day-next-btn {
           cursor: pointer;
           padding: 0;
           border: none;
           font: inherit;
           color: inherit;
           background-color: transparent; }
-        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__prev__btn:hover,
-        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__next__btn:hover {
+        body section #timetable-widget .timetable-body .timetable-day .timetable-day-prev-btn:hover,
+        body section #timetable-widget .timetable-body .timetable-day .timetable-day-next-btn:hover {
           color: #3C3C3F; }
-        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__prev__btn:focus,
-        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__next__btn:focus,
-        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__prev__btn:active,
-        body section #timetable-widget .timetable-widget__body .timetable-widget__day .timetable-widget__day__next__btn:active {
+        body section #timetable-widget .timetable-body .timetable-day .timetable-day-prev-btn:focus,
+        body section #timetable-widget .timetable-body .timetable-day .timetable-day-next-btn:focus,
+        body section #timetable-widget .timetable-body .timetable-day .timetable-day-prev-btn:active,
+        body section #timetable-widget .timetable-body .timetable-day .timetable-day-next-btn:active {
           outline: none; }
-      body section #timetable-widget .timetable-widget__body .timetable-widget__lesson:last-child {
+      body section #timetable-widget .timetable-body .timetable-lesson:last-child {
         border-bottom: hidden; }
-      body section #timetable-widget .timetable-widget__body .timetable-widget__lesson {
+      body section #timetable-widget .timetable-body .timetable-lesson {
         display: grid;
         grid-template-columns: 30px 1fr;
         min-height: 35px;
         align-items: center;
         border-bottom: 1px solid #C2C2CC; }
-        body section #timetable-widget .timetable-widget__body .timetable-widget__lesson .timetable-widget__lesson__number {
+        body section #timetable-widget .timetable-body .timetable-lesson .lesson-hide {
+          display: none; }
+        body section #timetable-widget .timetable-body .timetable-lesson .timetable-lesson-number {
           justify-self: center;
           align-items: center;
           text-align: center; }
-          body section #timetable-widget .timetable-widget__body .timetable-widget__lesson .timetable-widget__lesson__number p {
+          body section #timetable-widget .timetable-body .timetable-lesson .timetable-lesson-number p {
             padding: auto;
             width: 100%;
             height: 100%;
             position: relative; }
-        body section #timetable-widget .timetable-widget__body .timetable-widget__lesson .timetable-widget__lesson__name {
+        body section #timetable-widget .timetable-body .timetable-lesson .timetable-lesson-name {
           display: grid;
           box-sizing: border-box;
           border-left: 1px solid #C2C2CC;
-          align-items: center; }
-          body section #timetable-widget .timetable-widget__body .timetable-widget__lesson .timetable-widget__lesson__name p {
-            padding: 0px 10px; }
-          body section #timetable-widget .timetable-widget__body .timetable-widget__lesson .timetable-widget__lesson__name input {
+          align-items: center;
+          padding: 0px 10px;
+          height: 100%; }
+          body section #timetable-widget .timetable-body .timetable-lesson .timetable-lesson-name input {
             font-size: 17px;
-            margin: 0px 5px;
-            max-width: 95%;
+            max-width: 100%;
             font-family: "Montserrat", sans-serif;
             color: #757575;
-            padding: 4px 7px;
+            padding: 4px 5px;
             border-radius: 2px;
             border: 1px solid lightgray;
-            outline: none; }
-      body section #timetable-widget .timetable-widget__body .timetable-widget__edit__btn {
+            outline: none;
+            margin-left: -6px; }
+      body section #timetable-widget .timetable-body .timetable-edit-btn {
         min-height: 35px;
         width: 100%; }
   body section #notes-widget {
@@ -360,64 +370,94 @@ body section {
     border-radius: 3px;
     font-size: 17px;
     font-family: "Montserrat", sans-serif; }
-    body section #notes-widget .notes-widget__header {
+    body section #notes-widget .notes-widget-header {
       border-radius: 3px 3px 0px 0px;
       padding: 5px;
       background-color: #3C3C3F;
       color: #fff;
       text-align: center; }
-      body section #notes-widget .notes-widget__header h1 {
+      body section #notes-widget .notes-widget-header h1 {
         text-transform: uppercase;
         font-family: "Montserrat", sans-serif;
         font-size: 17px;
         line-height: 1.1; }
-    body section #notes-widget .notes-widget__body {
+    body section #notes-widget .notes-widget-body {
       display: grid;
-      grid-template-columns: 250px 1fr;
+      grid-template-columns: 320px 1fr;
       grid-template-rows: minmax(72px, 1fr);
       height: 94%; }
-      body section #notes-widget .notes-widget__body .notes-widget__left {
+      body section #notes-widget .notes-widget-body ul {
+        list-style: none; }
+      body section #notes-widget .notes-widget-body input {
+        font-family: "Montserrat", sans-serif;
+        font-size: 17px;
+        color: #757575;
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid lightgray;
+        outline: none; }
+      body section #notes-widget .notes-widget-body .notes-widget-left {
         display: grid;
-        grid-auto-rows: 56px; }
-        body section #notes-widget .notes-widget__body .notes-widget__left .notes-widget__item {
+        grid-auto-rows: 1fr 56px; }
+        body section #notes-widget .notes-widget-body .notes-widget-left #notes-list {
           display: grid;
-          grid-template-columns: 1fr 36px 36px;
-          grid-gap: 2px;
-          font-size: 17px;
+          grid-auto-rows: 56px;
+          max-width: 320px; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item {
+            display: grid;
+            grid-template-columns: 1fr 36px 36px;
+            grid-gap: 2px;
+            font-size: 17px;
+            border-bottom: 1px solid #C2C2CC;
+            background-color: #fff;
+            transition: all 0.2s;
+            -webkit-user-select: none;
+            user-select: none;
+            padding: 10px;
+            align-items: center;
+            box-sizing: border-box;
+            cursor: pointer; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .title {
+            font-family: "Montserrat", sans-serif;
+            font-size: 17px;
+            cursor: pointer; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .completed * {
+            color: lightgray; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .title,
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .textfield {
+            margin-left: 8px; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item.completed .title {
+            text-decoration: line-through; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item.editing .title {
+            display: none; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .textfield {
+            display: none; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item.editing .textfield {
+            display: block; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item button {
+            width: 36px; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .notes-text {
+            display: none; }
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .choosed {
+            background-color: #E3E2D8; }
+        body section #notes-widget .notes-widget-body .notes-widget-left #notes-form {
+          display: flex;
+          background-color: #FAFAFA;
           border-top: 1px solid #C2C2CC;
-          background-color: #fff;
-          transition: all 0.2s;
-          -webkit-user-select: none;
-          user-select: none;
-          align-items: center;
           padding: 10px;
-          max-height: 36x; }
-        body section #notes-widget .notes-widget__body .notes-widget__left .notes-widget__item .title {
-          font-family: "Montserrat", sans-serif;
-          font-size: 17px; }
-        body section #notes-widget .notes-widget__body .notes-widget__left .notes-widget__item .title,
-        body section #notes-widget .notes-widget__body .notes-widget__left .notes-widget__item .textfield {
-          margin-right: auto;
-          margin-left: 8px; }
-        body section #notes-widget .notes-widget__body .notes-widget__left .notes-widget__item button {
-          width: 36px; }
-        body section #notes-widget .notes-widget__body .notes-widget__left .notes-widget__item.editing .title {
-          display: none; }
-        body section #notes-widget .notes-widget__body .notes-widget__left .notes-widget__item .textfield {
-          display: none; }
-        body section #notes-widget .notes-widget__body .notes-widget__left .notes-widget__item.editing .textfield {
-          display: block; }
-        body section #notes-widget .notes-widget__body .notes-widget__left #notes-widget-form {
-          display: grid;
-          grid-template-columns: 1fr;
-          max-height: 36px; }
-          body section #notes-widget .notes-widget__body .notes-widget__left #notes-widget-form #add-button {
-            width: 100%;
-            justify-self: center;
-            align-self: center; }
-      body section #notes-widget .notes-widget__body .notes-widget__right {
+          max-width: 320px;
+          box-sizing: border-box; }
+        body section #notes-widget .notes-widget-body .notes-widget-left #notes-form input {
+          flex: 1;
+          outline: none;
+          transition: all 0.2s; }
+        body section #notes-widget .notes-widget-body .notes-widget-left #notes-form button {
+          margin-left: 10px;
+          width: 36px;
+          height: 36px; }
+      body section #notes-widget .notes-widget-body .notes-widget-right {
         height: 100%; }
-        body section #notes-widget .notes-widget__body .notes-widget__right textarea {
+        body section #notes-widget .notes-widget-body .notes-widget-right textarea {
           height: 100%;
           position: relative;
           width: 100%;
@@ -427,8 +467,8 @@ body section {
           font-family: "Montserrat", sans-serif;
           outline: none;
           padding: 10px; }
-        body section #notes-widget .notes-widget__body .notes-widget__right textarea:active,
-        body section #notes-widget .notes-widget__body .notes-widget__right textarea:focus {
+        body section #notes-widget .notes-widget-body .notes-widget-right textarea:active,
+        body section #notes-widget .notes-widget-body .notes-widget-right textarea:focus {
           outline: none; }
   body section #timer-widget {
     grid-area: timer-widget;
