@@ -48,6 +48,9 @@ $timetable_sunday = mysqli_fetch_assoc($timetable_result);
 		</div>
 	</header>
 	<section>
+
+		<!-- ВИДЖЕТ КАЛЕНДАРЬ-->
+
 		<div id="calendar-widget">
 			<div class="calendar-header">
 				<h1>Календарь</h1>
@@ -59,119 +62,125 @@ $timetable_sunday = mysqli_fetch_assoc($timetable_result);
 				<tbody>
 			</table>
 		</div>
+
+		<!-- ВИДЖЕТ ТРЕКЕР-->
+
 		<div id="tracker-widget">
 			<div class="tracker-widget-header">
 				<h1>Трекер привычек</h1>
 			</div>
 			<div class="tracker-widget-body">
 				<!-- .tracker-widget-item*8>.tracker-widget-item-name+input[type="checkbox"]*5 -->
+				<form class="tracker-widget-item">
+					<input class="tracker-item-name" type="text" autocomplete="off" value="Привычка 1">
+					<input id="tracker-first-1" class="tracker-checkbox tracker_1" type="checkbox">
+					<input id="tracker-first-2" class="tracker-checkbox tracker_2" type="checkbox">
+					<input id="tracker-first-3" class="tracker-checkbox tracker_3" type="checkbox">
+					<input id="tracker-first-4" class="tracker-checkbox tracker_4" type="checkbox">
+					<input id="tracker-first-5" class="tracker-checkbox tracker_5" type="checkbox">
+					<input id="tracker-first-6" class="tracker-checkbox tracker_6" type="checkbox">
+					<input id="tracker-first-7" class="tracker-checkbox tracker_7" type="checkbox">
+					<input id="tracker-first-8" class="tracker-checkbox tracker_8" type="checkbox">
+					<input id="tracker-first-9" class="tracker-checkbox tracker_9" type="checkbox">
+					<input id="tracker-first-10" class="tracker-checkbox tracker_10" type="checkbox">
+					<input id="tracker-first-11" class="tracker-checkbox tracker_11" type="checkbox">
+					<input id="tracker-first-12" class="tracker-checkbox tracker_12" type="checkbox">
+					<input id="tracker-first-13" class="tracker-checkbox tracker_13" type="checkbox">
+					<input id="tracker-first-14" class="tracker-checkbox tracker_14" type="checkbox">
+					<input id="tracker-first-15" class="tracker-checkbox tracker_15" type="checkbox">
+					<input id="tracker-first-16" class="tracker-checkbox tracker_16" type="checkbox">
+					<input id="tracker-first-17" class="tracker-checkbox tracker_17" type="checkbox">
+					<input id="tracker-first-18" class="tracker-checkbox tracker_18" type="checkbox">
+				</form>
 				<div class="tracker-widget-item">
-					<div class="tracker-widget-item-name">Привычка 1</div>
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
+					<input class="tracker-item-name" type="text" autocomplete="off" value="Привычка 2">
+					<input id="tracker-second-1" class="tracker-checkbox tracker_1" type="checkbox">
+					<input id="tracker-second-2" class="tracker-checkbox tracker_2" type="checkbox">
+					<input id="tracker-second-3" class="tracker-checkbox tracker_3" type="checkbox">
+					<input id="tracker-second-4" class="tracker-checkbox tracker_4" type="checkbox">
+					<input id="tracker-second-5" class="tracker-checkbox tracker_5" type="checkbox">
+					<input id="tracker-second-6" class="tracker-checkbox tracker_6" type="checkbox">
+					<input id="tracker-second-7" class="tracker-checkbox tracker_7" type="checkbox">
+					<input id="tracker-second-8" class="tracker-checkbox tracker_8" type="checkbox">
+					<input id="tracker-second-9" class="tracker-checkbox tracker_9" type="checkbox">
+					<input id="tracker-second-10" class="tracker-checkbox tracker_10" type="checkbox">
+					<input id="tracker-second-11" class="tracker-checkbox tracker_11" type="checkbox">
+					<input id="tracker-second-12" class="tracker-checkbox tracker_12" type="checkbox">
+					<input id="tracker-second-13" class="tracker-checkbox tracker_13" type="checkbox">
+					<input id="tracker-second-14" class="tracker-checkbox tracker_14" type="checkbox">
+					<input id="tracker-second-15" class="tracker-checkbox tracker_15" type="checkbox">
+					<input id="tracker-second-16" class="tracker-checkbox tracker_16" type="checkbox">
+					<input id="tracker-second-17" class="tracker-checkbox tracker_17" type="checkbox">
+					<input id="tracker-second-18" class="tracker-checkbox tracker_18" type="checkbox">
 				</div>
 				<div class="tracker-widget-item">
-					<div class="tracker-widget-item-name">Привычка 2</div>
-					<input type="checkbox" class="tracker-widget-item-checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
+					<input class="tracker-item-name" type="text" autocomplete="off" value="Привычка 3">
+					<input id="tracker-third-1" class="tracker-checkbox tracker_1" type="checkbox">
+					<input id="tracker-third-2" class="tracker-checkbox tracker_2" type="checkbox">
+					<input id="tracker-third-3" class="tracker-checkbox tracker_3" type="checkbox">
+					<input id="tracker-third-4" class="tracker-checkbox tracker_4" type="checkbox">
+					<input id="tracker-third-5" class="tracker-checkbox tracker_5" type="checkbox">
+					<input id="tracker-third-6" class="tracker-checkbox tracker_6" type="checkbox">
+					<input id="tracker-third-7" class="tracker-checkbox tracker_7" type="checkbox">
+					<input id="tracker-third-8" class="tracker-checkbox tracker_8" type="checkbox">
+					<input id="tracker-third-9" class="tracker-checkbox tracker_9" type="checkbox">
+					<input id="tracker-third-10" class="tracker-checkbox tracker_10" type="checkbox">
+					<input id="tracker-third-11" class="tracker-checkbox tracker_11" type="checkbox">
+					<input id="tracker-third-12" class="tracker-checkbox tracker_12" type="checkbox">
+					<input id="tracker-third-13" class="tracker-checkbox tracker_13" type="checkbox">
+					<input id="tracker-third-14" class="tracker-checkbox tracker_14" type="checkbox">
+					<input id="tracker-third-15" class="tracker-checkbox tracker_15" type="checkbox">
+					<input id="tracker-third-16" class="tracker-checkbox tracker_16" type="checkbox">
+					<input id="tracker-third-17" class="tracker-checkbox tracker_17" type="checkbox">
+					<input id="tracker-third-18" class="tracker-checkbox tracker_18" type="checkbox">
 				</div>
 				<div class="tracker-widget-item">
-					<div class="tracker-widget-item-name">Привычка 3</div>
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
+					<input class="tracker-item-name" type="text" autocomplete="off" value="Привычка 4">
+					<input id="tracker-fourth-1" class="tracker-checkbox tracker_1" type="checkbox">
+					<input id="tracker-fourth-2" class="tracker-checkbox tracker_2" type="checkbox">
+					<input id="tracker-fourth-3" class="tracker-checkbox tracker_3" type="checkbox">
+					<input id="tracker-fourth-4" class="tracker-checkbox tracker_4" type="checkbox">
+					<input id="tracker-fourth-5" class="tracker-checkbox tracker_5" type="checkbox">
+					<input id="tracker-fourth-6" class="tracker-checkbox tracker_6" type="checkbox">
+					<input id="tracker-fourth-7" class="tracker-checkbox tracker_7" type="checkbox">
+					<input id="tracker-fourth-8" class="tracker-checkbox tracker_8" type="checkbox">
+					<input id="tracker-fourth-9" class="tracker-checkbox tracker_9" type="checkbox">
+					<input id="tracker-fourth-10" class="tracker-checkbox tracker_10" type="checkbox">
+					<input id="tracker-fourth-11" class="tracker-checkbox tracker_11" type="checkbox">
+					<input id="tracker-fourth-12" class="tracker-checkbox tracker_12" type="checkbox">
+					<input id="tracker-fourth-13" class="tracker-checkbox tracker_13" type="checkbox">
+					<input id="tracker-fourth-14" class="tracker-checkbox tracker_14" type="checkbox">
+					<input id="tracker-fourth-15" class="tracker-checkbox tracker_15" type="checkbox">
+					<input id="tracker-fourth-16" class="tracker-checkbox tracker_16" type="checkbox">
+					<input id="tracker-fourth-17" class="tracker-checkbox tracker_17" type="checkbox">
+					<input id="tracker-fourth-18" class="tracker-checkbox tracker_18" type="checkbox">
 				</div>
 				<div class="tracker-widget-item">
-					<div class="tracker-widget-item-name">Привычка 4</div>
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-				</div>
-				<div class="tracker-widget-item">
-					<div class="tracker-widget-item-name">Привычка 5</div>
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
-					<input type="checkbox">
+					<input class="tracker-item-name" type="text" autocomplete="off" value="Привычка 5">
+					<input id="tracker-fifth-1" class="tracker-checkbox tracker_1" type="checkbox">
+					<input id="tracker-fifth-2" class="tracker-checkbox tracker_2" type="checkbox">
+					<input id="tracker-fifth-3" class="tracker-checkbox tracker_3" type="checkbox">
+					<input id="tracker-fifth-4" class="tracker-checkbox tracker_4" type="checkbox">
+					<input id="tracker-fifth-5" class="tracker-checkbox tracker_5" type="checkbox">
+					<input id="tracker-fifth-6" class="tracker-checkbox tracker_6" type="checkbox">
+					<input id="tracker-fifth-7" class="tracker-checkbox tracker_7" type="checkbox">
+					<input id="tracker-fifth-8" class="tracker-checkbox tracker_8" type="checkbox">
+					<input id="tracker-fifth-9" class="tracker-checkbox tracker_9" type="checkbox">
+					<input id="tracker-fifth-10" class="tracker-checkbox tracker_10" type="checkbox">
+					<input id="tracker-fifth-11" class="tracker-checkbox tracker_11" type="checkbox">
+					<input id="tracker-fifth-12" class="tracker-checkbox tracker_12" type="checkbox">
+					<input id="tracker-fifth-13" class="tracker-checkbox tracker_13" type="checkbox">
+					<input id="tracker-fifth-14" class="tracker-checkbox tracker_14" type="checkbox">
+					<input id="tracker-fifth-15" class="tracker-checkbox tracker_15" type="checkbox">
+					<input id="tracker-fifth-16" class="tracker-checkbox tracker_16" type="checkbox">
+					<input id="tracker-fifth-17" class="tracker-checkbox tracker_17" type="checkbox">
+					<input id="tracker-fifth-18" class="tracker-checkbox tracker_18" type="checkbox">
 				</div>
 			</div>
 		</div>
+
+		<!-- ВИДЖЕТ ЧАСЫ-->
+
 		<div id="clock-widget">
 			<p class="clock-widget-clock" id="clock-time">19:45:00</p>
 			<p class="clock-widget-day" id="clock-day">суббота</p>
@@ -255,11 +264,14 @@ $timetable_sunday = mysqli_fetch_assoc($timetable_result);
 		            </form>
 				</div>
 				<div class="notes-widget-right">
-					<textarea name="text" id="notes-textarea" cols="30" rows="10">Первая задача</textarea>
-					<button id="notes-save" class="button" type="button">Сохранить</button>
+					<textarea id="notes-textarea" cols="30" rows="10" form="notes-form"></textarea>
+					<!--<button id="notes-save" class="button" type="button">Сохранить</button>-->
 				</div>
 			</div>
 		</div>
+
+		<!-- ВИДЖЕТ РАСПИСАНИЕ-->
+
 		<div id="timetable-widget">
 			<div class="timetable-header">
 				<h1>Расписание</h1>
@@ -356,6 +368,9 @@ $timetable_sunday = mysqli_fetch_assoc($timetable_result);
 				</form>
 			</div>
 		</div>
+
+		<!-- ВИДЖЕТ ТАЙМЕР-->	
+
 		<div id="timer-widget">
 			<div class="timer-header">
 				<h1>Таймер</h1>
@@ -376,5 +391,6 @@ $timetable_sunday = mysqli_fetch_assoc($timetable_result);
 <script src="js/timer-widget.js"></script>
 <script src="js/timetable-widget.js"></script>
 <script src="js/notes-widget.js"></script>
+<script src="js/tracker-widget.js"></script>
 </body>
 </html>

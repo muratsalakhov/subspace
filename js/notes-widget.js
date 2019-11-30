@@ -84,13 +84,13 @@ $(document).ready(function() {
         const noteCurrent = document.querySelector('.choosed');
         var noteText = noteCurrent.querySelector('.notes-text');
         console.log(noteText.innerText);
-        console.log(notesTextarea.innerHTML);
-        notesTextarea.innerHTML = notesTextarea.innerHTML;
-        noteText.innerHTML = notesTextarea.innerHTML;
+        console.log(notesTextarea.value);
+        notesTextarea.value = notesTextarea.innerHTML;
+        noteText.innerHTML = notesTextarea.value;
         noteCurrent.classList.remove('choosed');
         noteText = this.querySelector('.notes-text');
         this.classList.add('choosed');
-        notesTextarea.innerHTML = noteText.innerHTML;
+        notesTextarea.value = noteText.innerHTML;
     }
 
     function editNotesItem() {

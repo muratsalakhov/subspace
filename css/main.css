@@ -157,6 +157,16 @@ body section {
         width: 30px;
         background-color: #FFF;
         color: #3C3C3F; }
+      body section #tracker-widget .tracker-widget-body .tracker-widget-item .tracker-item-name {
+        width: 100%;
+        font-size: 17px;
+        font-family: "Montserrat", sans-serif;
+        color: black;
+        border: none;
+        outline: none;
+        padding: 0px 10px;
+        box-sizing: border-box;
+        position: relative; }
   body section #clock-widget {
     grid-area: clock-widget;
     text-align: center;
