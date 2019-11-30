@@ -5,7 +5,26 @@ $username = $_SESSION['username'];
 
 $todo_query = "SELECT * FROM todo_list WHERE todo_user = '$username'";
 $todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connection));
+
+$timetable_result = mysqli_query($connection, "SELECT * FROM timetable WHERE timetable_user = '$username' AND timetable_day = 1 LIMIT 1") or die(mysqli_error($connection));
+$timetable_monday = mysqli_fetch_assoc($timetable_result);
+$timetable_result = mysqli_query($connection, "SELECT * FROM timetable WHERE timetable_user = '$username' AND timetable_day = 2 LIMIT 1") or die(mysqli_error($connection));
+$timetable_tuesday = mysqli_fetch_assoc($timetable_result);
+$timetable_result = mysqli_query($connection, "SELECT * FROM timetable WHERE timetable_user = '$username' AND timetable_day = 3 LIMIT 1") or die(mysqli_error($connection));
+$timetable_wednesday = mysqli_fetch_assoc($timetable_result);
+$timetable_result = mysqli_query($connection, "SELECT * FROM timetable WHERE timetable_user = '$username' AND timetable_day = 4 LIMIT 1") or die(mysqli_error($connection));
+$timetable_thursday = mysqli_fetch_assoc($timetable_result);
+$timetable_result = mysqli_query($connection, "SELECT * FROM timetable WHERE timetable_user = '$username' AND timetable_day = 5 LIMIT 1") or die(mysqli_error($connection));
+$timetable_friday = mysqli_fetch_assoc($timetable_result);
+$timetable_result = mysqli_query($connection, "SELECT * FROM timetable WHERE timetable_user = '$username' AND timetable_day = 6 LIMIT 1") or die(mysqli_error($connection));
+$timetable_saturday = mysqli_fetch_assoc($timetable_result);
+$timetable_result = mysqli_query($connection, "SELECT * FROM timetable WHERE timetable_user = '$username' AND timetable_day = 7 LIMIT 1") or die(mysqli_error($connection));
+$timetable_sunday = mysqli_fetch_assoc($timetable_result);
+	
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +57,7 @@ $todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connec
 					<tr><td><i class="fas fa-arrow-left"></i><td colspan="5"><td><i class="fas fa-arrow-right"></i>
 			 		<tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
 				<tbody>
-			</table>+
+			</table>
 		</div>
 		<div id="tracker-widget">
 			<div class="tracker-widget-header">
@@ -253,88 +272,88 @@ $todo_items = mysqli_query($connection, $todo_query) or die(mysqli_error($connec
 					</div>
 					<button class="timetable-day-next-btn"><i class="fas fa-arrow-right"></i></button>
 				</div>
-				<form id="timetable-monday">		
+				<form id="timetable">		
 					<div class="timetable-lesson">
 						<p class="timetable-lesson-number">1</p>
 						<div class="timetable-lesson-name" id="first-lesson"><p>Понедельник</p></div>
-						<p id="monday-1" class="lesson-hide">Понедельник</p>
-						<p id="tuesday-1" class="lesson-hide">Понедельник</p>
-						<p id="wednesday-1" class="lesson-hide">Понедельник</p>
-						<p id="thursday-1" class="lesson-hide">Понедельник</p>
-						<p id="friday-1" class="lesson-hide">Понедельник</p>
-						<p id="saturday-1" class="lesson-hide">Понедельник</p>
-						<p id="sunday-1" class="lesson-hide">Понедельник</p>
+						<p id="monday-1" class="lesson-hide"><?php echo $timetable_monday['timetable_first']; ?></p>
+						<p id="tuesday-1" class="lesson-hide"><?php echo $timetable_tuesday['timetable_first']; ?></p>
+						<p id="wednesday-1" class="lesson-hide"><?php echo $timetable_wednesday['timetable_first']; ?></p>
+						<p id="thursday-1" class="lesson-hide"><?php echo $timetable_thursday['timetable_first']; ?></p>
+						<p id="friday-1" class="lesson-hide"><?php echo $timetable_friday['timetable_first']; ?></p>
+						<p id="saturday-1" class="lesson-hide"><?php echo $timetable_saturday['timetable_first']; ?></p>
+						<p id="sunday-1" class="lesson-hide"><?php echo $timetable_sunday['timetable_first']; ?></p>
 					</div>
 					<div class="timetable-lesson">
 						<p class="timetable-lesson-number">2</p>
 						<div class="timetable-lesson-name" id="second-lesson"><p>Вторник</p></div>
-						<p id="monday-2" class="lesson-hide">Вторник</p>
-						<p id="tuesday-2" class="lesson-hide">Вторник</p>
-						<p id="wednesday-2" class="lesson-hide">Вторник</p>
-						<p id="thursday-2" class="lesson-hide">Вторник</p>
-						<p id="friday-2" class="lesson-hide">Вторник</p>
-						<p id="saturday-2" class="lesson-hide">Вторник</p>
-						<p id="sunday-2" class="lesson-hide">Вторник</p>
+						<p id="monday-2" class="lesson-hide"><?php echo $timetable_monday['timetable_second']; ?></p>
+						<p id="tuesday-2" class="lesson-hide"><?php echo $timetable_tuesday['timetable_second']; ?></p>
+						<p id="wednesday-2" class="lesson-hide"><?php echo $timetable_wednesday['timetable_second']; ?></p>
+						<p id="thursday-2" class="lesson-hide"><?php echo $timetable_thursday['timetable_second']; ?></p>
+						<p id="friday-2" class="lesson-hide"><?php echo $timetable_friday['timetable_second']; ?></p>
+						<p id="saturday-2" class="lesson-hide"><?php echo $timetable_saturday['timetable_second']; ?></p>
+						<p id="sunday-2" class="lesson-hide"><?php echo $timetable_sunday['timetable_second']; ?></p>
 					</div>
 					<div class="timetable-lesson">
 						<p class="timetable-lesson-number">3</p>
 						<div class="timetable-lesson-name" id="third-lesson"><p>Среда</p></div>
-						<p id="monday-3" class="lesson-hide">Среда</p>
-						<p id="tuesday-3" class="lesson-hide">Среда</p>
-						<p id="wednesday-3" class="lesson-hide">Среда</p>
-						<p id="thursday-3" class="lesson-hide">Среда</p>
-						<p id="friday-3" class="lesson-hide">Среда</p>
-						<p id="saturday-3" class="lesson-hide">Среда</p>
-						<p id="sunday-3" class="lesson-hide">Среда</p>
+						<p id="monday-3" class="lesson-hide"><?php echo $timetable_monday['timetable_third']; ?></p>
+						<p id="tuesday-3" class="lesson-hide"><?php echo $timetable_tuesday['timetable_third']; ?></p>
+						<p id="wednesday-3" class="lesson-hide"><?php echo $timetable_wednesday['timetable_third']; ?></p>
+						<p id="thursday-3" class="lesson-hide"><?php echo $timetable_thursday['timetable_third']; ?></p>
+						<p id="friday-3" class="lesson-hide"><?php echo $timetable_friday['timetable_third']; ?></p>
+						<p id="saturday-3" class="lesson-hide"><?php echo $timetable_saturday['timetable_third']; ?></p>
+						<p id="sunday-3" class="lesson-hide"><?php echo $timetable_sunday['timetable_third']; ?></p>
 					</div>
 					<div class="timetable-lesson">
 						<p class="timetable-lesson-number">4</p>
 						<div class="timetable-lesson-name" id="fourth-lesson"><p>Четверг</p></div>
-						<p id="monday-4" class="lesson-hide">Четверг</p>
-						<p id="tuesday-4" class="lesson-hide">Четверг</p>
-						<p id="wednesday-4" class="lesson-hide">Четверг</p>
-						<p id="thursday-4" class="lesson-hide">Четверг</p>
-						<p id="friday-4" class="lesson-hide">Четверг</p>
-						<p id="saturday-4" class="lesson-hide">Четверг</p>
-						<p id="sunday-4" class="lesson-hide">Четверг</p>
+						<p id="monday-4" class="lesson-hide"><?php echo $timetable_monday['timetable_fourth']; ?></p>
+						<p id="tuesday-4" class="lesson-hide"><?php echo $timetable_tuesday['timetable_fourth']; ?></p>
+						<p id="wednesday-4" class="lesson-hide"><?php echo $timetable_wednesday['timetable_fourth']; ?></p>
+						<p id="thursday-4" class="lesson-hide"><?php echo $timetable_thursday['timetable_fourth']; ?></p>
+						<p id="friday-4" class="lesson-hide"><?php echo $timetable_friday['timetable_fourth']; ?></p>
+						<p id="saturday-4" class="lesson-hide"><?php echo $timetable_saturday['timetable_fourth']; ?></p>
+						<p id="sunday-4" class="lesson-hide"><?php echo $timetable_sunday['timetable_fourth']; ?></p>
 					</div>
 					<div class="timetable-lesson">
 						<p class="timetable-lesson-number">5</p>
 						<div class="timetable-lesson-name" id="fifth-lesson"><p>Пятница</p></div>
-						<p id="monday-5" class="lesson-hide">Пятница</p>
-						<p id="tuesday-5" class="lesson-hide">Пятница</p>
-						<p id="wednesday-5" class="lesson-hide">Пятница</p>
-						<p id="thursday-5" class="lesson-hide">Пятница</p>
-						<p id="friday-5" class="lesson-hide">Пятница</p>
-						<p id="saturday-5" class="lesson-hide">Пятница</p>
-						<p id="sunday-5" class="lesson-hide">Пятница</p>
+						<p id="monday-5" class="lesson-hide"><?php echo $timetable_monday['timetable_fifth']; ?></p>
+						<p id="tuesday-5" class="lesson-hide"><?php echo $timetable_tuesday['timetable_fifth']; ?></p>
+						<p id="wednesday-5" class="lesson-hide"><?php echo $timetable_wednesday['timetable_fifth']; ?></p>
+						<p id="thursday-5" class="lesson-hide"><?php echo $timetable_thursday['timetable_fifth']; ?></p>
+						<p id="friday-5" class="lesson-hide"><?php echo $timetable_friday['timetable_fifth']; ?></p>
+						<p id="saturday-5" class="lesson-hide"><?php echo $timetable_saturday['timetable_fifth']; ?></p>
+						<p id="sunday-5" class="lesson-hide"><?php echo $timetable_sunday['timetable_fifth']; ?></p>
 					</div>
 					<div class="timetable-lesson">
 						<p class="timetable-lesson-number">6</p>
 						<div class="timetable-lesson-name" id="sixth-lesson"><p>Суббота</p></div>
-						<p id="monday-6" class="lesson-hide">Суббота</p>
-						<p id="tuesday-6" class="lesson-hide">Суббота</p>
-						<p id="wednesday-6" class="lesson-hide">Суббота</p>
-						<p id="thursday-6" class="lesson-hide">Суббота</p>
-						<p id="friday-6" class="lesson-hide">Суббота</p>
-						<p id="saturday-6" class="lesson-hide">Суббота</p>
-						<p id="sunday-6" class="lesson-hide">Суббота</p>
+						<p id="monday-6" class="lesson-hide"><?php echo $timetable_monday['timetable_sixth']; ?></p>
+						<p id="tuesday-6" class="lesson-hide"><?php echo $timetable_tuesday['timetable_sixth']; ?></p>
+						<p id="wednesday-6" class="lesson-hide"><?php echo $timetable_wednesday['timetable_sixth']; ?></p>
+						<p id="thursday-6" class="lesson-hide"><?php echo $timetable_thursday['timetable_sixth']; ?></p>
+						<p id="friday-6" class="lesson-hide"><?php echo $timetable_friday['timetable_sixth']; ?></p>
+						<p id="saturday-6" class="lesson-hide"><?php echo $timetable_saturday['timetable_sixth']; ?></p>
+						<p id="sunday-6" class="lesson-hide"><?php echo $timetable_sunday['timetable_sixth']; ?></p>
 					</div>
 					<div class="timetable-lesson">
 						<p class="timetable-lesson-number">7</p>
 						<div class="timetable-lesson-name" id="seventh-lesson"><p>Воскресенье</p></div>
-						<p id="monday-7" class="lesson-hide">Воскресенье</p>
-						<p id="tuesday-7" class="lesson-hide">Воскресенье</p>
-						<p id="wednesday-7" class="lesson-hide">Воскресенье</p>
-						<p id="thursday-7" class="lesson-hide">Воскресенье</p>
-						<p id="friday-7" class="lesson-hide">Воскресенье</p>
-						<p id="saturday-7" class="lesson-hide">Воскресенье</p>
-						<p id="sunday-7" class="lesson-hide">Воскресенье</p>
+						<p id="monday-7" class="lesson-hide"><?php echo $timetable_monday['timetable_seventh']; ?></p>
+						<p id="tuesday-7" class="lesson-hide"><?php echo $timetable_tuesday['timetable_seventh']; ?></p>
+						<p id="wednesday-7" class="lesson-hide"><?php echo $timetable_wednesday['timetable_seventh']; ?></p>
+						<p id="thursday-7" class="lesson-hide"><?php echo $timetable_thursday['timetable_seventh']; ?></p>
+						<p id="friday-7" class="lesson-hide"><?php echo $timetable_friday['timetable_seventh']; ?></p>
+						<p id="saturday-7" class="lesson-hide"><?php echo $timetable_saturday['timetable_seventh']; ?></p>
+						<p id="sunday-7" class="lesson-hide"><?php echo $timetable_sunday['timetable_seventh']; ?></p>
 					</div>
 					<div class="timetable-btn">
 						<button class="timetable-edit-btn button" type="button">Редактировать</button>
 					</div>
-					</form>
+				</form>
 			</div>
 		</div>
 		<div id="timer-widget">

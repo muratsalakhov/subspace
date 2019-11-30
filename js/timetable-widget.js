@@ -112,7 +112,6 @@ $(document).ready(function() {
 	}
 
 	function SaveDay() {
-		console.log(current_day);
 		if (current_day == 1) {
 			const currentFirstLesson = document.getElementById('monday-1');
 			const currentSecondLesson = document.getElementById('monday-2');
@@ -121,6 +120,30 @@ $(document).ready(function() {
 			const currentFifthLesson = document.getElementById('monday-5');
 			const currentSixthLesson = document.getElementById('monday-6');
 			const currentSeventhLesson = document.getElementById('monday-7');
+
+			currentFirstLesson.innerText = document.getElementById('first-lesson-input').value;
+			currentSecondLesson.innerText = document.getElementById('second-lesson-input').value;
+			currentThirdLesson.innerText = document.getElementById('third-lesson-input').value;
+			currentFourthLesson.innerText = document.getElementById('fourth-lesson-input').value;
+			currentFifthLesson.innerText = document.getElementById('fifth-lesson-input').value;
+			currentSixthLesson.innerText = document.getElementById('sixth-lesson-input').value;
+			currentSeventhLesson.innerText = document.getElementById('seventh-lesson-input').value;
+
+			$(document).ready(function() {
+			    $.ajax({
+			        url: 'timetable-processing.php',
+			        type: 'POST',
+			        cache: false,
+			        data: {'timetable_day' : current_day, 'timetable_first' : currentFirstLesson.innerText,
+			    		'timetable_second' : currentSecondLesson.innerText, 'timetable_third' : currentThirdLesson.innerText,
+			    		'timetable_fourth' : currentFourthLesson.innerText, 'timetable_fifth' : currentFifthLesson.innerText,
+			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
+			        dataType: 'html',
+			        success: function(data){
+		                alert(data);
+	            	}
+			    });
+			});
 
 		} else if (current_day == 2) {
 			const currentFirstLesson = document.getElementById('tuesday-1');
@@ -131,6 +154,30 @@ $(document).ready(function() {
 			const currentSixthLesson = document.getElementById('tuesday-6');
 			const currentSeventhLesson = document.getElementById('tuesday-7');
 
+			currentFirstLesson.innerText = document.getElementById('first-lesson-input').value;
+			currentSecondLesson.innerText = document.getElementById('second-lesson-input').value;
+			currentThirdLesson.innerText = document.getElementById('third-lesson-input').value;
+			currentFourthLesson.innerText = document.getElementById('fourth-lesson-input').value;
+			currentFifthLesson.innerText = document.getElementById('fifth-lesson-input').value;
+			currentSixthLesson.innerText = document.getElementById('sixth-lesson-input').value;
+			currentSeventhLesson.innerText = document.getElementById('seventh-lesson-input').value;
+
+			$(document).ready(function() {
+			    $.ajax({
+			        url: 'timetable-processing.php',
+			        type: 'POST',
+			        cache: false,
+			        data: {'timetable_day' : current_day, 'timetable_first' : currentFirstLesson.innerText,
+			    		'timetable_second' : currentSecondLesson.innerText, 'timetable_third' : currentThirdLesson.innerText,
+			    		'timetable_fourth' : currentFourthLesson.innerText, 'timetable_fifth' : currentFifthLesson.innerText,
+			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
+			        dataType: 'html',
+			        success: function(data){
+		                alert(data);
+	            	}
+			    });
+			});
+
 		} else if (current_day == 3) {
 			const currentFirstLesson = document.getElementById('wednesday-1');
 			const currentSecondLesson = document.getElementById('wednesday-2');
@@ -139,6 +186,30 @@ $(document).ready(function() {
 			const currentFifthLesson = document.getElementById('wednesday-5');
 			const currentSixthLesson = document.getElementById('wednesday-6');
 			const currentSeventhLesson = document.getElementById('wednesday-7');
+
+			currentFirstLesson.innerText = document.getElementById('first-lesson-input').value;
+			currentSecondLesson.innerText = document.getElementById('second-lesson-input').value;
+			currentThirdLesson.innerText = document.getElementById('third-lesson-input').value;
+			currentFourthLesson.innerText = document.getElementById('fourth-lesson-input').value;
+			currentFifthLesson.innerText = document.getElementById('fifth-lesson-input').value;
+			currentSixthLesson.innerText = document.getElementById('sixth-lesson-input').value;
+			currentSeventhLesson.innerText = document.getElementById('seventh-lesson-input').value;
+
+			$(document).ready(function() {
+			    $.ajax({
+			        url: 'timetable-processing.php',
+			        type: 'POST',
+			        cache: false,
+			        data: {'timetable_day' : current_day, 'timetable_first' : currentFirstLesson.innerText,
+			    		'timetable_second' : currentSecondLesson.innerText, 'timetable_third' : currentThirdLesson.innerText,
+			    		'timetable_fourth' : currentFourthLesson.innerText, 'timetable_fifth' : currentFifthLesson.innerText,
+			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
+			        dataType: 'html',
+			        success: function(data){
+		                alert(data);
+	            	}
+			    });
+			});
 
 		} else if (current_day == 4) {
 			const currentFirstLesson = document.getElementById('thursday-1');
@@ -149,23 +220,59 @@ $(document).ready(function() {
 			const currentSixthLesson = document.getElementById('thursday-6');
 			const currentSeventhLesson = document.getElementById('thursday-7');
 
+			currentFirstLesson.innerText = document.getElementById('first-lesson-input').value;
+			currentSecondLesson.innerText = document.getElementById('second-lesson-input').value;
+			currentThirdLesson.innerText = document.getElementById('third-lesson-input').value;
+			currentFourthLesson.innerText = document.getElementById('fourth-lesson-input').value;
+			currentFifthLesson.innerText = document.getElementById('fifth-lesson-input').value;
+			currentSixthLesson.innerText = document.getElementById('sixth-lesson-input').value;
+			currentSeventhLesson.innerText = document.getElementById('seventh-lesson-input').value;
+
+			$(document).ready(function() {
+			    $.ajax({
+			        url: 'timetable-processing.php',
+			        type: 'POST',
+			        cache: false,
+			        data: {'timetable_day' : current_day, 'timetable_first' : currentFirstLesson.innerText,
+			    		'timetable_second' : currentSecondLesson.innerText, 'timetable_third' : currentThirdLesson.innerText,
+			    		'timetable_fourth' : currentFourthLesson.innerText, 'timetable_fifth' : currentFifthLesson.innerText,
+			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
+			        dataType: 'html'
+			    });
+			});
+
 		} else if (current_day == 5) {
 			const currentFirstLesson = document.getElementById('friday-1');
-			console.log(currentFirstLesson);
 			const currentSecondLesson = document.getElementById('friday-2');
 			const currentThirdLesson = document.getElementById('friday-3');
 			const currentFourthLesson = document.getElementById('friday-4');
 			const currentFifthLesson = document.getElementById('friday-5');
 			const currentSixthLesson = document.getElementById('friday-6');
 			const currentSeventhLesson = document.getElementById('friday-7');
-			// ОСТАНОВИЛСЯ ТУТ. НАДО ВСЕМ СТРОЧКАМИ ПЕРЕДЕЛАТЬ СПОСОБ ПРИСВОЕНИЯ
-			currentFirstLesson.innerText = document.getElementById('first-lesson-input');
-			currentSecondLesson.innerText = document.getElementById('second-lesson-input');
-			currentThirdLesson.innerText = document.getElementById('third-lesson-input');
-			currentFourthLesson.innerText = document.getElementById('fourth-lesson-input');
-			currentFifthLesson.innerText = document.getElementById('fifth-lesson-input');
-			currentSixthLesson.innerText = document.getElementById('sixth-lesson-input');
-			currentSeventhLesson.innerText = document.getElementById('seventh-lesson-input');
+
+			currentFirstLesson.innerText = document.getElementById('first-lesson-input').value;
+			currentSecondLesson.innerText = document.getElementById('second-lesson-input').value;
+			currentThirdLesson.innerText = document.getElementById('third-lesson-input').value;
+			currentFourthLesson.innerText = document.getElementById('fourth-lesson-input').value;
+			currentFifthLesson.innerText = document.getElementById('fifth-lesson-input').value;
+			currentSixthLesson.innerText = document.getElementById('sixth-lesson-input').value;
+			currentSeventhLesson.innerText = document.getElementById('seventh-lesson-input').value;
+
+			$(document).ready(function() {
+			    $.ajax({
+			        url: 'timetable-processing.php',
+			        type: 'POST',
+			        cache: false,
+			        data: {'timetable_day' : current_day, 'timetable_first' : currentFirstLesson.innerText,
+			    		'timetable_second' : currentSecondLesson.innerText, 'timetable_third' : currentThirdLesson.innerText,
+			    		'timetable_fourth' : currentFourthLesson.innerText, 'timetable_fifth' : currentFifthLesson.innerText,
+			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
+			        dataType: 'html',
+			        success: function(data){
+		                alert(data);
+	            	}
+			    });
+			});
 
 		} else if (current_day == 6) {
 			const currentFirstLesson = document.getElementById('saturday-1');
@@ -176,6 +283,30 @@ $(document).ready(function() {
 			const currentSixthLesson = document.getElementById('saturday-6');
 			const currentSeventhLesson = document.getElementById('saturday-7');
 
+			currentFirstLesson.innerText = document.getElementById('first-lesson-input').value;
+			currentSecondLesson.innerText = document.getElementById('second-lesson-input').value;
+			currentThirdLesson.innerText = document.getElementById('third-lesson-input').value;
+			currentFourthLesson.innerText = document.getElementById('fourth-lesson-input').value;
+			currentFifthLesson.innerText = document.getElementById('fifth-lesson-input').value;
+			currentSixthLesson.innerText = document.getElementById('sixth-lesson-input').value;
+			currentSeventhLesson.innerText = document.getElementById('seventh-lesson-input').value;
+
+			$(document).ready(function() {
+			    $.ajax({
+			        url: 'timetable-processing.php',
+			        type: 'POST',
+			        cache: false,
+			        data: {'timetable_day' : current_day, 'timetable_first' : currentFirstLesson.innerText,
+			    		'timetable_second' : currentSecondLesson.innerText, 'timetable_third' : currentThirdLesson.innerText,
+			    		'timetable_fourth' : currentFourthLesson.innerText, 'timetable_fifth' : currentFifthLesson.innerText,
+			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
+			        dataType: 'html',
+			        success: function(data){
+		                alert(data);
+	            	}
+			    });
+			});
+
 		} else {
 			const currentFirstLesson = document.getElementById('sunday-1');
 			const currentSecondLesson = document.getElementById('sunday-2');
@@ -184,11 +315,31 @@ $(document).ready(function() {
 			const currentFifthLesson = document.getElementById('sunday-5');
 			const currentSixthLesson = document.getElementById('sunday-6');
 			const currentSeventhLesson = document.getElementById('sunday-7');
-		}
 
-		console.log("wow");
-		console.log("wow");
-		
+			currentFirstLesson.innerText = document.getElementById('first-lesson-input').value;
+			currentSecondLesson.innerText = document.getElementById('second-lesson-input').value;
+			currentThirdLesson.innerText = document.getElementById('third-lesson-input').value;
+			currentFourthLesson.innerText = document.getElementById('fourth-lesson-input').value;
+			currentFifthLesson.innerText = document.getElementById('fifth-lesson-input').value;
+			currentSixthLesson.innerText = document.getElementById('sixth-lesson-input').value;
+			currentSeventhLesson.innerText = document.getElementById('seventh-lesson-input').value;
+
+			$(document).ready(function() {
+			    $.ajax({
+			        url: 'timetable-processing.php',
+			        type: 'POST',
+			        cache: false,
+			        data: {'timetable_day' : current_day, 'timetable_first' : currentFirstLesson.innerText,
+			    		'timetable_second' : currentSecondLesson.innerText, 'timetable_third' : currentThirdLesson.innerText,
+			    		'timetable_fourth' : currentFourthLesson.innerText, 'timetable_fifth' : currentFifthLesson.innerText,
+			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
+			        dataType: 'html',
+			        success: function(data){
+		                alert(data);
+	            	}
+			    });
+			});
+		}		
 	}
 
 	function EditDay() {
