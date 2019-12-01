@@ -83,6 +83,8 @@ body section {
   grid-gap: 10px;
   grid-template-rows: minmax(204px, 1fr) minmax(352px, 2fr) 1fr;
   grid-template-columns: 2fr 5fr 2fr; }
+  body section .hide {
+    display: none; }
   body section #calendar-widget {
     grid-area: calendar-widget;
     background-color: #fff;
@@ -152,11 +154,6 @@ body section {
       height: 35px;
       justify-items: center;
       align-items: center; }
-      body section #tracker-widget .tracker-widget-body .tracker-widget-item input {
-        height: 30px;
-        width: 30px;
-        background-color: #FFF;
-        color: #3C3C3F; }
       body section #tracker-widget .tracker-widget-body .tracker-widget-item .tracker-item-name {
         width: 100%;
         font-size: 17px;
@@ -167,6 +164,11 @@ body section {
         padding: 0px 10px;
         box-sizing: border-box;
         position: relative; }
+      body section #tracker-widget .tracker-widget-body .tracker-widget-item .tracker-checkbox {
+        height: 30px;
+        width: 30px;
+        background-color: #FFF;
+        color: #3C3C3F; }
   body section #clock-widget {
     grid-area: clock-widget;
     text-align: center;

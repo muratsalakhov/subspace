@@ -80,7 +80,7 @@ $(document).ready(function() {
 			fifthLesson.innerHTML = document.getElementById('saturday-5').innerText;
 			sixthLesson.innerHTML = document.getElementById('saturday-6').innerText;
 			seventhLesson.innerHTML = document.getElementById('saturday-7').innerText;
-		} else if (current_day == 7) {
+		} else if (current_day == 0) {
 			dayname = "Воскресенье";
 			firstLesson.innerHTML = document.getElementById('sunday-1').innerText;
 			secondLesson.innerHTML = document.getElementById('sunday-2').innerText;

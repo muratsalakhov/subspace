@@ -21,7 +21,8 @@ $timetable_saturday = mysqli_fetch_assoc($timetable_result);
 $timetable_result = mysqli_query($connection, "SELECT * FROM timetable WHERE timetable_user = '$username' AND timetable_day = 7 LIMIT 1") or die(mysqli_error($connection));
 $timetable_sunday = mysqli_fetch_assoc($timetable_result);
 	
-
+$tracker_query = "SELECT * FROM tracker WHERE tracker_user = '$username'";
+$tracker_result = mysqli_query($connection, $tracker_query) or die(mysqli_error($connection));
 ?>
 
 
@@ -72,109 +73,119 @@ $timetable_sunday = mysqli_fetch_assoc($timetable_result);
 			<div class="tracker-widget-body">
 				<!-- .tracker-widget-item*8>.tracker-widget-item-name+input[type="checkbox"]*5 -->
 				<form class="tracker-widget-item">
-					<input class="tracker-item-name" type="text" autocomplete="off" value="Привычка 1">
-					<input id="tracker-first-1" class="tracker-checkbox tracker_1" type="checkbox">
-					<input id="tracker-first-2" class="tracker-checkbox tracker_2" type="checkbox">
-					<input id="tracker-first-3" class="tracker-checkbox tracker_3" type="checkbox">
-					<input id="tracker-first-4" class="tracker-checkbox tracker_4" type="checkbox">
-					<input id="tracker-first-5" class="tracker-checkbox tracker_5" type="checkbox">
-					<input id="tracker-first-6" class="tracker-checkbox tracker_6" type="checkbox">
-					<input id="tracker-first-7" class="tracker-checkbox tracker_7" type="checkbox">
-					<input id="tracker-first-8" class="tracker-checkbox tracker_8" type="checkbox">
-					<input id="tracker-first-9" class="tracker-checkbox tracker_9" type="checkbox">
-					<input id="tracker-first-10" class="tracker-checkbox tracker_10" type="checkbox">
-					<input id="tracker-first-11" class="tracker-checkbox tracker_11" type="checkbox">
-					<input id="tracker-first-12" class="tracker-checkbox tracker_12" type="checkbox">
-					<input id="tracker-first-13" class="tracker-checkbox tracker_13" type="checkbox">
-					<input id="tracker-first-14" class="tracker-checkbox tracker_14" type="checkbox">
-					<input id="tracker-first-15" class="tracker-checkbox tracker_15" type="checkbox">
-					<input id="tracker-first-16" class="tracker-checkbox tracker_16" type="checkbox">
-					<input id="tracker-first-17" class="tracker-checkbox tracker_17" type="checkbox">
-					<input id="tracker-first-18" class="tracker-checkbox tracker_18" type="checkbox">
+					<?php $tracker_item = mysqli_fetch_assoc($tracker_result); ?>
+					<input class="tracker-item-name" type="text" autocomplete="off" value="<?php echo $tracker_item['tracker_title']; ?>">
+					<div id="first-track" class="hide"><?php echo $tracker_item['tracker_id']; ?></div>
+					<input class="tracker-checkbox tracker_1" type="checkbox" <?php if ($tracker_item['tracker_1'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_2" type="checkbox" <?php if ($tracker_item['tracker_2'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_3" type="checkbox" <?php if ($tracker_item['tracker_3'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_4" type="checkbox" <?php if ($tracker_item['tracker_4'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_5" type="checkbox" <?php if ($tracker_item['tracker_5'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_6" type="checkbox" <?php if ($tracker_item['tracker_6'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_7" type="checkbox" <?php if ($tracker_item['tracker_7'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_8" type="checkbox" <?php if ($tracker_item['tracker_8'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_9" type="checkbox" <?php if ($tracker_item['tracker_9'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_10" type="checkbox" <?php if ($tracker_item['tracker_10'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_11" type="checkbox" <?php if ($tracker_item['tracker_11'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_12" type="checkbox" <?php if ($tracker_item['tracker_12'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_13" type="checkbox" <?php if ($tracker_item['tracker_13'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_14" type="checkbox" <?php if ($tracker_item['tracker_14'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_15" type="checkbox" <?php if ($tracker_item['tracker_15'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_16" type="checkbox" <?php if ($tracker_item['tracker_16'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_17" type="checkbox" <?php if ($tracker_item['tracker_17'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_18" type="checkbox" <?php if ($tracker_item['tracker_18'] == 1) {echo "checked";} ?>>
 				</form>
 				<div class="tracker-widget-item">
-					<input class="tracker-item-name" type="text" autocomplete="off" value="Привычка 2">
-					<input id="tracker-second-1" class="tracker-checkbox tracker_1" type="checkbox">
-					<input id="tracker-second-2" class="tracker-checkbox tracker_2" type="checkbox">
-					<input id="tracker-second-3" class="tracker-checkbox tracker_3" type="checkbox">
-					<input id="tracker-second-4" class="tracker-checkbox tracker_4" type="checkbox">
-					<input id="tracker-second-5" class="tracker-checkbox tracker_5" type="checkbox">
-					<input id="tracker-second-6" class="tracker-checkbox tracker_6" type="checkbox">
-					<input id="tracker-second-7" class="tracker-checkbox tracker_7" type="checkbox">
-					<input id="tracker-second-8" class="tracker-checkbox tracker_8" type="checkbox">
-					<input id="tracker-second-9" class="tracker-checkbox tracker_9" type="checkbox">
-					<input id="tracker-second-10" class="tracker-checkbox tracker_10" type="checkbox">
-					<input id="tracker-second-11" class="tracker-checkbox tracker_11" type="checkbox">
-					<input id="tracker-second-12" class="tracker-checkbox tracker_12" type="checkbox">
-					<input id="tracker-second-13" class="tracker-checkbox tracker_13" type="checkbox">
-					<input id="tracker-second-14" class="tracker-checkbox tracker_14" type="checkbox">
-					<input id="tracker-second-15" class="tracker-checkbox tracker_15" type="checkbox">
-					<input id="tracker-second-16" class="tracker-checkbox tracker_16" type="checkbox">
-					<input id="tracker-second-17" class="tracker-checkbox tracker_17" type="checkbox">
-					<input id="tracker-second-18" class="tracker-checkbox tracker_18" type="checkbox">
+					<?php $tracker_item = mysqli_fetch_assoc($tracker_result); ?>
+					<input class="tracker-item-name" type="text" autocomplete="off" value="<?php echo $tracker_item['tracker_title']; ?>">
+					<div id="second-track" class="hide"><?php echo $tracker_item['tracker_id']; ?></div>
+					<input class="tracker-checkbox tracker_1" type="checkbox" <?php if ($tracker_item['tracker_1'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_2" type="checkbox" <?php if ($tracker_item['tracker_2'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_3" type="checkbox" <?php if ($tracker_item['tracker_3'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_4" type="checkbox" <?php if ($tracker_item['tracker_4'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_5" type="checkbox" <?php if ($tracker_item['tracker_5'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_6" type="checkbox" <?php if ($tracker_item['tracker_6'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_7" type="checkbox" <?php if ($tracker_item['tracker_7'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_8" type="checkbox" <?php if ($tracker_item['tracker_8'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_9" type="checkbox" <?php if ($tracker_item['tracker_9'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_10" type="checkbox" <?php if ($tracker_item['tracker_10'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_11" type="checkbox" <?php if ($tracker_item['tracker_11'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_12" type="checkbox" <?php if ($tracker_item['tracker_12'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_13" type="checkbox" <?php if ($tracker_item['tracker_13'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_14" type="checkbox" <?php if ($tracker_item['tracker_14'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_15" type="checkbox" <?php if ($tracker_item['tracker_15'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_16" type="checkbox" <?php if ($tracker_item['tracker_16'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_17" type="checkbox" <?php if ($tracker_item['tracker_17'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_18" type="checkbox" <?php if ($tracker_item['tracker_18'] == 1) {echo "checked";} ?>>
 				</div>
 				<div class="tracker-widget-item">
-					<input class="tracker-item-name" type="text" autocomplete="off" value="Привычка 3">
-					<input id="tracker-third-1" class="tracker-checkbox tracker_1" type="checkbox">
-					<input id="tracker-third-2" class="tracker-checkbox tracker_2" type="checkbox">
-					<input id="tracker-third-3" class="tracker-checkbox tracker_3" type="checkbox">
-					<input id="tracker-third-4" class="tracker-checkbox tracker_4" type="checkbox">
-					<input id="tracker-third-5" class="tracker-checkbox tracker_5" type="checkbox">
-					<input id="tracker-third-6" class="tracker-checkbox tracker_6" type="checkbox">
-					<input id="tracker-third-7" class="tracker-checkbox tracker_7" type="checkbox">
-					<input id="tracker-third-8" class="tracker-checkbox tracker_8" type="checkbox">
-					<input id="tracker-third-9" class="tracker-checkbox tracker_9" type="checkbox">
-					<input id="tracker-third-10" class="tracker-checkbox tracker_10" type="checkbox">
-					<input id="tracker-third-11" class="tracker-checkbox tracker_11" type="checkbox">
-					<input id="tracker-third-12" class="tracker-checkbox tracker_12" type="checkbox">
-					<input id="tracker-third-13" class="tracker-checkbox tracker_13" type="checkbox">
-					<input id="tracker-third-14" class="tracker-checkbox tracker_14" type="checkbox">
-					<input id="tracker-third-15" class="tracker-checkbox tracker_15" type="checkbox">
-					<input id="tracker-third-16" class="tracker-checkbox tracker_16" type="checkbox">
-					<input id="tracker-third-17" class="tracker-checkbox tracker_17" type="checkbox">
-					<input id="tracker-third-18" class="tracker-checkbox tracker_18" type="checkbox">
+					<?php $tracker_item = mysqli_fetch_assoc($tracker_result); ?>
+					<input class="tracker-item-name" type="text" autocomplete="off" value="<?php echo $tracker_item['tracker_title']; ?>">
+					<div id="third-track" class="hide"><?php echo $tracker_item['tracker_id']; ?></div>
+					<input class="tracker-checkbox tracker_1" type="checkbox" <?php if ($tracker_item['tracker_1'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_2" type="checkbox" <?php if ($tracker_item['tracker_2'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_3" type="checkbox" <?php if ($tracker_item['tracker_3'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_4" type="checkbox" <?php if ($tracker_item['tracker_4'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_5" type="checkbox" <?php if ($tracker_item['tracker_5'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_6" type="checkbox" <?php if ($tracker_item['tracker_6'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_7" type="checkbox" <?php if ($tracker_item['tracker_7'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_8" type="checkbox" <?php if ($tracker_item['tracker_8'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_9" type="checkbox" <?php if ($tracker_item['tracker_9'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_10" type="checkbox" <?php if ($tracker_item['tracker_10'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_11" type="checkbox" <?php if ($tracker_item['tracker_11'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_12" type="checkbox" <?php if ($tracker_item['tracker_12'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_13" type="checkbox" <?php if ($tracker_item['tracker_13'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_14" type="checkbox" <?php if ($tracker_item['tracker_14'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_15" type="checkbox" <?php if ($tracker_item['tracker_15'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_16" type="checkbox" <?php if ($tracker_item['tracker_16'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_17" type="checkbox" <?php if ($tracker_item['tracker_17'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_18" type="checkbox" <?php if ($tracker_item['tracker_18'] == 1) {echo "checked";} ?>>
 				</div>
 				<div class="tracker-widget-item">
-					<input class="tracker-item-name" type="text" autocomplete="off" value="Привычка 4">
-					<input id="tracker-fourth-1" class="tracker-checkbox tracker_1" type="checkbox">
-					<input id="tracker-fourth-2" class="tracker-checkbox tracker_2" type="checkbox">
-					<input id="tracker-fourth-3" class="tracker-checkbox tracker_3" type="checkbox">
-					<input id="tracker-fourth-4" class="tracker-checkbox tracker_4" type="checkbox">
-					<input id="tracker-fourth-5" class="tracker-checkbox tracker_5" type="checkbox">
-					<input id="tracker-fourth-6" class="tracker-checkbox tracker_6" type="checkbox">
-					<input id="tracker-fourth-7" class="tracker-checkbox tracker_7" type="checkbox">
-					<input id="tracker-fourth-8" class="tracker-checkbox tracker_8" type="checkbox">
-					<input id="tracker-fourth-9" class="tracker-checkbox tracker_9" type="checkbox">
-					<input id="tracker-fourth-10" class="tracker-checkbox tracker_10" type="checkbox">
-					<input id="tracker-fourth-11" class="tracker-checkbox tracker_11" type="checkbox">
-					<input id="tracker-fourth-12" class="tracker-checkbox tracker_12" type="checkbox">
-					<input id="tracker-fourth-13" class="tracker-checkbox tracker_13" type="checkbox">
-					<input id="tracker-fourth-14" class="tracker-checkbox tracker_14" type="checkbox">
-					<input id="tracker-fourth-15" class="tracker-checkbox tracker_15" type="checkbox">
-					<input id="tracker-fourth-16" class="tracker-checkbox tracker_16" type="checkbox">
-					<input id="tracker-fourth-17" class="tracker-checkbox tracker_17" type="checkbox">
-					<input id="tracker-fourth-18" class="tracker-checkbox tracker_18" type="checkbox">
+					<?php $tracker_item = mysqli_fetch_assoc($tracker_result); ?>
+					<input class="tracker-item-name" type="text" autocomplete="off" value="<?php echo $tracker_item['tracker_title']; ?>">
+					<div id="fourth-track" class="hide"><?php echo $tracker_item['tracker_id']; ?></div>
+					<input class="tracker-checkbox tracker_1" type="checkbox" <?php if ($tracker_item['tracker_1'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_2" type="checkbox" <?php if ($tracker_item['tracker_2'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_3" type="checkbox" <?php if ($tracker_item['tracker_3'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_4" type="checkbox" <?php if ($tracker_item['tracker_4'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_5" type="checkbox" <?php if ($tracker_item['tracker_5'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_6" type="checkbox" <?php if ($tracker_item['tracker_6'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_7" type="checkbox" <?php if ($tracker_item['tracker_7'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_8" type="checkbox" <?php if ($tracker_item['tracker_8'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_9" type="checkbox" <?php if ($tracker_item['tracker_9'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_10" type="checkbox" <?php if ($tracker_item['tracker_10'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_11" type="checkbox" <?php if ($tracker_item['tracker_11'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_12" type="checkbox" <?php if ($tracker_item['tracker_12'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_13" type="checkbox" <?php if ($tracker_item['tracker_13'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_14" type="checkbox" <?php if ($tracker_item['tracker_14'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_15" type="checkbox" <?php if ($tracker_item['tracker_15'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_16" type="checkbox" <?php if ($tracker_item['tracker_16'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_17" type="checkbox" <?php if ($tracker_item['tracker_17'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_18" type="checkbox" <?php if ($tracker_item['tracker_18'] == 1) {echo "checked";} ?>>
 				</div>
 				<div class="tracker-widget-item">
-					<input class="tracker-item-name" type="text" autocomplete="off" value="Привычка 5">
-					<input id="tracker-fifth-1" class="tracker-checkbox tracker_1" type="checkbox">
-					<input id="tracker-fifth-2" class="tracker-checkbox tracker_2" type="checkbox">
-					<input id="tracker-fifth-3" class="tracker-checkbox tracker_3" type="checkbox">
-					<input id="tracker-fifth-4" class="tracker-checkbox tracker_4" type="checkbox">
-					<input id="tracker-fifth-5" class="tracker-checkbox tracker_5" type="checkbox">
-					<input id="tracker-fifth-6" class="tracker-checkbox tracker_6" type="checkbox">
-					<input id="tracker-fifth-7" class="tracker-checkbox tracker_7" type="checkbox">
-					<input id="tracker-fifth-8" class="tracker-checkbox tracker_8" type="checkbox">
-					<input id="tracker-fifth-9" class="tracker-checkbox tracker_9" type="checkbox">
-					<input id="tracker-fifth-10" class="tracker-checkbox tracker_10" type="checkbox">
-					<input id="tracker-fifth-11" class="tracker-checkbox tracker_11" type="checkbox">
-					<input id="tracker-fifth-12" class="tracker-checkbox tracker_12" type="checkbox">
-					<input id="tracker-fifth-13" class="tracker-checkbox tracker_13" type="checkbox">
-					<input id="tracker-fifth-14" class="tracker-checkbox tracker_14" type="checkbox">
-					<input id="tracker-fifth-15" class="tracker-checkbox tracker_15" type="checkbox">
-					<input id="tracker-fifth-16" class="tracker-checkbox tracker_16" type="checkbox">
-					<input id="tracker-fifth-17" class="tracker-checkbox tracker_17" type="checkbox">
-					<input id="tracker-fifth-18" class="tracker-checkbox tracker_18" type="checkbox">
+					<?php $tracker_item = mysqli_fetch_assoc($tracker_result); ?>
+					<input class="tracker-item-name" type="text" autocomplete="off" value="<?php echo $tracker_item['tracker_title']; ?>">
+					<div id="fifth-track" class="hide"><?php echo $tracker_item['tracker_id']; ?></div>
+					<input class="tracker-checkbox tracker_1" type="checkbox" <?php if ($tracker_item['tracker_1'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_2" type="checkbox" <?php if ($tracker_item['tracker_2'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_3" type="checkbox" <?php if ($tracker_item['tracker_3'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_4" type="checkbox" <?php if ($tracker_item['tracker_4'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_5" type="checkbox" <?php if ($tracker_item['tracker_5'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_6" type="checkbox" <?php if ($tracker_item['tracker_6'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_7" type="checkbox" <?php if ($tracker_item['tracker_7'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_8" type="checkbox" <?php if ($tracker_item['tracker_8'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_9" type="checkbox" <?php if ($tracker_item['tracker_9'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_10" type="checkbox" <?php if ($tracker_item['tracker_10'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_11" type="checkbox" <?php if ($tracker_item['tracker_11'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_12" type="checkbox" <?php if ($tracker_item['tracker_12'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_13" type="checkbox" <?php if ($tracker_item['tracker_13'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_14" type="checkbox" <?php if ($tracker_item['tracker_14'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_15" type="checkbox" <?php if ($tracker_item['tracker_15'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_16" type="checkbox" <?php if ($tracker_item['tracker_16'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_17" type="checkbox" <?php if ($tracker_item['tracker_17'] == 1) {echo "checked";} ?>>
+					<input class="tracker-checkbox tracker_18" type="checkbox" <?php if ($tracker_item['tracker_18'] == 1) {echo "checked";} ?>>
 				</div>
 			</div>
 		</div>

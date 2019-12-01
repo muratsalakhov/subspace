@@ -87,6 +87,8 @@ body
 		//grid-template-rows: 200px 2fr 3fr 2fr
 		grid-template-rows: minmax(204px, 1fr)  minmax(352px, 2fr) 1fr
 		grid-template-columns: 2fr 5fr 2fr
+		.hide
+			display: none
 		#calendar-widget
 			grid-area: calendar-widget
 			background-color: #fff
@@ -161,11 +163,6 @@ body
 					height: 35px
 					justify-items: center
 					align-items: center
-					input
-						height: 30px
-						width: 30px
-						background-color: #FFF
-						color: $gray
 					.tracker-item-name
 						width: 100%
 						font-size: 17px
@@ -176,6 +173,11 @@ body
 						padding: 0px 10px
 						box-sizing: border-box
 						position: relative
+					.tracker-checkbox
+						height: 30px
+						width: 30px
+						background-color: #FFF
+						color: $gray
 					
 		#clock-widget
 			grid-area: clock-widget

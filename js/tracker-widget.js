@@ -11,15 +11,16 @@ $(document).ready(function() {
 
     function saveTrackerItem() {
         // ОСТАНОВИЛСЯ ЗДЕСЬ, НУЖНО КАК-ТО ОПРЕДЕЛЯТЬ КАКУЮ ЗАПИСЬ ОБНОВЛЯТЬ
+        trackId = this.parentNode.querySelector('.hide').innerText;
         trackerTitle = this.value;
         $.ajax({
             url: 'tracker-processing.php',
             type: 'POST',
             cache: false,
-            data: {'tracker_checkbox': trackerCheckboxName, 'tracker_check_status' : checkbox_status, 'tracker_title' : trackerTitle},
+            data: { 'tracker_id' : trackId, 'tracker_title' : trackerTitle},
             dataType: 'html',
             success: function(data){
-                alert(data);
+                //alert(data);
             }
         });
     }
@@ -43,7 +44,7 @@ $(document).ready(function() {
             data: {'tracker_checkbox': trackerCheckboxName, 'tracker_check_status' : checkbox_status, 'tracker_title' : trackerTitle},
             dataType: 'html',
             success: function(data){
-                alert(data);
+                //alert(data);
             }
         });
     }
