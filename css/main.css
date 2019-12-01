@@ -447,7 +447,8 @@ body section {
           body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item.editing .textfield {
             display: block; }
           body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item button {
-            width: 36px; }
+            width: 36px;
+            position: relative; }
           body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .notes-text {
             display: none; }
           body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .choosed {

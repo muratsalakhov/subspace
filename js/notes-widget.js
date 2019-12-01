@@ -10,7 +10,7 @@ $(document).ready(function() {
             url: 'notes-processing.php',
             type: 'POST',
             cache: false,
-            data: {'add-input': notes_add_input},
+            data: {'notes_title': notes_add_input},
             dataType: 'html',
             beforeSend: function(){
                 $("#notes-add-button").prop("disabled", true);
@@ -24,6 +24,13 @@ $(document).ready(function() {
         const notesItem = createNotesItem(notesAddInput.value);
         notesList.appendChild(notesItem);
         notesAddInput.value = '';
+
+        const notesTextarea = document.getElementById('notes-textarea');
+        currentNote.querySelector('.notes-text').innerText = notesTextarea.value;
+        currentNote.classList.remove('choosed');
+        notesItem.classList.add('choosed');
+        currentNote = document.querySelector('.choosed');
+        notesTextarea.value = currentNote.querySelector('.notes-text').innerText;
     });
 
 
@@ -65,32 +72,35 @@ $(document).ready(function() {
     function notesBindEvents(notesItem) {
         const notesEditButton = notesItem.querySelector('button.edit');
         const notesDeleteButton = notesItem.querySelector('button.delete');
-        //const notesText = notesItem.querySelector('notes-text');
+        const notesTextarea = document.getElementById('notes-textarea');
 
-
-        //notesSaveButton.addEventListener('click', saveNotesItem(notesItem));
         notesItem.addEventListener('click', chooseNotesItem);
         notesEditButton.addEventListener('click', editNotesItem);
         notesDeleteButton.addEventListener('click', deleteNotesItem);
+        notesTextarea.addEventListener('change', saveNotesItem);
     }
 
-    function saveNotesItem(notesText) {
-        const noteText = this.querySelector('.notes-text');
-        notesText.innerText = notesTextarea.innerText;
+    function saveNotesItem() {
+        const currentNote = document.querySelector('.choosed');
+        currentNote.querySelector('.notes-text').innerHTML = this.value;
+        $.ajax({
+            url: 'notes-processing.php',
+            type: 'POST',
+            cache: false,
+            data: {'notes_text_title' : currentNote.querySelector('.notes-title').innerText, 'notes_text': this.value},
+            dataType: 'html'
+        });
     }
 
     function chooseNotesItem() {
-        const notesTextarea = document.getElementById('notes-textarea');
-        const noteCurrent = document.querySelector('.choosed');
-        var noteText = noteCurrent.querySelector('.notes-text');
-        console.log(noteText.innerText);
-        console.log(notesTextarea.value);
-        notesTextarea.value = notesTextarea.innerHTML;
-        noteText.innerHTML = notesTextarea.value;
-        noteCurrent.classList.remove('choosed');
-        noteText = this.querySelector('.notes-text');
-        this.classList.add('choosed');
-        notesTextarea.value = noteText.innerHTML;
+        if (event.target.nodeName != 'I' && event.target.nodeName != 'BUTTON') {
+            const notesTextarea = document.getElementById('notes-textarea');
+            //currentNote.querySelector('.notes-text').innerHTML = notesTextarea.value;
+            currentNote.classList.remove('choosed');
+            this.classList.add('choosed');
+            currentNote = document.querySelector('.choosed');
+            notesTextarea.value = currentNote.querySelector('.notes-text').innerHTML;
+        }
     }
 
     function editNotesItem() {
@@ -104,7 +114,7 @@ $(document).ready(function() {
                 url: 'notes-processing.php',
                 type: 'POST',
                 cache: false,
-                data: {'notes_input': notesEditInput.value, 'notes_title': notesTitle.innerText},
+                data: {'notes_input': notesEditInput.value, 'notes_title_old': notesTitle.innerText},
                 dataType: 'html'
             });
             notesTitle.innerText = notesEditInput.value;
@@ -119,6 +129,16 @@ $(document).ready(function() {
     }
 
     function deleteNotesItem() {
+        if (this.parentNode.classList.contains('choosed')){
+            for (let notesItem of document.querySelectorAll('.notes-item')){
+                if (!notesItem.classList.contains('choosed')){
+                    currentNote = notesItem;
+                    currentNote.classList.add('choosed');
+                    notesTextarea.value = currentNote.querySelector('.notes-text').innerText;
+                    break;
+                }
+            }
+        }
         const notesListItem = this.parentNode;
         const notesTitle = notesListItem.querySelector('.title');
         $.ajax({
@@ -136,10 +156,13 @@ $(document).ready(function() {
     const notesList = document.getElementById('notes-list');
     const notesItems = document.querySelectorAll('.notes-item');
     const notesTextarea = document.getElementById('notes-textarea');
+    var currentNote = document.querySelector('.choosed');
 
-    const notesSaveButton = document.getElementById('notes-save');
     function main() {
         //notesForm.addEventListener('submit', addNotesItem);
+        document.querySelector('.notes-item').classList.add('choosed');
+        currentNote = document.querySelector('.choosed');
+        notesTextarea.value = currentNote.querySelector('.notes-text').innerHTML;
         notesItems.forEach(item => notesBindEvents(item));
     }
 

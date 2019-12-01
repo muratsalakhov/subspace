@@ -90,12 +90,13 @@ $(document).ready(function() {
 			sixthLesson.innerHTML = document.getElementById('sunday-6').innerText;
 			seventhLesson.innerHTML = document.getElementById('sunday-7').innerText;
 		}
+		console.log(current_day);
 		document.getElementById('timetable-day-name').innerHTML = dayname;
 	}
 
 	function PrevDay() {
-		if (current_day == 1) {
-			current_day = 7;
+		if (current_day == 0) {
+			current_day = 6;
 		} else {
 			current_day -= 1;
 		}
@@ -103,8 +104,8 @@ $(document).ready(function() {
 	}
 
 	function NextDay() {
-		if (current_day == 7) {
-			current_day = 1;
+		if (current_day == 6) {
+			current_day = 0;
 		} else {
 			current_day += 1;
 		}
@@ -140,7 +141,7 @@ $(document).ready(function() {
 			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
 			        dataType: 'html',
 			        success: function(data){
-		                alert(data);
+		                //alert(data);
 	            	}
 			    });
 			});
@@ -335,7 +336,7 @@ $(document).ready(function() {
 			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
 			        dataType: 'html',
 			        success: function(data){
-		                alert(data);
+		                //alert(data);
 	            	}
 			    });
 			});

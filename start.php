@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Space-Sub</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 	<link rel="stylesheet" href="css/auth.css">
+	<!--<link rel="stylesheet" href="css/main.css">-->
+	<link rel="stylesheet" href="css/authentification.css">
 <body>
 
 
@@ -22,9 +22,18 @@
 	</div>
 </header>
 
-<div class="main-section">
-	
-</div>
+<section>
+	<div class="container">	
+		<div class="start-section">
+			<div class="start-text">
+				<p>SpaceSub – это рабочее пространство в формате веб-сайта. Попробуйте прямо сейчас!</p>
+				<a href="registration.php" class="submit-btn">Зарегистрироваться</a>
+			</div>
+			<div class="start-img"><img src="img/preview.png" alt="сайт"></div>
+		</div>
+	</div>
+</section>
+
 
 <footer>
 	<div class="container">

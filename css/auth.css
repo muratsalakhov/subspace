@@ -104,14 +104,14 @@ h2 {
 
 .submit-btn {
 	padding: 2px;
-	border: 1px solid #4FA300;
-	background-color: #A2FE4D;
+	border: 1px solid #FCFF3E;
+	background-color: #FCFF5A;
 	border-radius: 3px;
 	cursor: pointer;
 }
 
 .submit-btn:hover {
-	background-color: #67A131;
+	background-color: #FCFF3E;
 	transition: 0.35s background-color ease-out;
 }
 

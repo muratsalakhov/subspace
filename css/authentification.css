@@ -1,4 +1,52 @@
+* {
+  margin: 0;
+  padding: 0; }
+
 header {
   height: 4vh; }
+
+section {
+  height: 96vh;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background: url(../img/sky-1946508.png) left top/cover fixed; }
+  section .start-section {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%; }
+    section .start-section .start-img {
+      box-sizing: border-box;
+      position: relative;
+      display: grid;
+      justify-items: center;
+      align-items: center; }
+      section .start-section .start-img img {
+        box-sizing: border-box;
+        position: relative;
+        max-width: 50vw;
+        justify-items: center;
+        align-items: center; }
+    section .start-section .start-text {
+      box-sizing: border-box;
+      position: relative;
+      justify-items: center;
+      align-items: center;
+      text-align: center; }
+      section .start-section .start-text p {
+        font-size: 40px;
+        color: #fff;
+        background-color: black;
+        margin-bottom: 40px; }
+      section .start-section .start-text a {
+        padding: 10px 20px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: black; }
 
 /*# sourceMappingURL=authentification.css.map */

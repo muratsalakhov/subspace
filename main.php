@@ -23,6 +23,9 @@ $timetable_sunday = mysqli_fetch_assoc($timetable_result);
 	
 $tracker_query = "SELECT * FROM tracker WHERE tracker_user = '$username'";
 $tracker_result = mysqli_query($connection, $tracker_query) or die(mysqli_error($connection));
+
+$notes_query = "SELECT * FROM notes WHERE notes_user = '$username'";
+$notes_result = mysqli_query($connection, $notes_query) or die(mysqli_error($connection));
 ?>
 
 
@@ -207,17 +210,6 @@ $tracker_result = mysqli_query($connection, $tracker_query) or die(mysqli_error(
             <div class="todo-list-body">
             	<div id="todo-list">
 	                <?php 
-	                	if (mysqli_num_rows($todo_items) == 0){
-	                		?>
-	                			<form class="todo-item">
-						            <input class="checkbox todo-checkbox" type="checkbox">
-						            <label class="title todo-title">Первая задача</label>
-						            <input class="textfield" type="text" autocomplete="off">
-						            <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
-						            <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
-						        </form>
-	                		<?php
-	                	}
 						foreach ($todo_items as $todo_item) { ?>
 							<?php 
 								if ($todo_item['todo_checked'] == 1) {
@@ -254,20 +246,16 @@ $tracker_result = mysqli_query($connection, $tracker_query) or die(mysqli_error(
 			<div class="notes-widget-body">
 				<div class="notes-widget-left">
 					<div id="notes-list">
-						<form class="notes-item choosed">					
-							<label class="title notes-title">Первая задача</label>
-				            <input class="textfield" type="text" autocomplete="off">
-				            <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
-				            <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
-				            <p class="notes-text">Первая задача</p>
-						</form>
-						<form class="notes-item">					
-							<label class="title notes-title">Вторая задача</label>
-				            <input class="textfield" type="text" autocomplete="off">
-				            <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
-				            <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
-				            <p class="notes-text">Вторая задача</p>
-						</form>
+						<?php 
+						foreach ($notes_result as $note_item) { ?>
+							<form class="notes-item">					
+								<label class="title notes-title"><?php echo $note_item['notes_title']; ?></label>
+					            <input class="textfield" type="text" autocomplete="off">
+					            <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
+					            <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
+					            <pre class="notes-text"><?php echo $note_item['notes_text']; ?></pre>
+							</form>
+						<?php } ?>
 					</div>
 					<form id="notes-form">
 		                <input id="notes-add-input" type="text" autocomplete="off">
@@ -276,7 +264,6 @@ $tracker_result = mysqli_query($connection, $tracker_query) or die(mysqli_error(
 				</div>
 				<div class="notes-widget-right">
 					<textarea id="notes-textarea" cols="30" rows="10" form="notes-form"></textarea>
-					<!--<button id="notes-save" class="button" type="button">Сохранить</button>-->
 				</div>
 			</div>
 		</div>

@@ -16,6 +16,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 		if($result){
 			header("Location: registration.php#success");
+			require('new_user_init.php');
+
 		} else {
 			header("Location: registration.php#error2");
 		}
