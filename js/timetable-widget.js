@@ -90,7 +90,6 @@ $(document).ready(function() {
 			sixthLesson.innerHTML = document.getElementById('sunday-6').innerText;
 			seventhLesson.innerHTML = document.getElementById('sunday-7').innerText;
 		}
-		console.log(current_day);
 		document.getElementById('timetable-day-name').innerHTML = dayname;
 	}
 
@@ -174,7 +173,7 @@ $(document).ready(function() {
 			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
 			        dataType: 'html',
 			        success: function(data){
-		                alert(data);
+		                //alert(data);
 	            	}
 			    });
 			});
@@ -207,7 +206,7 @@ $(document).ready(function() {
 			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
 			        dataType: 'html',
 			        success: function(data){
-		                alert(data);
+		                //alert(data);
 	            	}
 			    });
 			});
@@ -270,7 +269,7 @@ $(document).ready(function() {
 			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
 			        dataType: 'html',
 			        success: function(data){
-		                alert(data);
+		               // alert(data);
 	            	}
 			    });
 			});
@@ -303,7 +302,7 @@ $(document).ready(function() {
 			    		'timetable_sixth' : currentSixthLesson.innerText, 'timetable_seventh' : currentSeventhLesson.innerText},
 			        dataType: 'html',
 			        success: function(data){
-		                alert(data);
+		                //alert(data);
 	            	}
 			    });
 			});
@@ -389,25 +388,25 @@ $(document).ready(function() {
 	    	timetableBindEvents();
 
 	        var first_lesson = document.getElementById('first-lesson').textContent;
-			document.getElementById('first-lesson').innerHTML = '<input id="first-lesson-input" type="text" autocomplete="off" value="' + first_lesson + '">';
+			document.getElementById('first-lesson').innerHTML = '<input id="first-lesson-input" type="text" autocomplete="off" value="' + first_lesson + '" maxlength="16">';
 
 			var second_lesson = document.getElementById('second-lesson').textContent;
-			document.getElementById('second-lesson').innerHTML = '<input id="second-lesson-input" type="text" autocomplete="off" value="' + second_lesson + '">';
+			document.getElementById('second-lesson').innerHTML = '<input id="second-lesson-input" type="text" autocomplete="off" value="' + second_lesson + '" maxlength="16">';
 
 			var third_lesson = document.getElementById('third-lesson').textContent;
-			document.getElementById('third-lesson').innerHTML = '<input id="third-lesson-input" type="text" autocomplete="off" value="' + third_lesson + '">';
+			document.getElementById('third-lesson').innerHTML = '<input id="third-lesson-input" type="text" autocomplete="off" value="' + third_lesson + '" maxlength="16">';
 
 			var fourth_lesson = document.getElementById('fourth-lesson').textContent;
-			document.getElementById('fourth-lesson').innerHTML = '<input id="fourth-lesson-input" type="text" autocomplete="off" value="' + fourth_lesson + '">';
+			document.getElementById('fourth-lesson').innerHTML = '<input id="fourth-lesson-input" type="text" autocomplete="off" value="' + fourth_lesson + '" maxlength="16">';
 
 			var fifth_lesson = document.getElementById('fifth-lesson').textContent;
-			document.getElementById('fifth-lesson').innerHTML = '<input id="fifth-lesson-input" type="text" autocomplete="off" value="' + fifth_lesson + '">';
+			document.getElementById('fifth-lesson').innerHTML = '<input id="fifth-lesson-input" type="text" autocomplete="off" value="' + fifth_lesson + '" maxlength="16">';
 
 			var sixth_lesson = document.getElementById('sixth-lesson').textContent;
-			document.getElementById('sixth-lesson').innerHTML = '<input id="sixth-lesson-input" type="text" autocomplete="off" value="' + sixth_lesson + '">';
+			document.getElementById('sixth-lesson').innerHTML = '<input id="sixth-lesson-input" type="text" autocomplete="off" value="' + sixth_lesson + '" maxlength="16">';
 
 			var seventh_lesson = document.getElementById('seventh-lesson').textContent;
-			document.getElementById('seventh-lesson').innerHTML = '<input id="seventh-lesson-input" type="text" autocomplete="off" value="' + seventh_lesson + '">';
+			document.getElementById('seventh-lesson').innerHTML = '<input id="seventh-lesson-input" type="text" autocomplete="off" value="' + seventh_lesson + '" maxlength="16">';
 	    }
 
 		widget.classList.toggle('timetable-editing');

@@ -33,6 +33,42 @@ $(document).ready(function() {
         notesTextarea.value = currentNote.querySelector('.notes-text').innerText;
     });
 
+    $('#notes-add-input').keydown(function(e) {
+    if(e.keyCode === 13) {
+       var notes_add_input = $("#notes-add-input").val().trim();
+       
+        if (notes_add_input == '') {
+            return alert('Необходимо ввести название заметки.');
+        }
+
+        $.ajax({
+            url: 'notes-processing.php',
+            type: 'POST',
+            cache: false,
+            data: {'notes_title': notes_add_input},
+            dataType: 'html',
+            beforeSend: function(){
+                $("#notes-add-button").prop("disabled", true);
+            },
+            success: function(data){
+                //alert(data);
+                $("#notes-add-button").prop("disabled", false);
+            }
+        });
+
+        const notesItem = createNotesItem(notesAddInput.value);
+        notesList.appendChild(notesItem);
+        notesAddInput.value = '';
+
+        const notesTextarea = document.getElementById('notes-textarea');
+        currentNote.querySelector('.notes-text').innerText = notesTextarea.value;
+        currentNote.classList.remove('choosed');
+        notesItem.classList.add('choosed');
+        currentNote = document.querySelector('.choosed');
+        notesTextarea.value = currentNote.querySelector('.notes-text').innerText;
+    }
+});
+
 
 
     function notesCreateElement(tag, props, ...children) {

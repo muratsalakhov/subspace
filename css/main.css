@@ -27,9 +27,9 @@ body .button {
   line-height: 36px;
   vertical-align: middle; }
 body .button:hover {
-  background-color: #D9D9E4; }
+  background-color: #CFCFD9; }
 body .button:active {
-  background-color: #D9D9E4; }
+  background-color: #CFCFD9; }
 body header {
   height: 4vh;
   background-color: #3C3C3F; }
@@ -87,8 +87,8 @@ body section {
     display: none; }
   body section #calendar-widget {
     grid-area: calendar-widget;
-    background-color: #fff;
-    border-radius: 3px; }
+    border-radius: 3px;
+    background-color: #fff; }
     body section #calendar-widget .calendar-header {
       border-radius: 3px 3px 0px 0px;
       overflow: hidden;
@@ -207,7 +207,7 @@ body section {
     border-radius: 3px;
     font-size: 17px;
     max-width: 350px;
-    min-height: 440px; }
+    max-height: 75vh; }
     body section #todo-list-widget .todo-list-header {
       position: relative;
       border-radius: 3px 3px 0px 0px;
@@ -225,6 +225,7 @@ body section {
       display: grid;
       grid-auto-rows: 1fr 56px;
       grid-template-columns: 1fr;
+      max-height: 60vh;
       /* Todo form */ }
       body section #todo-list-widget .todo-list-body ul {
         list-style: none; }
@@ -239,7 +240,8 @@ body section {
       body section #todo-list-widget .todo-list-body #todo-list {
         display: grid;
         grid-auto-rows: 56px;
-        max-width: 350px; }
+        max-width: 350px;
+        overflow-y: auto; }
         body section #todo-list-widget .todo-list-body #todo-list .todo-item {
           display: grid;
           grid-template-columns: 15px 1fr 36px 36px;
@@ -414,7 +416,10 @@ body section {
         body section #notes-widget .notes-widget-body .notes-widget-left #notes-list {
           display: grid;
           grid-auto-rows: 56px;
-          max-width: 320px; }
+          max-width: 320px;
+          max-height: 60vh;
+          overflow-y: auto;
+          overflow-x: hidden; }
           body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item {
             display: grid;
             grid-template-columns: 1fr 36px 36px;
@@ -435,8 +440,7 @@ body section {
             cursor: pointer; }
           body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .completed * {
             color: lightgray; }
-          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .title,
-          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .textfield {
+          body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item .title {
             margin-left: 8px; }
           body section #notes-widget .notes-widget-body .notes-widget-left #notes-list .notes-item.completed .title {
             text-decoration: line-through; }

@@ -221,7 +221,7 @@ $notes_result = mysqli_query($connection, $notes_query) or die(mysqli_error($con
 								}
 							?>
 		                    <label class="title todo-title"><?php echo $todo_item['todo_name']; ?></label>
-		                    <input class="textfield" type="text" autocomplete="off">
+		                    <input class="textfield todo-edit-textfield" type="text" autocomplete="off" maxlength="15">
 		                    <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
 		                    <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
 		                </form>
@@ -231,7 +231,7 @@ $notes_result = mysqli_query($connection, $notes_query) or die(mysqli_error($con
 	            </div>
 
 	            <form id="todo-form">
-	                <input id="todo-add-input" type="text" autocomplete="off">
+	                <input id="todo-add-input" type="text" autocomplete="off" maxlength="15">
 	                <button id="todo-add-button" class="button" type="button">Добавить</button>
 	            </form>
             </div>
@@ -250,7 +250,7 @@ $notes_result = mysqli_query($connection, $notes_query) or die(mysqli_error($con
 						foreach ($notes_result as $note_item) { ?>
 							<form class="notes-item">					
 								<label class="title notes-title"><?php echo $note_item['notes_title']; ?></label>
-					            <input class="textfield" type="text" autocomplete="off">
+					            <input class="textfield" type="text" autocomplete="off" maxlength="14">
 					            <button class="edit button" type="button"><i class="fas fa-edit"></i></button>
 					            <button class="delete button" type="button"><i class="fas fa-trash-alt"></i></button>
 					            <pre class="notes-text"><?php echo $note_item['notes_text']; ?></pre>
@@ -258,7 +258,7 @@ $notes_result = mysqli_query($connection, $notes_query) or die(mysqli_error($con
 						<?php } ?>
 					</div>
 					<form id="notes-form">
-		                <input id="notes-add-input" type="text" autocomplete="off">
+		                <input id="notes-add-input" type="text" autocomplete="off" maxlength="14">
 		                <button id="notes-add-button" class="button" type="button"><i class="fas fa-plus"></i></button>
 		            </form>
 				</div>

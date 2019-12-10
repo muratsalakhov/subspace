@@ -26,9 +26,9 @@ body
 		line-height: 36px
 		vertical-align: middle
 	.button:hover
-		background-color: #D9D9E4
+		background-color: #CFCFD9
 	.button:active
-		background-color: #D9D9E4
+		background-color: #CFCFD9
 	header
 		height: 4vh
 		background-color: $gray 
@@ -82,17 +82,14 @@ body
 		display: grid
 		grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget"
 		grid-gap: 10px
-		//grid-auto-rows: auto
-		//grid-auto-flow: row dense
-		//grid-template-rows: 200px 2fr 3fr 2fr
 		grid-template-rows: minmax(204px, 1fr)  minmax(352px, 2fr) 1fr
 		grid-template-columns: 2fr 5fr 2fr
 		.hide
 			display: none
 		#calendar-widget
 			grid-area: calendar-widget
-			background-color: #fff
 			border-radius: 3px
+			background-color: #fff
 			.calendar-header
 				border-radius: 3px 3px 0px 0px
 				overflow: hidden
@@ -217,7 +214,8 @@ body
 			border-radius: 3px
 			font-size: 17px 
 			max-width: 350px
-			min-height: 440px
+			//min-height: 440px
+			max-height: 75vh
 			
 			.todo-list-header
 				position: relative
@@ -237,6 +235,7 @@ body
 				display: grid
 				grid-auto-rows: 1fr 56px
 				grid-template-columns: 1fr
+				max-height: 60vh
 
 				ul
 					list-style: none
@@ -254,6 +253,7 @@ body
 					display: grid
 					grid-auto-rows: 56px
 					max-width: 350px
+					overflow-y: auto
 					.todo-item
 						display: grid
 						grid-template-columns: 15px 1fr 36px 36px
@@ -307,7 +307,7 @@ body
 					background-color: #FAFAFA
 					padding: 10px
 					box-sizing: border-box
-					max-width: 350px 
+					max-width: 350px
 
 				#todo-form input
 					flex: 1
@@ -450,6 +450,9 @@ body
 						display: grid
 						grid-auto-rows: 56px
 						max-width: 320px
+						max-height: 60vh
+						overflow-y: auto
+						overflow-x: hidden
 						
 						.notes-item
 							display: grid
@@ -474,9 +477,7 @@ body
 						.notes-item .completed *
 							color: lightgray
 
-						.notes-item .title,
-						.notes-item .textfield
-							//margin-right: auto
+						.notes-item .title
 							margin-left: 8px
 
 						.notes-item.completed .title

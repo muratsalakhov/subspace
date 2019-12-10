@@ -25,6 +25,34 @@ $("#todo-add-button").on("click", function(){
     todoAddInput.value = '';
 });
 
+$('#todo-add-input').keydown(function(e) {
+    if(e.keyCode === 13) {
+        var todo_add_input = $("#todo-add-input").val().trim();
+
+        if (todo_add_input == '') {
+            return alert('Необходимо ввести название задачи.');
+        }
+
+        $.ajax({
+            url: 'todo-processing.php',
+            type: 'POST',
+            cache: false,
+            data: {'add-input': todo_add_input},
+            dataType: 'html',
+            beforeSend: function(){
+                $("#todo-add-button").prop("disabled", true);
+            },
+            success: function(data){
+                //alert(data);
+                $("#todo-add-button").prop("disabled", false);
+            }
+        });
+
+        const todoItem = createTodoItem(todoAddInput.value);
+        todoList.appendChild(todoItem);
+        todoAddInput.value = '';
+    }
+});
 
 
 function todoCreateElement(tag, props, ...children) {
