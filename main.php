@@ -36,6 +36,7 @@ $notes_result = mysqli_query($connection, $notes_query) or die(mysqli_error($con
 	<meta charset="UTF-8">
 	<title>SubSpace</title>
 	<link rel="stylesheet" href="css/main.css" >
+	<link rel="stylesheet" href="css/media.css" >
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Pacifico&display=swap&subset=cyrillic" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a7c8538669.js" crossorigin="anonymous"></script>
 </head>

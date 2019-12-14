@@ -81,8 +81,9 @@ body section {
   display: grid;
   grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget";
   grid-gap: 10px;
-  grid-template-rows: minmax(204px, 1fr) minmax(352px, 2fr) 1fr;
-  grid-template-columns: 2fr 5fr 2fr; }
+  grid-template-rows: 204px 345px minmax(120px, 130px);
+  grid-template-columns: 2fr 785px 2fr;
+  margin: auto; }
   body section .hide {
     display: none; }
   body section #calendar-widget {
@@ -206,7 +207,7 @@ body section {
     background-color: #fff;
     border-radius: 3px;
     font-size: 17px;
-    max-width: 350px;
+    max-width: 100%;
     max-height: 75vh; }
     body section #todo-list-widget .todo-list-header {
       position: relative;
@@ -240,7 +241,7 @@ body section {
       body section #todo-list-widget .todo-list-body #todo-list {
         display: grid;
         grid-auto-rows: 56px;
-        max-width: 350px;
+        max-width: 100%;
         overflow-y: auto; }
         body section #todo-list-widget .todo-list-body #todo-list .todo-item {
           display: grid;
@@ -283,7 +284,7 @@ body section {
         background-color: #FAFAFA;
         padding: 10px;
         box-sizing: border-box;
-        max-width: 350px; }
+        max-width: 100%; }
       body section #todo-list-widget .todo-list-body #todo-form input {
         flex: 1;
         outline: none;
@@ -295,7 +296,7 @@ body section {
     background-color: #fff;
     border-radius: 3px;
     font-size: 17px;
-    max-width: 350px;
+    max-width: 100%;
     min-height: 350px;
     font-family: "Montserrat", sans-serif; }
     body section #timetable-widget .timetable-header {
@@ -480,7 +481,7 @@ body section {
           width: 100%;
           box-sizing: border-box;
           resize: none;
-          font-size: 16px;
+          font-size: 17px;
           font-family: "Montserrat", sans-serif;
           outline: none;
           padding: 10px; }
@@ -492,7 +493,7 @@ body section {
     background-color: #fff;
     border-radius: 3px;
     font-size: 17px;
-    max-width: 350px; }
+    max-width: 100%; }
     body section #timer-widget .timer-header {
       border-radius: 3px 3px 0px 0px;
       overflow: hidden;
@@ -515,13 +516,11 @@ body section {
         text-align: center;
         margin: 5px 0px; }
       body section #timer-widget .timer .button:nth-child(2) {
-        grid-area: timer-start;
-        margin-left: 30px;
-        margin-right: 10px; }
+        grid-area: timer-start; }
       body section #timer-widget .timer .button:nth-child(3) {
-        grid-area: timer-end;
-        margin-right: 30px;
-        margin-left: 10px; }
+        grid-area: timer-end; }
+      body section #timer-widget .timer .button {
+        margin: auto; }
 body footer {
   height: 5vh; }
 
