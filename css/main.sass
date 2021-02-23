@@ -24,6 +24,8 @@ body
 		text-align: center
 		line-height: 36px
 		vertical-align: middle
+		i
+			margin: auto								
 	.button:hover
 		background-color: #CFCFD9
 	.button:active
@@ -32,7 +34,7 @@ body
 		height: 4vh
 		background-color: $gray 
 		.header-container
-			padding: 0px 40px
+			padding: 0px 20px
 			display: grid
 			grid-template-columns: auto 1fr
 			grid-template-rows: 1fr
@@ -76,7 +78,7 @@ body
 			
 	section
 		background: url(../img/sky-1946508.png) left top / cover fixed
-		padding: 2vh 40px
+		padding: 2vh 20px
 		height: 92vh
 		display: grid
 		grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget"
@@ -84,7 +86,6 @@ body
 		grid-template-rows: 204px 345px minmax(120px, 130px)
 		//grid-template-columns: minmax(2fr, 270px) minmax(5fr, 785px) minmax(2fr, 270px)
 		grid-template-columns: 2fr 785px 2fr
-		margin: auto
 		.hide
 			display: none
 		#calendar-widget

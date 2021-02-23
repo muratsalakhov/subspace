@@ -26,6 +26,8 @@ body .button {
   text-align: center;
   line-height: 36px;
   vertical-align: middle; }
+body .button i {
+  margin: auto}
 body .button:hover {
   background-color: #CFCFD9; }
 body .button:active {
@@ -34,7 +36,7 @@ body header {
   height: 4vh;
   background-color: #3C3C3F; }
   body header .header-container {
-    padding: 0px 40px;
+    padding: 0px 20px;
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
@@ -76,14 +78,13 @@ body header {
         text-decoration: underline; }
 body section {
   background: url(../img/sky-1946508.png) left top/cover fixed;
-  padding: 2vh 40px;
+  padding: 2vh 20px;
   height: 92vh;
   display: grid;
   grid-template-areas: "calendar-widget tracker-widget clock-widget" "todo-list-widget notes-widget timetable-widget" "todo-list-widget notes-widget timer-widget";
   grid-gap: 10px;
   grid-template-rows: 204px 345px minmax(120px, 130px);
-  grid-template-columns: 2fr 785px 2fr;
-  margin: auto; }
+  grid-template-columns: 2fr 785px 2fr; }
   body section .hide {
     display: none; }
   body section #calendar-widget {
