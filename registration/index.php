@@ -2,13 +2,15 @@
 
 require '../init.php';
 
+/** @var mysqli|bool $connection */
+
 if (isset($_POST['username']) && isset($_POST['password'])) {
 	$username = $_POST['username'];
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 
 	$query = "SELECT * FROM users WHERE user_name = '$username' OR user_email = '$email'";
-	$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+    $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 	$count = mysqli_num_rows($result);
 
 	if ($count == 0) {
@@ -25,8 +27,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	} else {
 		header("Location: /registration/#error1");
 	}
-
-
 }
 ?>
 <!DOCTYPE html>

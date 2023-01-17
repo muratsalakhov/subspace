@@ -1,5 +1,8 @@
 <?php
 require('init.php');
+
+/** @var mysqli|bool $connection */
+
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 

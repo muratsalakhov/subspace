@@ -1,6 +1,9 @@
 <?php
 	// TODO WIDGET DATA PROCESSING
 	require('init.php');
+
+    /** @var mysqli|bool $connection */
+
 	$add_input= $_POST['add-input'];
 	$todo_user = $_SESSION['username'];
 	$todo_title = $_POST['todo_title'];

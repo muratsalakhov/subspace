@@ -1,5 +1,8 @@
 <?php
 require('init.php');
+
+/** @var mysqli|bool $connection */
+
 require('parts/check_user.php');
 $username = $_SESSION['username'];
 

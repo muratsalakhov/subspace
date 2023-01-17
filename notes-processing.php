@@ -1,6 +1,9 @@
 <?php
 	// NOTES WIDGET DATA PROCESSING
 	require('init.php');
+
+    /** @var mysqli|bool $connection */
+
 	$notes_user = $_SESSION['username'];
 	$notes_title = $_POST['notes_title'];
 	$notes_input = $_POST['notes_input'];
