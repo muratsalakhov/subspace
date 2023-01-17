@@ -12,6 +12,6 @@ $connection = mysqli_connect(
     $_ENV["DB_USERNAME"],
     $_ENV["DB_PASSWORD"]
 );
-$select_db  = mysqli_select_db($connection, $_ENV["DB_HOSTNAME"]);
+
+mysqli_select_db($connection, $_ENV["DB_HOSTNAME"]);
 session_start();
-?>
