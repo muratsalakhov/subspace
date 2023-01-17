@@ -1,0 +1,15 @@
+{
+    "name": "murat/subspace",
+    "autoload": {
+        "psr-4": {
+            "Murat\\Subspace\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "muratsalakhov",
+            "email": "muratsalakhov@gmail.com"
+        }
+    ],
+    "require": {}
+}
