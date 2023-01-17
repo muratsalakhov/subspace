@@ -1,6 +1,6 @@
 <?php
 require('init.php');
-error_reporting(E_ALL); 
+error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
 if (isset($_POST['username']) and isset($_POST['password'])) {
@@ -39,7 +39,7 @@ if (isset($_SESSION['username'])) {
 		</div>
 		<div class="header-buttons">
 			<a href="authentification.php">Вход
-			<a href="registration.php">Регистрация</a>
+			<a href="registration/">Регистрация</a>
 		</div>
 	</div>
 </header>
@@ -51,7 +51,7 @@ if (isset($_SESSION['username'])) {
 			<input type="text" name="username" class="form-control" placeholder="Имя" required="" autocomplete="off">
 			<input type="password" name="password" class="form-control" placeholder="Пароль" required="" autocomplete="off">
 			<button class="submit-btn" type="submit">Войти</button>
-			<a href="registration.php" class="submit-btn auth-btn" type="submit">Регистрация</a>
+			<a href="registration/" class="submit-btn auth-btn" type="submit">Регистрация</a>
 		</form>
 	</div>
 </div>

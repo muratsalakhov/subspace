@@ -2,5 +2,5 @@ Options -Indexes
 ErrorDocument 404 /404.php
 
 <IfModule dir_module>
-    DirectoryIndex start.php
+    DirectoryIndex index.php
 </IfModule>

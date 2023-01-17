@@ -1,5 +1,6 @@
 <?php
-require('init.php');
+
+require '../init.php';
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
 	$username = $_POST['username'];
@@ -15,14 +16,14 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		$result = mysqli_query($connection, $query);
 
 		if($result){
-			header("Location: registration.php#success");
+			header("Location: /registration/#success");
 			require('new_user_init.php');
 
 		} else {
-			header("Location: registration.php#error2");
+			header("Location: /registration/#error2");
 		}
 	} else {
-		header("Location: registration.php#error1");
+		header("Location: /registration/#error1");
 	}
 
 
@@ -33,19 +34,19 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <head>
 	<meta charset="UTF-8">
 	<title>Space-Sub</title>
-	<link rel="stylesheet" href="css/auth.css" >
-	<link rel="stylesheet" href="css/registration.css" >
+	<link rel="stylesheet" href="../css/auth.css" >
+	<link rel="stylesheet" href="../css/registration.css" >
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 </head>
 <body>
 <header>
 	<div class="container">
 		<div class="header-logo">
-			<a href="start.php">Space-Sub</a>
+			<a href="../start.php">Space-Sub</a>
 		</div>
 		<div class="header-buttons">
-			<a href="authentification.php">Вход
-			<a href="registration.php">Регистрация</a>
+			<a href="../authentification.php">Вход
+			<a href="index.php">Регистрация</a>
 		</div>
 	</div>
 </header>
@@ -58,7 +59,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			<input type="email" name="email" class="form-control" placeholder="Email" required="" autocomplete="off">
 			<input type="password" name="password" class="form-control" placeholder="Пароль" required="" autocomplete="off">
 			<button class="submit-btn reg-btn" type="submit">Зарегистрироваться</button>
-			<a href="authentification.php" class="submit-btn auth-btn" type="submit">Авторизоваться</a>
+			<a href="../authentification.php" class="submit-btn auth-btn" type="submit">Авторизоваться</a>
 		</form>
 	</div>
 </div>
@@ -81,7 +82,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	<div class="modalwindow">
 		<h3>Успешно!</h3>
 		<p>Вы успешно зарегистрировались</p>
-		<a href="authentification.php">Продолжить</a>
+		<a href="../authentification.php">Продолжить</a>
 	</div>
 </div>
 
