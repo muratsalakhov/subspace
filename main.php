@@ -1,5 +1,5 @@
 <?php
-require('database.php');
+require('init.php');
 require('parts/check_user.php');
 $username = $_SESSION['username'];
 

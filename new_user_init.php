@@ -1,5 +1,5 @@
 <?php 
-	require('database.php');
+	require('init.php');
 	$result = mysqli_query($connection, "INSERT INTO todo_list (todo_user, todo_name, todo_checked) VALUES ('$username', 'Первая задача', '0')");
 	$result = mysqli_query($connection, "INSERT INTO todo_list (todo_user, todo_name, todo_checked) VALUES ('$username', 'Вторая задача', '0')");
 	$result = mysqli_query($connection, "INSERT INTO todo_list (todo_user, todo_name, todo_checked) VALUES ('$username', 'Третья задача', '0')");

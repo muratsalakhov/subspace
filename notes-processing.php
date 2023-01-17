@@ -1,6 +1,6 @@
 <?php
 	// NOTES WIDGET DATA PROCESSING
-	require('database.php');
+	require('init.php');
 	$notes_user = $_SESSION['username'];
 	$notes_title = $_POST['notes_title'];
 	$notes_input = $_POST['notes_input'];

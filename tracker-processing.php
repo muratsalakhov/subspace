@@ -1,6 +1,6 @@
 <?php
 	// TRACKER WIDGET DATA PROCESSING
-	require('database.php');
+	require('init.php');
 	$tracker_user = $_SESSION['username'];
 	$tracker_checkbox = $_POST['tracker_checkbox'];
 	$tracker_check_status = $_POST['tracker_check_status'];

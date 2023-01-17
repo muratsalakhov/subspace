@@ -1,6 +1,6 @@
 <?php
 	// TIMETABLE WIDGET DATA PROCESSING
-	require('database.php');
+	require('init.php');
 	$timetable_user = $_SESSION['username'];
 	$timetable_day = $_POST['timetable_day'];
 	$timetable_first = $_POST['timetable_first'];

@@ -1,6 +1,6 @@
 <?php
 	// TODO WIDGET DATA PROCESSING
-	require('database.php');
+	require('init.php');
 	$add_input= $_POST['add-input'];
 	$todo_user = $_SESSION['username'];
 	$todo_title = $_POST['todo_title'];
