@@ -29,27 +29,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	}
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Space-Sub</title>
-	<link rel="stylesheet" href="../css/auth.css" >
-	<link rel="stylesheet" href="../css/registration.css" >
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-</head>
-<body>
-<header>
-	<div class="container">
-		<div class="header-logo">
-			<a href="../start.php">Space-Sub</a>
-		</div>
-		<div class="header-buttons">
-			<a href="../authentification.php">Вход
-			<a href="index.php">Регистрация</a>
-		</div>
-	</div>
-</header>
+
+<?php require_once '../template/header-no-auth.php'; ?>
 
 <div class="main-section">
 	<div class="container">
@@ -64,34 +45,4 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	</div>
 </div>
 
-<div id="error1" class="modalbackground">
-	<div class="modalwindow">
-		<h3>Ошибка!</h3>
-		<p>Пользователь с таким именем или почтой уже существует</p>
-		<a href=" ">Закрыть</a>
-	</div>
-</div>
-<div id="erro2r" class="modalbackground">
-	<div class="modalwindow">
-		<h3>Ошибка!</h3>
-		<p>Произошла ошибка.</p>
-		<a href=" ">Закрыть</a>
-	</div>
-</div>
-<div id="success" class="modalbackground">
-	<div class="modalwindow">
-		<h3>Успешно!</h3>
-		<p>Вы успешно зарегистрировались</p>
-		<a href="../authentification.php">Продолжить</a>
-	</div>
-</div>
-
-<footer>
-	<div class="container">
-		<div class="footer-info">
-			<p>Создано в учебных целях.</p>
-		</div>
-	</div>
-</footer>
-</body>
-</html>
+<?php require_once '../template/footer.php'; ?>
