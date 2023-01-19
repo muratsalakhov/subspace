@@ -18,7 +18,7 @@
         </div>
         <div class="header-buttons">
             <a href="../auth/">Вход
-                <a href="/registration/">Регистрация</a>
+                <a href="/reg/">Регистрация</a>
         </div>
     </div>
 </header>

@@ -34,7 +34,7 @@ if (isset($_SESSION['username'])) {
 			<input type="text" name="username" class="form-control" placeholder="Имя" required="" autocomplete="off">
 			<input type="password" name="password" class="form-control" placeholder="Пароль" required="" autocomplete="off">
 			<button class="submit-btn" type="submit">Войти</button>
-			<a href="../registration" class="submit-btn auth-btn" type="submit">Регистрация</a>
+			<a href="../reg" class="submit-btn auth-btn" type="submit">Регистрация</a>
 		</form>
 	</div>
 </div>

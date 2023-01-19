@@ -17,7 +17,7 @@
 		</div>
 		<div class="header-buttons">
 			<a href="auth/">Вход
-			<a href="registration/">Регистрация</a>
+			<a href="reg/">Регистрация</a>
 		</div>
 	</div>
 </header>
@@ -27,7 +27,7 @@
 		<div class="start-section">
 			<div class="start-text">
 				<p>SpaceSub – это рабочее пространство в формате веб-сайта. Попробуйте прямо сейчас!</p>
-				<a href="registration/" class="submit-btn">Зарегистрироваться</a>
+				<a href="reg/" class="submit-btn">Зарегистрироваться</a>
 			</div>
 			<div class="start-img"><img src="img/preview.png" alt="сайт"></div>
 		</div>
