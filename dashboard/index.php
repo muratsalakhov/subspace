@@ -38,8 +38,8 @@ $notes_result = mysqli_query($connection, $notes_query) or die(mysqli_error($con
 <head>
 	<meta charset="UTF-8">
 	<title>SubSpace</title>
-	<link rel="stylesheet" href="css/main.css" >
-	<link rel="stylesheet" href="css/media.css" >
+	<link rel="stylesheet" href="../css/main.css" >
+	<link rel="stylesheet" href="../css/media.css" >
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Pacifico&display=swap&subset=cyrillic" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a7c8538669.js" crossorigin="anonymous"></script>
 </head>
@@ -51,7 +51,7 @@ $notes_result = mysqli_query($connection, $notes_query) or die(mysqli_error($con
 			</div>
 			<div class="header-buttons">
 				<div class="header-username"><?php echo $username ?></div>
-				<a href="logout.php">Выйти</a>
+				<a href="../logout.php">Выйти</a>
 			</div>
 		</div>
 	</header>
@@ -387,12 +387,12 @@ $notes_result = mysqli_query($connection, $notes_query) or die(mysqli_error($con
 		</div>
 	</section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/clock-widget.js"></script>
-<script src="js/calendar-widget.js"></script>
-<script src="js/to-do-list-widget.js"></script>
-<script src="js/timer-widget.js"></script>
-<script src="js/timetable-widget.js"></script>
-<script src="js/notes-widget.js"></script>
-<script src="js/tracker-widget.js"></script>
+<script src="../js/clock-widget.js"></script>
+<script src="../js/calendar-widget.js"></script>
+<script src="../js/to-do-list-widget.js"></script>
+<script src="../js/timer-widget.js"></script>
+<script src="../js/timetable-widget.js"></script>
+<script src="../js/notes-widget.js"></script>
+<script src="../js/tracker-widget.js"></script>
 </body>
 </html>

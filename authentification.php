@@ -69,7 +69,7 @@ if (isset($_SESSION['username'])) {
 	<div class="modalwindow">
 		<h3>Успешно!</h3>
 		<p>Вы успешно авторизировались</p>
-		<a href="main.php">Продолжить</a>
+		<a href="dashboard/">Продолжить</a>
 	</div>
 </div>
 <footer>
