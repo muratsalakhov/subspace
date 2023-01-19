@@ -47,7 +47,7 @@
 	<div class="modalwindow">
 		<h3>Ошибка!</h3>
 		<p>Авторизуйтесь для работы с сайтом</p>
-		<a href="start.php">Закрыть</a>
+		<a href="index.php">Закрыть</a>
 	</div>
 </div>
 

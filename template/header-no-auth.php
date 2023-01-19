@@ -14,7 +14,7 @@
 <header>
     <div class="container">
         <div class="header-logo">
-            <a href="../start.php">Space-Sub</a>
+            <a href="../">Space-Sub</a>
         </div>
         <div class="header-buttons">
             <a href="../auth/">Вход
