@@ -11,23 +11,34 @@ use Symfony\Component\Dotenv\Dotenv;
  */
 class DBClient
 {
+    protected static DBClient $instance;
+
     /**
      * Подключение к mysql
      * @var mysqli|null
      */
     protected ?mysqli $dbConnection;
 
-    public function __construct(?mysqli $dbConnection = null)
+    public function __construct()
     {
-        if ($dbConnection) {
-            $this->dbConnection = $dbConnection;
-        }
-        if (!$dbConnection) {
-            $this->dbConnection = $this->getConnection();
-        }
+        $this->dbConnection = $this->getConnection();
+
         if (!$this->dbConnection) {
             throw new Exception("DB connection error");
         }
+    }
+
+    /**
+     * Получить инстанс
+     * @return DBClient
+     */
+    public static function getInstance(): DBClient
+    {
+        if (!isset(static::$instance)) {
+            static::$instance = new static();
+        }
+
+        return static::$instance;
     }
 
     /**
