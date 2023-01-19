@@ -1,9 +1,9 @@
 <?php
-require('init.php');
+require('../init.php');
 
 /** @var mysqli|bool $connection */
 
-require('parts/check_user.php');
+require('../template/assets/parts/check_user.php');
 $username = $_SESSION['username'];
 
 $todo_query = "SELECT * FROM todo_list WHERE todo_user = '$username'";
@@ -23,7 +23,7 @@ $timetable_result = mysqli_query($connection, "SELECT * FROM timetable WHERE tim
 $timetable_saturday = mysqli_fetch_assoc($timetable_result);
 $timetable_result = mysqli_query($connection, "SELECT * FROM timetable WHERE timetable_user = '$username' AND timetable_day = 7 LIMIT 1") or die(mysqli_error($connection));
 $timetable_sunday = mysqli_fetch_assoc($timetable_result);
-	
+
 $tracker_query = "SELECT * FROM tracker WHERE tracker_user = '$username'";
 $tracker_result = mysqli_query($connection, $tracker_query) or die(mysqli_error($connection));
 

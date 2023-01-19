@@ -16,9 +16,9 @@ if (isset($_POST['username']) and isset($_POST['password'])) {
 
 	if($count == 1){
 		$_SESSION['username'] = $username;
-		header("Location: authentification.php#success");
+		header("Location: ../auth/#success");
 	} else {
-		header("Location: authentification.php#error");
+		header("Location: ../auth/#error");
 	}
 }
 if (isset($_SESSION['username'])) {
