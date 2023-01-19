@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Space-Sub</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-	<link rel="stylesheet" href="css/auth.css">
+	<link rel="stylesheet" href="template/assets/css/auth.css">
 	<!--<link rel="stylesheet" href="css/main.css">-->
-	<link rel="stylesheet" href="css/authentification.css">
+	<link rel="stylesheet" href="template/assets/css/authentification.css">
 <body>
 
 
@@ -29,7 +29,7 @@
 				<p>SpaceSub – это рабочее пространство в формате веб-сайта. Попробуйте прямо сейчас!</p>
 				<a href="reg/" class="submit-btn">Зарегистрироваться</a>
 			</div>
-			<div class="start-img"><img src="img/preview.png" alt="сайт"></div>
+			<div class="start-img"><img src="template/assets/img/preview.png" alt="сайт"></div>
 		</div>
 	</div>
 </section>

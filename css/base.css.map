@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAOA,CAAC;EACA,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC",
-"sources": ["base.sass"],
-"names": [],
-"file": "base.css"
-}
