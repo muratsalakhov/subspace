@@ -15,8 +15,9 @@
         <div id="success" class="modalbackground">
             <div class="modalwindow">
                 <h3>Успешно!</h3>
+                <?php // todo: уникальные надписи для разных страниц ?>
                 <p>Вы успешно зарегистрировались</p>
-                <a href="../authentification.php">Продолжить</a>
+                <a href="../auth/">Продолжить</a>
             </div>
         </div>
 

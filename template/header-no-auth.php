@@ -17,7 +17,7 @@
             <a href="../start.php">Space-Sub</a>
         </div>
         <div class="header-buttons">
-            <a href="../authentification.php">Вход
+            <a href="../auth/">Вход
                 <a href="/registration/">Регистрация</a>
         </div>
     </div>

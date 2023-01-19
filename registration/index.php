@@ -40,7 +40,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			<input type="email" name="email" class="form-control" placeholder="Email" required="" autocomplete="off">
 			<input type="password" name="password" class="form-control" placeholder="Пароль" required="" autocomplete="off">
 			<button class="submit-btn reg-btn" type="submit">Зарегистрироваться</button>
-			<a href="../authentification.php" class="submit-btn auth-btn" type="submit">Авторизоваться</a>
+			<a href="../auth/" class="submit-btn auth-btn" type="submit">Авторизоваться</a>
 		</form>
 	</div>
 </div>
