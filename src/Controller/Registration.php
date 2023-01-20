@@ -9,9 +9,9 @@ class Registration extends BaseController
 {
     protected array $postData;
 
-    public function __construct(mysqli $connection)
+    public function __construct()
     {
-        parent::__construct($connection);
+        parent::__construct();
         $this->postData = $_POST;
     }
 
@@ -28,23 +28,21 @@ class Registration extends BaseController
         $password = md5($this->postData['password']);
         $email    = $this->postData['email'];
 
-        $query = "SELECT * FROM users WHERE user_name = '$username' OR user_email = '$email'";
-        $result = mysqli_query($this->dbConnection, $query) or die(mysqli_error($connection));
-        $count = mysqli_num_rows($result);
+        $queryString = "SELECT * FROM users WHERE user_name = {$username} OR user_email = {$email}";
+        $queryResult = $this->dbClient->query($queryString);
 
-        if ($count == 0) {
-            $query  = "INSERT INTO users (user_name, user_email, user_password) VALUES ('$username', '$email', '$password')";
-            $result = mysqli_query($connection, $query);
-
-            if ($result) {
-                header("Location: /registration/#success");
-                require('new_user_init.php');
-
-            } else {
-                header("Location: /registration/#error2");
-            }
-        } else {
-            header("Location: /registration/#error1");
+        if (mysqli_num_rows($queryResult) !== 0) {
+            header("Location: /registration/#error1"); // пользователь с такими данными уже зарегистрирован
         }
+
+        $queryString  = "INSERT INTO users (user_name, user_email, user_password) VALUES ({$username}, {$email}, {$password})";
+        $queryResult = $this->dbClient->query($queryString);
+
+        if ($queryResult) {
+            header("Location: /registration/#success"); // регистрация прошла успешно
+            require('new_user_init.php');
+        }
+
+        header("Location: /registration/#error2"); // не удалось зарегистрировать пользователя
     }
 }
