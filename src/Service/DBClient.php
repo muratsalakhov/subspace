@@ -50,11 +50,16 @@ class DBClient
     /**
      * Выполнить запрос к БД
      * @param string $queryString
-     * @return bool|mysqli_result
+     * @return mysqli_result
+     * @throws Exception
      */
-    public function query(string $queryString)
+    public function query(string $queryString): mysqli_result
     {
         $this->result = mysqli_query($this->dbConnection, $queryString);
+
+        if (!$this->result) {
+            throw new Exception("Database query error");
+        }
 
         return $this->result;
     }
