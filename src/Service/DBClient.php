@@ -4,6 +4,7 @@ namespace Murat\Subspace\Service;
 
 use Exception;
 use mysqli;
+use mysqli_result;
 use Symfony\Component\Dotenv\Dotenv;
 
 /**
@@ -18,6 +19,11 @@ class DBClient
      * @var mysqli|null
      */
     protected ?mysqli $dbConnection;
+
+    /**
+     * @var bool|mysqli_result
+     */
+    protected $result;
 
     public function __construct()
     {
@@ -39,6 +45,18 @@ class DBClient
         }
 
         return static::$instance;
+    }
+
+    /**
+     * Выполнить запрос к БД
+     * @param string $queryString
+     * @return bool|mysqli_result
+     */
+    public function query(string $queryString)
+    {
+        $this->result = mysqli_query($this->dbConnection, $queryString);
+
+        return $this->result;
     }
 
     /**
