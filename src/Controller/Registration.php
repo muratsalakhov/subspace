@@ -3,10 +3,17 @@
 namespace Murat\Subspace\Controller;
 
 use Exception;
-use mysqli;
+use Murat\Subspace\Tool\UserHelper;
 
+/**
+ * Контроллер регистрации
+ */
 class Registration extends BaseController
 {
+    /**
+     * Массив данных POST запроса
+     * @var array
+     */
     protected array $postData;
 
     public function __construct()
@@ -15,6 +22,11 @@ class Registration extends BaseController
         $this->postData = $_POST;
     }
 
+    /**
+     * Регистрация пользователя
+     * @return void
+     * @throws Exception
+     */
     public function register()
     {
         if (!isset($this->postData['username'])) {
@@ -38,11 +50,11 @@ class Registration extends BaseController
         $queryString  = "INSERT INTO users (user_name, user_email, user_password) VALUES ({$username}, {$email}, {$password})";
         $queryResult = $this->dbClient->query($queryString);
 
-        if ($queryResult) {
-            header("Location: /registration/#success"); // регистрация прошла успешно
-            require('new_user_init.php');
+        if (!$queryResult) {
+            header("Location: /registration/#error2"); // не удалось зарегистрировать пользователя
         }
 
-        header("Location: /registration/#error2"); // не удалось зарегистрировать пользователя
+        header("Location: /registration/#success"); // регистрация прошла успешно
+        UserHelper::fillDataForNewUser($username);
     }
 }
