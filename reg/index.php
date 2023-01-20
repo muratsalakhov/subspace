@@ -1,32 +1,12 @@
 <?php
 
+use Murat\Subspace\Controller\Registration;
+
 require '../init.php';
 
-/** @var mysqli|bool $connection */
-
+// регистрация пользователя через POST запрос
 if (isset($_POST['username']) && isset($_POST['password'])) {
-	$username = $_POST['username'];
-	$email = $_POST['email'];
-	$password = md5($_POST['password']);
-
-	$query = "SELECT * FROM users WHERE user_name = '$username' OR user_email = '$email'";
-    $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-	$count = mysqli_num_rows($result);
-
-	if ($count == 0) {
-		$query = "INSERT INTO users (user_name, user_email, user_password) VALUES ('$username', '$email', '$password')";
-		$result = mysqli_query($connection, $query);
-
-		if($result){
-			header("Location: /registration/#success");
-			require('new_user_init.php');
-
-		} else {
-			header("Location: /registration/#error2");
-		}
-	} else {
-		header("Location: /registration/#error1");
-	}
+    (new Registration())->register();
 }
 ?>
 
