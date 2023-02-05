@@ -14,6 +14,7 @@
     "require": {
         "symfony/var-dumper": "^5.4",
         "symfony/dotenv": "^5.4",
-        "ext-mysqli": "*"
+        "ext-mysqli": "*",
+        "noahbuscher/macaw": "dev-master"
     }
 }
