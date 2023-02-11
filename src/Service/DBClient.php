@@ -71,7 +71,7 @@ class DBClient
     private function getConnection(): ?mysqli
     {
         $dotenv = new Dotenv();
-        $dotenv->load(__DIR__.'/.env');
+        $dotenv->load($_SERVER['DOCUMENT_ROOT'].'/.env');
 
         $dbConnection = mysqli_connect(
             $_ENV['DB_HOSTNAME'],
