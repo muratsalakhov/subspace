@@ -11,18 +11,6 @@ use Murat\Subspace\Tool\UserHelper;
 class Registration extends BaseController
 {
     /**
-     * Массив данных POST запроса
-     * @var array
-     */
-    protected array $postData;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->postData = $_POST;
-    }
-
-    /**
      * Регистрация пользователя
      * @return void
      * @throws Exception
@@ -41,14 +29,14 @@ class Registration extends BaseController
         $email    = $this->postData['email'];
 
         $queryString = "SELECT * FROM users WHERE user_name = {$username} OR user_email = {$email}";
-        $queryResult = $this->dbClient->query($queryString);
+        //$queryResult = $this->dbClient->query($queryString);
 
         if (mysqli_num_rows($queryResult) !== 0) {
             header("Location: /registration/#error1"); // пользователь с такими данными уже зарегистрирован
         }
 
         $queryString  = "INSERT INTO users (user_name, user_email, user_password) VALUES ({$username}, {$email}, {$password})";
-        $queryResult = $this->dbClient->query($queryString);
+        //$queryResult = $this->dbClient->query($queryString);
 
         if (!$queryResult) {
             header("Location: /registration/#error2"); // не удалось зарегистрировать пользователя

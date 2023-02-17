@@ -10,13 +10,13 @@ use Murat\Subspace\Core\DBClient;
 abstract class BaseController
 {
     /**
-     * Клиент БД
-     * @var DBClient
+     * Массив данных POST запроса
+     * @var array
      */
-    protected DBClient $dbClient;
+    protected array $postData = [];
 
     public function __construct()
     {
-        $this->dbClient = DBClient::getInstance();
+        $this->postData = $_POST;
     }
 }
