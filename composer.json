@@ -1,0 +1,20 @@
+{
+    "name": "murat/subspace",
+    "autoload": {
+        "psr-4": {
+            "Murat\\Subspace\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "muratsalakhov",
+            "email": "muratsalakhov@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^5.4",
+        "symfony/dotenv": "^5.4",
+        "ext-mysqli": "*",
+        "noahbuscher/macaw": "dev-master"
+    }
+}

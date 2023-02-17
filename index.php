@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Space-Sub</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-	<link rel="stylesheet" href="css/auth.css">
+	<link rel="stylesheet" href="template/assets/css/auth.css">
 	<!--<link rel="stylesheet" href="css/main.css">-->
-	<link rel="stylesheet" href="css/authentification.css">
+	<link rel="stylesheet" href="template/assets/css/authentification.css">
 <body>
 
 
@@ -16,8 +16,8 @@
 			<a href="/">Space-Sub</a>
 		</div>
 		<div class="header-buttons">
-			<a href="authentification.php">Вход
-			<a href="registration.php">Регистрация</a>
+			<a href="auth/">Вход
+			<a href="reg/">Регистрация</a>
 		</div>
 	</div>
 </header>
@@ -27,9 +27,9 @@
 		<div class="start-section">
 			<div class="start-text">
 				<p>SpaceSub – это рабочее пространство в формате веб-сайта. Попробуйте прямо сейчас!</p>
-				<a href="registration.php" class="submit-btn">Зарегистрироваться</a>
+				<a href="reg/" class="submit-btn">Зарегистрироваться</a>
 			</div>
-			<div class="start-img"><img src="img/preview.png" alt="сайт"></div>
+			<div class="start-img"><img src="template/assets/img/preview.png" alt="сайт"></div>
 		</div>
 	</div>
 </section>
@@ -47,7 +47,7 @@
 	<div class="modalwindow">
 		<h3>Ошибка!</h3>
 		<p>Авторизуйтесь для работы с сайтом</p>
-		<a href="start.php">Закрыть</a>
+		<a href="index.php">Закрыть</a>
 	</div>
 </div>
 
