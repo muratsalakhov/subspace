@@ -1,6 +1,6 @@
 <?php
 
-namespace Murat\Subspace\Service;
+namespace Murat\Subspace\Core;
 
 use Exception;
 use mysqli;

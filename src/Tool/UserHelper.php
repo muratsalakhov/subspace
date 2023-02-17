@@ -3,7 +3,7 @@
 namespace Murat\Subspace\Tool;
 
 use Exception;
-use Murat\Subspace\Service\DBClient;
+use Murat\Subspace\Core\DBClient;
 
 /**
  * Класс-хелпер для пользователя

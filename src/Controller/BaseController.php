@@ -2,7 +2,7 @@
 
 namespace Murat\Subspace\Controller;
 
-use Murat\Subspace\Service\DBClient;
+use Murat\Subspace\Core\DBClient;
 
 /**
  * Абстрактный класс базового контроллера
