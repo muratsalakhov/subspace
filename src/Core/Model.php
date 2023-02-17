@@ -3,7 +3,6 @@
 namespace Murat\Subspace\Core;
 
 use Exception;
-use Murat\Subspace\Core\DBClient;
 
 /**
  * Абстрактная модель
@@ -23,8 +22,8 @@ abstract class Model
 
     /**
      * Получить одну запись по указанному запросу
-     * @param string $selectString
-     * @return array
+     * @param string $selectString SQL запрос
+     * @return array запись
      * @throws Exception
      */
     protected function selectOne(string $selectString): array
@@ -34,12 +33,22 @@ abstract class Model
 
     /**
      * Получить все записи по указанному запросу
-     * @param string $selectString
-     * @return array
+     * @param string $selectString SQL запрос
+     * @return array массив записей
      * @throws Exception
      */
     protected function select(string $selectString): array
     {
         return $this->dbClient->query($selectString)->fetch_all() ?: [];
+    }
+
+    /**
+     * Добавить новую запись
+     * @param string $insertString SQL запрос
+     * @return bool успешно/неуспешно
+     * @throws Exception
+     */
+    protected function insert(string $insertString): bool {
+        return (bool)$this->dbClient->query($insertString);
     }
 }
