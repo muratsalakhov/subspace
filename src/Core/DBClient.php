@@ -25,7 +25,7 @@ class DBClient
      */
     protected $result;
 
-    public function __construct()
+    protected function __construct()
     {
         $this->dbConnection = $this->getConnection();
 
