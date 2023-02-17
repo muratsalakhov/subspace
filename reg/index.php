@@ -1,12 +1,12 @@
 <?php
 
-use Murat\Subspace\Controller\Registration;
+use Murat\Subspace\Controller\UserController;
 
 require '../init.php';
 
 // регистрация пользователя через POST запрос
 if (isset($_POST['username']) && isset($_POST['password'])) {
-    (new Registration())->register();
+    (new UserController())->register(); // todo: перейти на работу с api
 }
 ?>
 
