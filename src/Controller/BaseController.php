@@ -19,4 +19,6 @@ abstract class BaseController
     {
         $this->postData = $_POST;
     }
+
+    // todo: response method
 }
