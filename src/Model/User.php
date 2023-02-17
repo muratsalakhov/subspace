@@ -18,7 +18,7 @@ class User extends Model
      */
     public function getByEmail(string $email): array
     {
-        return $this->selectOne("SELECT * FROM users WHERE user_email = $email");
+        return $this->selectOne("SELECT * FROM users WHERE user_email = '{$email}'");
     }
 
     /**
@@ -33,9 +33,9 @@ class User extends Model
     {
         return $this->insert(
             "INSERT INTO users 
-                        SET user_name = {$username},
-                            user_email = {$email}, 
-                            user_password = {$password};"
+                SET user_name = '{$username}',
+                    user_email = '{$email}', 
+                    user_password = '{$password}';"
         );
     }
 }

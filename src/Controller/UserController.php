@@ -13,39 +13,42 @@ class UserController extends BaseController
 {
     /**
      * Зарегистрировать пользователя
-     * @return void
      * @throws Exception
      */
     public function register()
     {
-        if (!isset($this->postData['username'])) {
-            throw new Exception('Empty username field');
+        try {
+            if (!isset($this->postData['username'])) {
+                throw new Exception('Empty username field');
+            }
+            if (!isset($this->postData['password'])) {
+                throw new Exception('Empty password field');
+            }
+
+            $username = $this->postData['username'];
+            $email    = $this->postData['email'];
+            $password = md5($this->postData['password']);
+
+            $user = new User();
+
+            if ($user->getByEmail($email)) {
+                // todo: сделать редирект на фронте
+                header("Location: /registration/#error1"); // пользователь с такими данными уже зарегистрирован
+                return;
+            }
+
+            $isSuccess = $user->create($username, $email, $password);
+
+            if ($isSuccess) {
+                header("Location: /registration/#success"); // регистрация прошла успешно
+                UserHelper::fillDataForNewUser($username);
+                return;
+            }
+
+            header("Location: /registration/#error2"); // не удалось зарегистрировать пользователя
+        } catch (Exception $exception) {
+            echo $exception->getMessage();
         }
-        if (!isset($this->postData['password'])) {
-            throw new Exception('Empty password field');
-        }
-
-        $username = $this->postData['username'];
-        $email    = $this->postData['email'];
-        $password = md5($this->postData['password']);
-
-        $user = new User();
-
-        if ($user->getByEmail($email)) {
-            // todo: сделать редирект на фронте
-            header("Location: /registration/#error1"); // пользователь с такими данными уже зарегистрирован
-            return;
-        }
-
-        $isSuccess = $user->create($username, $email, $password);
-
-        if ($isSuccess) {
-            header("Location: /registration/#success"); // регистрация прошла успешно
-            UserHelper::fillDataForNewUser($username);
-            return;
-        }
-
-        header("Location: /registration/#error2"); // не удалось зарегистрировать пользователя
     }
 
     /**
