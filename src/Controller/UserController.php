@@ -3,6 +3,7 @@
 namespace Murat\Subspace\Controller;
 
 use Exception;
+use Murat\Subspace\Core\BaseController;
 use Murat\Subspace\Model\User;
 use Murat\Subspace\Tool\UserHelper;
 

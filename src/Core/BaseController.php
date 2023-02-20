@@ -1,6 +1,6 @@
 <?php
 
-namespace Murat\Subspace\Controller;
+namespace Murat\Subspace\Core;
 
 use Murat\Subspace\Core\DBClient;
 
