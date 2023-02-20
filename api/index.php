@@ -17,6 +17,12 @@ Router::post('/api/user/register/', UserController::class.'@register');
  */
 Router::post('/api/user/authorize/', UserController::class.'@authorize');
 
+/**
+ * Деавторизация пользователя
+ * @uses UserController::logout()
+ */
+Router::post('/api/user/logout/', UserController::class.'@logout');
+
 Router::error(static function () {
     // todo: 404 controller
     echo '404 :: Not Found';

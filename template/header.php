@@ -18,7 +18,7 @@
         </div>
         <div class="header-buttons">
             <div class="header-username"><?= $_SESSION['username'] ?></div>
-            <a href="../logout.php">Выйти</a>
+            <a href="/api/user/logout/">Выйти</a>
         </div>
     </div>
 </header>

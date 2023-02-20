@@ -82,4 +82,13 @@ class UserController extends BaseController
             echo $exception->getMessage();
         }
     }
+
+    /**
+     * Деавторизовать пользователя
+     * @return void
+     */
+    public function logout(): void {
+        unset($_SESSION);
+        header('Location: /');
+    }
 }

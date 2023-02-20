@@ -5,7 +5,7 @@
 		</div>
 		<div class="footer-user">
 			<p><?php echo $_SESSION['username'] ?></p>
-			<a href="logout.php">Выйти</a>
+			<a href="/api/user/logout/">Выйти</a>
 		</div>
 	</div>
 </footer>
