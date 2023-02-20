@@ -5,7 +5,7 @@ use Murat\Subspace\Controller\UserController;
 require '../init.php';
 
 // регистрация пользователя через POST запрос
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($_POST['username'], $_POST['password'])) {
     (new UserController())->register(); // todo: перейти на работу с api
 }
 ?>

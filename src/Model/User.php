@@ -22,6 +22,18 @@ class User extends Model
     }
 
     /**
+     * Получить пользователя по email
+     * @param string $username
+     * @param string $password
+     * @return array
+     * @throws Exception
+     */
+    public function getByAuthData(string $username, string $password): array
+    {
+        return $this->selectOne("SELECT * FROM users WHERE user_name = '{$username}' AND user_password = '{$password}'");
+    }
+
+    /**
      * Создать пользователя
      * @param string $username
      * @param string $email
