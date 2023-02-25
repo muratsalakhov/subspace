@@ -77,7 +77,7 @@ body header {
       body header .header-container .header-buttons a:hover {
         text-decoration: underline; }
 body section {
-  background: url(../img/sky-1946508.png) left top/cover fixed;
+  background: url(../img/background.png) left top/cover fixed;
   padding: 2vh 20px;
   height: 92vh;
   display: grid;
